@@ -1,8 +1,8 @@
 import pyrosim.pyrosim as pyrosim
 pyrosim.Start_SDF("world.sdf")
 length = 1
-width = 0
-height = 0
+width = 1
+height = 1
 x = 0
 y = 0
 z = 1
