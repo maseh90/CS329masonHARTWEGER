@@ -7,5 +7,5 @@ x = 0
 y = 0
 z = 0
 index = 0
-pyrosim.Send_Cube(name="Box1", pos=[x+i,y+ii,z+iii], size=[length*0.9**iii,width*0.9**iii,height*0.9**iii])
+pyrosim.Send_Cube(name="Box1", pos=[x,y,z], size=[length,width,height])
 pyrosim.End()
