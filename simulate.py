@@ -16,9 +16,8 @@ pyrosim.Prepare_To_Simulate(robotId)
 for i in range(1000):
   time.sleep(1/60)
   p.stepSimulation()
-  print(pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg"))
-  #if backLegSensorValues[i] is not None:
-  #backLegSensorValues[i] = i #pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
-  print(i)
-#print(backLegSensorValues)
+  #print(pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg"))
+  if pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg") is not None:
+    backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
+print(backLegSensorValues)
 p.disconnect()
