@@ -17,7 +17,8 @@ for i in range(10000):
   time.sleep(1/60)
   p.stepSimulation()
   print(pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg"))
-  backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
+  if backLegSensorValues[i] is not None:
+    backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
   #print(i)
 p.disconnect()
 print(backLegSensorValues)
