@@ -19,5 +19,6 @@ for i in range(100):
   #print(pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg"))
   if pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg") is not None:
     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
+numpy.save("data/data_file.npy",backLegSensorValues)
 p.disconnect()
 print(backLegSensorValues)
