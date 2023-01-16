@@ -11,6 +11,7 @@ robotId = p.loadURDF("body.urdf")
 p.loadSDF("world.sdf")
 pyrosim.Prepare_To_Simulate(robotId)
 backLegSensorValues = numpy.zeros(100)
+frontLegSensorValues = numpy.zeros(100)
 #print(backLegSensorValues)
 #exit()
 for i in range(100):
@@ -19,6 +20,9 @@ for i in range(100):
   #print(pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg"))
   if pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg") is not None:
     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
-numpy.save("data/data_file.npy",backLegSensorValues)
+  if pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg") is not None:
+    frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
+numpy.save("data/backLegSensorValues.npy",backLegSensorValues)
+numpy.save("data/frontLegSensorValues.npy",frontLegSensorValues)
 p.disconnect()
 print(backLegSensorValues)
