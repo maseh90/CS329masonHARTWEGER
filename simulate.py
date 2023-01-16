@@ -2,7 +2,7 @@ import pybullet as p
 import pybullet_data
 import time
 import pyrosim.pyrosim as pyrosim
-
+import numpy
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 p.setGravity(0,0,-9.8)
