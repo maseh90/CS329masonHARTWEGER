@@ -19,5 +19,5 @@ for i in range(1000):
   #print(pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg"))
   if pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg") is not None:
     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
-print(backLegSensorValues)
 p.disconnect()
+print(backLegSensorValues)
