@@ -12,7 +12,7 @@ p.loadSDF("world.sdf")
 pyrosim.Prepare_To_Simulate(robotId)
 backLegSensorValues = numpy.zeros(10000)
 #exit()
-for i in range(999):
+for i in range(10000):
   time.sleep(1/60)
   p.stepSimulation()
   backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
