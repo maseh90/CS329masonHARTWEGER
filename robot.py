@@ -11,4 +11,4 @@ class ROBOT:
     self.sensors = {}
     self.motors = {}
     self.robotId = p.loadURDF("body.urdf")
-    pyrosim.Prepare_To_Simulate(robotId)
+    pyrosim.Prepare_To_Simulate(self.robotId)
