@@ -6,6 +6,7 @@ import constants as c
 import numpy
 import random
 import math
+from sensor import SENSOR
 class ROBOT:
   def __init__(self):
     self.motors = {}
