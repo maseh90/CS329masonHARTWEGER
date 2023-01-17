@@ -1,13 +1,13 @@
+import pybullet as p
+import pybullet_data
+import time
+import pyrosim.pyrosim as pyrosim
+import numpy
+import random
+import math
+import constants as c
 from simulation import SIMULATION
 pass
-#import pybullet as p
-#import pybullet_data
-#import time
-#import pyrosim.pyrosim as pyrosim
-#import numpy
-#import random
-#import math
-#import constants as c
 #physicsClient = p.connect(p.GUI)
 #p.setAdditionalSearchPath(pybullet_data.getDataPath())
 #p.setGravity(0,0,-9.8)
