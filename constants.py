@@ -1,3 +1,4 @@
+import math
 amplitudeBack = math.pi/2
 frequencyBack = 1
 phaseOffsetBack = 0
