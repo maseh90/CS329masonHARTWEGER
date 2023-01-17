@@ -6,11 +6,11 @@ import numpy
 import random
 import math
 amplitudeBack = math.pi*0.75
-frequencyBack = 1
+frequencyBack = 4
 phaseOffsetBack = 0
 amplitudeFront = math.pi*0.75
-frequencyFront = 1
-phaseOffsetFront = 2.5
+frequencyFront = 4
+phaseOffsetFront = 0.5*math.pi
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 p.setGravity(0,0,-9.8)
