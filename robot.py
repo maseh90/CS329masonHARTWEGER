@@ -8,15 +8,16 @@ import random
 import math
 from sensor import SENSOR
 class ROBOT:
-  def __init__(self):
+  def __init__(self,timeSteps):
     self.motors = {}
     self.robotId = p.loadURDF("body.urdf")
+    self.numberTimeSteps = timeSteps
     pyrosim.Prepare_To_Simulate(self.robotId)
     self.Prepare_To_Sense()
   def Prepare_To_Sense(self):
     self.sensors = {}
     for linkName in pyrosim.linkNamesToIndices:
-      self.sensors[linkName] = SENSOR(linkName,numpy.zeros(1000))
+      self.sensors[linkName] = SENSOR(linkName,numpy.zeros(self.numberTimeSteps))
       print(self.sensors[linkName].values)
   def Sense(self,t):
     for linkName in pyrosim.linkNamesToIndices:
