@@ -14,9 +14,10 @@ class SIMULATION:
     p.setAdditionalSearchPath(pybullet_data.getDataPath())
     p.setGravity(0,0,-9.8)
     self.world = WORLD()
-    self.robot = ROBOT()
+    self.numberTimeSteps = 50
+    self.robot = ROBOT(self.numberTimeSteps)
   def Run(self):
-    for i in range(50):
+    for i in range(self.numberTimeSteps):
       time.sleep(1/60)
       self.robot.Sense(i)
       p.stepSimulation()
