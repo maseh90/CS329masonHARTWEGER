@@ -16,7 +16,7 @@ class SIMULATION:
     self.world = WORLD()
     self.robot = ROBOT()
   def Run(self):
-    for i in range(1000):
+    for i in range(50):
       time.sleep(1/60)
       self.robot.Sense(i)
       p.stepSimulation()
