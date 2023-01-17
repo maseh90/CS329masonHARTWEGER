@@ -24,6 +24,8 @@ for i in range(100):
     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
   if pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg") is not None:
     frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
+  targetAngles = numpy.sin(numpy.linspace(0, 2*np.pi, 201))
+  # numpy.linspace(0, 2*np.pi, 201)
   pyrosim.Set_Motor_For_Joint(
   bodyIndex = robotId,
   jointName = "Torso_BackLeg",
@@ -36,6 +38,7 @@ for i in range(100):
   controlMode = p.POSITION_CONTROL,
   targetPosition = (random.random()-0.5)*math.pi/4.0,
   maxForce = 200)
+numpy.save("data/targetAngles.npy",targetAngles)
 numpy.save("data/backLegSensorValues.npy",backLegSensorValues)
 numpy.save("data/frontLegSensorValues.npy",frontLegSensorValues)
 p.disconnect()
