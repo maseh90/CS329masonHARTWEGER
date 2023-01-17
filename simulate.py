@@ -12,11 +12,11 @@ planeId = p.loadURDF("plane.urdf")
 robotId = p.loadURDF("body.urdf")
 p.loadSDF("world.sdf")
 pyrosim.Prepare_To_Simulate(robotId)
-backLegSensorValues = numpy.zeros(100)
-frontLegSensorValues = numpy.zeros(100)
+backLegSensorValues = numpy.zeros(1000)
+frontLegSensorValues = numpy.zeros(1000)
 #print(backLegSensorValues)
 #exit()
-for i in range(100):
+for i in range(1000):
   time.sleep(1/60)
   p.stepSimulation()
   #print(pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg"))
@@ -24,7 +24,7 @@ for i in range(100):
     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
   if pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg") is not None:
     frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
-  targetAngles = numpy.pi/4*numpy.sin(numpy.linspace(0, 2*numpy.pi, 201))
+  targetAngles = numpy.pi/4*numpy.sin(numpy.linspace(0, 2*numpy.pi, 1000))
   # numpy.linspace(0, 2*np.pi, 201)
   pyrosim.Set_Motor_For_Joint(
   bodyIndex = robotId,
