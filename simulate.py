@@ -5,10 +5,10 @@ import pyrosim.pyrosim as pyrosim
 import numpy
 import random
 import math
-amplitudeBack = math.pi/4
+amplitudeBack = math.pi*0.75
 frequencyBack = 1
 phaseOffsetBack = 0
-amplitudeFront = math.pi/4
+amplitudeFront = math.pi*0.75
 frequencyFront = 1
 phaseOffsetFront = 2.5
 physicsClient = p.connect(p.GUI)
