@@ -17,11 +17,11 @@ class SIMULATION:
     self.robot = ROBOT()
   def Run(self):
     for i in range(1000):
+      time.sleep(1/60)
+      p.stepSimulation()
       """
       targetAnglesFront[i] = c.amplitudeFront * math.sin(c.frequencyFront * i + c.phaseOffsetFront)
       targetAnglesBack[i] = c.amplitudeBack * math.sin(c.frequencyBack * i + c.phaseOffsetBack)
-      time.sleep(1/60)
-      p.stepSimulation()
       if pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg") is not None:
         backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
       if pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg") is not None:
