@@ -5,6 +5,9 @@ import pyrosim.pyrosim as pyrosim
 import numpy
 import random
 import math
+amplitude = math.pi/4
+frequency = 1
+phaseOffset = 0
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 p.setGravity(0,0,-9.8)
@@ -16,7 +19,9 @@ backLegSensorValues = numpy.zeros(1000)
 frontLegSensorValues = numpy.zeros(1000)
 #print(backLegSensorValues)
 #exit()
+targetAngles = numpy.pi/4*numpy.sin(numpy.linspace(0, 2*numpy.pi, 1000))
 for i in range(1000):
+  targetAngles[i] = amplitude * math.sin(frequency * i + phaseOffset)
   time.sleep(1/60)
   p.stepSimulation()
   #print(pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg"))
@@ -24,7 +29,6 @@ for i in range(1000):
     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
   if pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg") is not None:
     frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
-  targetAngles = numpy.pi/4*numpy.sin(numpy.linspace(0, 2*numpy.pi, 1000))
   # numpy.linspace(0, 2*np.pi, 201)
   pyrosim.Set_Motor_For_Joint(
   bodyIndex = robotId,
