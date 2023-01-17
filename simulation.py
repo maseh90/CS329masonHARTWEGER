@@ -40,3 +40,5 @@ class SIMULATION:
       maxForce = 150)
       """
       print(i)
+  def __del__(self):
+    p.disconnect()
