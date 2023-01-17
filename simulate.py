@@ -5,12 +5,7 @@ import pyrosim.pyrosim as pyrosim
 import numpy
 import random
 import math
-amplitudeBack = math.pi/2
-frequencyBack = 1
-phaseOffsetBack = 0
-amplitudeFront = math.pi/2
-frequencyFront = 1
-phaseOffsetFront = 0.5*math.pi
+import constants as c
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 p.setGravity(0,0,-9.8)
@@ -25,8 +20,8 @@ frontLegSensorValues = numpy.zeros(1000)
 targetAnglesFront = numpy.pi/4*numpy.sin(numpy.linspace(0, 2*numpy.pi, 1000))
 targetAnglesBack = numpy.pi/4*numpy.sin(numpy.linspace(0, 2*numpy.pi, 1000))
 for i in range(1000):
-  targetAnglesFront[i] = amplitudeFront * math.sin(frequencyFront * i + phaseOffsetFront)
-  targetAnglesBack[i] = amplitudeBack * math.sin(frequencyBack * i + phaseOffsetBack)
+  targetAnglesFront[i] = c.amplitudeFront * math.sin(c.frequencyFront * i + c.phaseOffsetFront)
+  targetAnglesBack[i] = c.amplitudeBack * math.sin(c.frequencyBack * i + c.phaseOffsetBack)
   time.sleep(1/60)
   p.stepSimulation()
   #print(pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg"))
