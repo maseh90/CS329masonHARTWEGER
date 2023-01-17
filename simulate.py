@@ -5,11 +5,11 @@ import pyrosim.pyrosim as pyrosim
 import numpy
 import random
 import math
-amplitudeBack = math.pi*0.75
-frequencyBack = 4
+amplitudeBack = math.pi/2
+frequencyBack = 1
 phaseOffsetBack = 0
-amplitudeFront = math.pi*0.75
-frequencyFront = 4
+amplitudeFront = math.pi/2
+frequencyFront = 1
 phaseOffsetFront = 0.5*math.pi
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
@@ -40,13 +40,13 @@ for i in range(1000):
   jointName = "Torso_BackLeg",
   controlMode = p.POSITION_CONTROL,
   targetPosition = targetAnglesBack[i], # random.random()-0.5)*math.pi/4.0,
-  maxForce = 200)
+  maxForce = 300)
   pyrosim.Set_Motor_For_Joint(
   bodyIndex = robotId,
   jointName = "Torso_FrontLeg",
   controlMode = p.POSITION_CONTROL,
   targetPosition = targetAnglesFront[i], # random.random()-0.5)*math.pi/4.0,
-  maxForce = 200)
+  maxForce = 300)
 numpy.save("data/targetAngles.npy",targetAngles)
 numpy.save("data/backLegSensorValues.npy",backLegSensorValues)
 numpy.save("data/frontLegSensorValues.npy",frontLegSensorValues)
