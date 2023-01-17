@@ -23,3 +23,5 @@ class ROBOT:
     for linkName in pyrosim.linkNamesToIndices:
       self.sensors[linkName].values[t] = self.sensors[linkName].Get_Value()
       print(self.sensors[linkName].values)
+  def Prepare_To_Act(self):
+    pass
