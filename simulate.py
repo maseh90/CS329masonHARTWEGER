@@ -40,13 +40,13 @@ for i in range(1000):
   jointName = "Torso_BackLeg",
   controlMode = p.POSITION_CONTROL,
   targetPosition = targetAnglesBack[i], # random.random()-0.5)*math.pi/4.0,
-  maxForce = 300)
+  maxForce = 200)
   pyrosim.Set_Motor_For_Joint(
   bodyIndex = robotId,
   jointName = "Torso_FrontLeg",
   controlMode = p.POSITION_CONTROL,
   targetPosition = targetAnglesFront[i], # random.random()-0.5)*math.pi/4.0,
-  maxForce = 300)
+  maxForce = 200)
 numpy.save("data/targetAngles.npy",targetAngles)
 numpy.save("data/backLegSensorValues.npy",backLegSensorValues)
 numpy.save("data/frontLegSensorValues.npy",frontLegSensorValues)
