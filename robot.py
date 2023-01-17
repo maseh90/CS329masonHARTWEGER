@@ -16,6 +16,5 @@ class ROBOT:
   def Prepare_To_Sense(self):
     self.sensors = {}
     for linkName in pyrosim.linkNamesToIndices:
-      self.sensors[linkName] = SENSOR(linkName)
-      self.sensors[linkName].values = numpy.zeros(1000)
+      self.sensors[linkName] = SENSOR(linkName,numpy.zeros(1000))
       print(self.sensors[linkName].values)
