@@ -15,3 +15,28 @@ class SIMULATION:
     p.setGravity(0,0,-9.8)
     self.world = WORLD()
     self.robot = ROBOT()
+  def Run(self):
+    for i in range(1000):
+      """
+      targetAnglesFront[i] = c.amplitudeFront * math.sin(c.frequencyFront * i + c.phaseOffsetFront)
+      targetAnglesBack[i] = c.amplitudeBack * math.sin(c.frequencyBack * i + c.phaseOffsetBack)
+      time.sleep(1/60)
+      p.stepSimulation()
+      if pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg") is not None:
+        backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
+      if pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg") is not None:
+        frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
+      pyrosim.Set_Motor_For_Joint(
+      bodyIndex = robotId,
+      jointName = "Torso_BackLeg",
+      controlMode = p.POSITION_CONTROL,
+      targetPosition = targetAnglesBack[i], # random.random()-0.5)*math.pi/4.0,
+      maxForce = 150)
+      pyrosim.Set_Motor_For_Joint(
+      bodyIndex = robotId,
+      jointName = "Torso_FrontLeg",
+      controlMode = p.POSITION_CONTROL,
+      targetPosition = targetAnglesFront[i], # random.random()-0.5)*math.pi/4.0,
+      maxForce = 150)
+      """
+      print(i)
