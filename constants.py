@@ -1,6 +1,6 @@
 import math
 amplitude = math.pi
-frequency = 1
+frequency = 0.5
 offset = 0
 sleepTime = 1/30
 simulationSteps = 200
