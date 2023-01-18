@@ -1,5 +1,5 @@
 import math
-amplitude = math.pi/2
+amplitude = math.pi/4
 frequency = 0.25
 offset = 0
 sleepTime = 1/30
