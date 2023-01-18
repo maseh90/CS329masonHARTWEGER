@@ -12,13 +12,13 @@ class SIMULATION:
   def __init__(self):
     self.physicsClient = p.connect(p.GUI)
     p.setAdditionalSearchPath(pybullet_data.getDataPath())
-    p.setGravity(0,0,-9.8)
+    p.setGravity(0,0,c.gravity)
     self.world = WORLD()
     self.numberTimeSteps = 50
     self.robot = ROBOT(self.numberTimeSteps)
   def Run(self):
-    for i in range(self.numberTimeSteps):
-      time.sleep(1/60)
+    for i in range(c.simulationSteps):
+      time.sleep(c.sleepTime)
       self.robot.Sense(i)
       self.robot.Act(i)
       p.stepSimulation()
