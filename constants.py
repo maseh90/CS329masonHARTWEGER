@@ -1,8 +1,8 @@
 import math
-amplitude = math.pi/2
+amplitude = math.pi
 frequency = 4
 offset = 0
-sleepTime = 1/60
+sleepTime = 1/30
 simulationSteps = 1000
 maxForce = 150
 gravity = -9.8
