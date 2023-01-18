@@ -21,5 +21,6 @@ class SIMULATION:
       self.robot.Sense(i)
       self.robot.Act(i)
       p.stepSimulation()
+    self.robot.Save_Values()
   def __del__(self):
     p.disconnect()
