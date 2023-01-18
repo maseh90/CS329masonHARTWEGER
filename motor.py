@@ -11,7 +11,10 @@ class MOTOR:
     self.frequency = c.frequency
     self.offset = c.offset
     self.valueTimes = numpy.arange(0,c.simulationSteps,1)
-    self.motorValues = self.amplitude * numpy.sin(self.frequency*self.valueTimes + self.offset)
+    if self.jointName == "Torso_BackLeg":
+      self.motorValues = self.amplitude * numpy.sin(self.frequency/2*self.valueTimes + self.offset)
+    if self.jointName == "Torso_FrontLeg":
+      self.motorValues = self.amplitude * numpy.sin(self.frequency*self.valueTimes + self.offset)
   def Act(self):
     self.Set_Value()
   def Set_Value(self,robotIdInput,timeStep):
