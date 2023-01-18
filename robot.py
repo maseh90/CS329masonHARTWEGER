@@ -9,7 +9,6 @@ import math
 from sensor import SENSOR
 class ROBOT:
   def __init__(self,timeSteps):
-    self.motors = {}
     self.robotId = p.loadURDF("body.urdf")
     self.numberTimeSteps = timeSteps
     pyrosim.Prepare_To_Simulate(self.robotId)
@@ -24,4 +23,7 @@ class ROBOT:
       self.sensors[linkName].values[t] = self.sensors[linkName].Get_Value()
       print(self.sensors[linkName].values)
   def Prepare_To_Act(self):
-    pass
+    self.motors = {}
+    for jointName in pyrosim.jointNamesToIndices:
+      self.motors[jointName] = MOTOR(jointName)
+      #print(self.sensors[linkName].values)
