@@ -14,6 +14,7 @@ class ROBOT:
     self.numberTimeSteps = timeSteps
     pyrosim.Prepare_To_Simulate(self.robotId)
     self.Prepare_To_Sense()
+    self.Prepare_To_Act()
   def Prepare_To_Sense(self):
     self.sensors = {}
     for linkName in pyrosim.linkNamesToIndices:
