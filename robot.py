@@ -7,6 +7,7 @@ import numpy
 import random
 import math
 from sensor import SENSOR
+from motor import MOTOR
 class ROBOT:
   def __init__(self,timeSteps):
     self.robotId = p.loadURDF("body.urdf")
@@ -27,3 +28,6 @@ class ROBOT:
     for jointName in pyrosim.jointNamesToIndices:
       self.motors[jointName] = MOTOR(jointName)
       #print(self.sensors[linkName].values)
+  def Act(self,t):
+    for jointName in pyrosim.jointNamesToIndices:
+      self.motors[jointName].Set_Value(self.robotID,t)
