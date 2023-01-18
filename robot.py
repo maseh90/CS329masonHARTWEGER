@@ -9,7 +9,7 @@ import math
 from sensor import SENSOR
 from motor import MOTOR
 class ROBOT:
-  def __init__(self,timeSteps):
+  def __init__(self):
     self.robotId = p.loadURDF("body.urdf")
     self.numberTimeSteps = timeSteps
     pyrosim.Prepare_To_Simulate(self.robotId)
@@ -18,7 +18,7 @@ class ROBOT:
   def Prepare_To_Sense(self):
     self.sensors = {}
     for linkName in pyrosim.linkNamesToIndices:
-      self.sensors[linkName] = SENSOR(linkName,numpy.zeros(self.numberTimeSteps))
+      self.sensors[linkName] = SENSOR(linkName,numpy.zeros(c.simulationSteps))
       print(self.sensors[linkName].values)
   def Sense(self,t):
     for linkName in pyrosim.linkNamesToIndices:
