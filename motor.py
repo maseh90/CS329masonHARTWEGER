@@ -20,4 +20,4 @@ class MOTOR:
     jointName = self.jointName,
     controlMode = p.POSITION_CONTROL,
     targetPosition = self.motorValues[timeStep],
-    maxForce = c.maxForce
+    maxForce = c.maxForce)
