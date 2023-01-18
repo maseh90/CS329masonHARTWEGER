@@ -9,7 +9,7 @@ class MOTOR:
     self.amplitude = c.amplitude
     self.frequency = c.frequency
     self.offset = c.offset
-    self.valueTimes = numpy.arrange(0,1000,1)
+    self.valueTimes = numpy.arange(0,1000,1)
     self.motorValues = self.amplitudeFront * numpy.sin(self.frequencyFront*self.valueTimes + self.phaseOffsetFront)
   def Act(self):
     self.Set_Value()
