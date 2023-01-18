@@ -10,7 +10,7 @@ class MOTOR:
     self.amplitude = c.amplitude
     self.frequency = c.frequency
     self.offset = c.offset
-    self.valueTimes = numpy.arange(0,1000,1)
+    self.valueTimes = numpy.arange(0,c.simulationSteps,1)
     self.motorValues = self.amplitude * numpy.sin(self.frequency*self.valueTimes + self.offset)
   def Act(self):
     self.Set_Value()
@@ -20,4 +20,4 @@ class MOTOR:
     jointName = self.jointName,
     controlMode = p.POSITION_CONTROL,
     targetPosition = self.motorValues[timeStep],
-    maxForce = 150)
+    maxForce = c.maxForce
