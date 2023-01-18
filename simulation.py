@@ -20,6 +20,7 @@ class SIMULATION:
     for i in range(self.numberTimeSteps):
       time.sleep(1/60)
       self.robot.Sense(i)
+      self.robot.Act(i)
       p.stepSimulation()
       """
       targetAnglesFront[i] = c.amplitudeFront * math.sin(c.frequencyFront * i + c.phaseOffsetFront)
