@@ -8,10 +8,12 @@ import random
 import math
 from sensor import SENSOR
 from motor import MOTOR
+from pyrosim.neuralNetwork import NEURAL_NETWORK
 class ROBOT:
   def __init__(self):
     self.robotId = p.loadURDF("body.urdf")
     pyrosim.Prepare_To_Simulate(self.robotId)
+    self.nn = NEURAL_NETWORK("brain.nndf")
     self.Prepare_To_Sense()
     self.Prepare_To_Act()
   def Prepare_To_Sense(self):
@@ -36,6 +38,6 @@ class ROBOT:
     numpy.save("data/sensorData1.npy",self.sensors["BackLeg"].values)
     numpy.save("data/sensorData2.npy",self.sensors["FrontLeg"].values)
   def Think(self):
-    pass
+    self.nn.Print()
                                                  
     
