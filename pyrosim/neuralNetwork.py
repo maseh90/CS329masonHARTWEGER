@@ -37,7 +37,9 @@ class NEURAL_NETWORK:
         neuron_list = []
         for key_neuron in self.neurons:
             neuron_list.append(key_neuron)
-        return neuron_list    
+        return neuron_list
+    def Is_Motor_Neuron(self,neuronName):
+        return self.neurons[neuronName].Is_Motor_Neuron()
             
 
 # ---------------- Private methods --------------------------------------
