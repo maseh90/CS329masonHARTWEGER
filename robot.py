@@ -30,6 +30,8 @@ class ROBOT:
     for jointName in pyrosim.jointNamesToIndices:
       self.motors[jointName] = MOTOR(jointName)
   def Act(self,t):
+    for neuronName in self.nn.Get_Neuron_Names():
+      print(neuronName)
     for jointName in pyrosim.jointNamesToIndices:
       self.motors[jointName].Set_Value(self.robotId,t)
   def Save_Values(self):
