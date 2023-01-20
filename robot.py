@@ -32,8 +32,8 @@ class ROBOT:
   def Act(self,t):
     for neuronName in self.nn.Get_Neuron_Names():
       print(neuronName)
-    for jointName in pyrosim.jointNamesToIndices:
-      self.motors[jointName].Set_Value(self.robotId,t)
+    #for jointName in pyrosim.jointNamesToIndices:
+    #  self.motors[jointName].Set_Value(self.robotId,t)
   def Save_Values(self):
     numpy.save("data/targetAngles1.npy",self.motors["Torso_BackLeg"].motorValues)
     numpy.save("data/targetAngles2.npy",self.motors["Torso_FrontLeg"].motorValues)
