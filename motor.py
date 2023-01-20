@@ -5,7 +5,6 @@ import numpy
 class MOTOR:
   def __init__(self,jointNameInput):
     self.jointName = jointNameInput
-    self.Prepare_to_Act()
   def Act(self):
     self.Set_Value()
   def Set_Value(self,robotIdInput,desiredAngle):
