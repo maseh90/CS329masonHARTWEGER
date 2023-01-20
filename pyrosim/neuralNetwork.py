@@ -31,6 +31,8 @@ class NEURAL_NETWORK:
         for key_neuron in self.neurons:
             if self.neurons[key_neuron].Is_Sensor_Neuron():
                 self.neurons[key_neuron].Update_Sensor_Neuron()
+            else:
+                self.neurons[neuronName].Update_Hidden_Or_Motor_Neuron()
             
 
 # ---------------- Private methods --------------------------------------
