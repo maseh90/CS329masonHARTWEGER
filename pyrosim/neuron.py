@@ -62,9 +62,12 @@ class NEURON:
 
         # print("")
 
+
     def Set_Value(self,value):
 
         self.value = value
+    def Update_Sensor_Neuron(self):
+        self.Set_Value(0)
 
 # -------------------------- Private methods -------------------------
 
