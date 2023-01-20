@@ -38,6 +38,7 @@ class ROBOT:
     numpy.save("data/sensorData1.npy",self.sensors["BackLeg"].values)
     numpy.save("data/sensorData2.npy",self.sensors["FrontLeg"].values)
   def Think(self):
+    self.nn.Update()
     self.nn.Print()
                                                  
     
