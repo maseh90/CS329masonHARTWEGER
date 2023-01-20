@@ -35,5 +35,7 @@ class ROBOT:
     numpy.save("data/targetAngles2.npy",self.motors["Torso_FrontLeg"].motorValues)
     numpy.save("data/sensorData1.npy",self.sensors["BackLeg"].values)
     numpy.save("data/sensorData2.npy",self.sensors["FrontLeg"].values)
+  def Think(self):
+    pass
                                                  
     
