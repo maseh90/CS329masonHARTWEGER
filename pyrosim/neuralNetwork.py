@@ -13,7 +13,7 @@ class NEURAL_NETWORK:
         f = open(nndfFileName,"r")
 
         for line in f.readlines():
-            print(self.synapses)
+            #print(self.synapses)
             self.Digest(line)
 
         f.close()
