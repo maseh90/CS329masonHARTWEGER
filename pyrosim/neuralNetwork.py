@@ -27,7 +27,7 @@ class NEURAL_NETWORK:
         self.Print_Motor_Neuron_Values()
 
         print("")
-    def Update(self):
+    def Update(self,self.neurons,self.synapses):
         for key_neuron in self.neurons:
             if self.neurons[key_neuron].Is_Sensor_Neuron():
                 self.neurons[key_neuron].Update_Sensor_Neuron()
