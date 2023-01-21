@@ -85,6 +85,7 @@ class NEURON:
            #print("Pre-synaptic neuron: ",synapse_key[0]) 0
            #print("Post-synaptic neuron: ",synapse_key[1]) 3
         #exit()
+        self.Threshold()
     def Allow_Presynaptic_Neuron_To_Influence_Me(self,weight_current_synapse,pre_neuron_value):
         return (weight_current_synapse*pre_neuron_value)
         
