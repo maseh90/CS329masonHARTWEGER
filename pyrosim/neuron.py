@@ -81,7 +81,7 @@ class NEURON:
               #print(neurons[synapse_key[0]].Get_Value())
               self.Add_To_Value(self.Allow_Presynaptic_Neuron_To_Influence_Me(synapses[synapse_key].Get_Weight(),neurons[synapse_key[0]].Get_Value()))
               print(neurons[self.Get_Name()].Get_Value())
-        exit()
+        #exit()
            #print("Pre-synaptic neuron: ",synapse_key[0]) 0
            #print("Post-synaptic neuron: ",synapse_key[1]) 3
         #exit()
