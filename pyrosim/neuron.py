@@ -74,7 +74,6 @@ class NEURON:
     def Update_Hidden_Or_Motor_Neuron(self,neurons,synapses):
         self.Set_Value(0)
         #print("Currently Updating: ",self.Get_Name())
-        print(
         for synapse_key in synapses:
            if (self.Get_Name() == synapse_key[1]):
               print(neurons[self.Get_Name()].Get_Value())
