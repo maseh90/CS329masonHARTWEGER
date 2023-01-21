@@ -1,4 +1,7 @@
 import pyrosim.pyrosim as pyrosim
+from sensor import SENSOR
+from motor import MOTOR
+from pyrosim.neuralNetwork import NEURAL_NETWORK
 def Create_World():
   pyrosim.Start_SDF("world.sdf")
   pyrosim.Send_Cube(name="Box1", pos=[3,3,3], size=[1,1,1])
@@ -31,6 +34,7 @@ def Generate_Brain():
   pyrosim.Send_Synapse( sourceNeuronName = 0 , targetNeuronName = 4 , weight = 1 )
   pyrosim.Send_Synapse( sourceNeuronName = 2 , targetNeuronName = 4 , weight = 1 )
   for sensor_neuron in 
+  
   pyrosim.End()
 length = 1
 width = 1
