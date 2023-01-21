@@ -73,7 +73,7 @@ class NEURON:
         
     def Update_Hidden_Or_Motor_Neuron(self,neurons,synapses):
         self.Set_Value(0)
-        print("Currently upating neuron: ",self.GetName())
+        print("Currently upating neuron: ",self.Get_Name())
         for synapse_key in synapses:
             print("Post-synaptic neuron: ",synapse_key[0])
         exit()    
