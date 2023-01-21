@@ -33,7 +33,8 @@ def Generate_Brain():
   pyrosim.Send_Synapse( sourceNeuronName = 1 , targetNeuronName = 3 , weight = -0.75 )
   pyrosim.Send_Synapse( sourceNeuronName = 0 , targetNeuronName = 4 , weight = 1 )
   pyrosim.Send_Synapse( sourceNeuronName = 2 , targetNeuronName = 4 , weight = 1 )
-  for sensor_neuron in 
+  for neuronName in self.nn.Get_Neuron_Names():
+    
   
   pyrosim.End()
 length = 1
