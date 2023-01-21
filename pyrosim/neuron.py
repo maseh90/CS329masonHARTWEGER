@@ -73,9 +73,11 @@ class NEURON:
         
     def Update_Hidden_Or_Motor_Neuron(self,neurons,synapses):
         self.Set_Value(0)
-        print(neurons)
-        print(synapses)
-        exit()
+        for synapse_key in synapses:
+            print(synapse_key)
+        #print(neurons)
+        #print(synapses)
+        #exit()
         
 
 # -------------------------- Private methods -------------------------
