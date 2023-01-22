@@ -39,7 +39,7 @@ def Generate_Brain():
   motor_neurons = [3,4]
   #for neuronName in self.nn.Get_Neuron_Names():
   for key_neuron_sensor in sensor_neurons:
-    for key_neuron_motor in motor_neurons:
+    for key_motor_motor in motor_neurons:
       pyrosim.Send_Synapse( sourceNeuronName = key_neuron_sensor , targetNeuronName = key_motor_sensor , weight = -1+2*random.random() )
   pyrosim.End()
 length = 1
