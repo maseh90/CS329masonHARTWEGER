@@ -3,6 +3,7 @@ from sensor import SENSOR
 from motor import MOTOR
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 from pyrosim.neuron import NEURON
+import random
 def Create_World():
   pyrosim.Start_SDF("world.sdf")
   pyrosim.Send_Cube(name="Box1", pos=[3,3,3], size=[1,1,1])
