@@ -40,6 +40,4 @@ class SOLUTION:
     for currentRow in sensor_neurons:
       for currentColumn in motor_neurons:
         pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn + 3 , weight = self.weights[currentRow][currentColumn] )
-        print(currentRow)
-        print(currentColumn)
     pyrosim.End()
