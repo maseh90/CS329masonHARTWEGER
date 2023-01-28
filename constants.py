@@ -6,3 +6,4 @@ sleepTime = 1/120
 simulationSteps = 100
 maxForce = 60
 gravity = -9.8
+numberOfGenerations = 2
