@@ -12,7 +12,7 @@ class SOLUTION:
     self.Create_World()
     self.Create_Body()
     self.Create_Brain()
-    python3 simulate.py
+    python simulate.py
   def Create_World(self):
     pyrosim.Start_SDF("world.sdf")
     pyrosim.Send_Cube(name="Box1", pos=[3,3,3], size=[1,1,1])
