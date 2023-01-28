@@ -1,5 +1,6 @@
 import pyrosim.pyrosim as pyrosim
 import constants as c
+import copy
 from solution import SOLUTION
 class HILL_CLIMBER:
   def __init__(self):
@@ -14,7 +15,7 @@ class HILL_CLIMBER:
     self.child.Evaluate()
     self.Select()
   def Spawn(self):
-    pass
+    self.child = copy.deepcopy(self.parent)
   def Mutate(self):
     pass
   def Evaluate(self):
