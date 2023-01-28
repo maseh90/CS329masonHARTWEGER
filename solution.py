@@ -3,7 +3,7 @@ import numpy
 
 class SOLUTION:
   def __init__(self):
-    self.weights = numpy.random.rand(2,3)
+    self.weights = numpy.random.rand(3,2)
     #print(self.weights)
     self.weights = self.weights * 2 - 1
     #print(self.weights)
@@ -35,7 +35,7 @@ class SOLUTION:
     #pyrosim.Send_Synapse( sourceNeuronName = 0 , targetNeuronName = 4 , weight = 1 )
     #pyrosim.Send_Synapse( sourceNeuronName = 2 , targetNeuronName = 4 , weight = 1 )
     sensor_neurons = [0,1,2]
-    motor_neurons = [3,4]
+    motor_neurons = [0,1]
     #for neuronName in self.nn.Get_Neuron_Names():
     for currentRow in sensor_neurons:
       for currentColumn in motor_neurons:
