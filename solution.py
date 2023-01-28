@@ -13,8 +13,9 @@ class SOLUTION:
     self.Create_Body()
     self.Create_Brain()
     os.system("python3 simulate.py")
-    f = open("demofile2.txt", "r")
+    f = open("fitness.txt", "r")
     self.fitness = float(f.read())
+    f.close()
   def Create_World(self):
     pyrosim.Start_SDF("world.sdf")
     pyrosim.Send_Cube(name="Box1", pos=[3,3,3], size=[1,1,1])
