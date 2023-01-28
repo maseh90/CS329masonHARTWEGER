@@ -15,6 +15,7 @@ class SOLUTION:
     os.system("python3 simulate.py")
     f = open("fitness.txt", "r")
     self.fitness = float(f.read())
+    print("HELLLLLO",self.fitness)
     f.close()
   def Create_World(self):
     pyrosim.Start_SDF("world.sdf")
