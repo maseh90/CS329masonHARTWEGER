@@ -8,7 +8,7 @@ class PARALLEL_HILL_CLIMBER:
     for key_parent in range(c.populationSize -1):
       self.parents[key_parent] = SOLUTION()
     print(self.parents)
-    self.parent.Evaluate("DIRECT")
+    #self.parent.Evaluate("DIRECT")
   def Evolve(self):
     pass
     #self.parent.Evaluate("GUI")
