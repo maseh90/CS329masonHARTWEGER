@@ -13,7 +13,7 @@ class HILL_CLIMBER:
     self.Spawn()
     self.Mutate()
     self.child.Evaluate()
-    print("PARENT FITNESS: ",self.parent.fitness," CHILD FITNESS: ",self.child.fitness)
+    print("\nPARENT FITNESS: ",self.parent.fitness," CHILD FITNESS: ",self.child.fitness,"\n")
     #exit()
     self.Select()
   def Spawn(self):
