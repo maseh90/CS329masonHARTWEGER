@@ -28,7 +28,7 @@ class HILL_CLIMBER:
   def Evaluate(self):
     pass
   def Select(self):
-    if (self.parent.fitness < self.child.fitness):
+    if (self.parent.fitness > self.child.fitness):
       self.parent = self.child
     #print("CHILD FITNESS:")
     #print(self.child.fitness)
