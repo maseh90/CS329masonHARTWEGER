@@ -42,7 +42,7 @@ class ROBOT:
     numpy.save("data/sensorData2.npy",self.sensors["FrontLeg"].values)
   def Think(self):
     self.nn.Update()
-    self.nn.Print()
+    #self.nn.Print()
   def Get_Fitness(self):
     stateOfLinkZero = p.getLinkState(self.robotId,0)
     positionOfLinkZero = stateOfLinkZero[0]
