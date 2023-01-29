@@ -25,8 +25,8 @@ class HILL_CLIMBER:
     #print("CHILD")
     #print(self.child.weights)
     #exit()
-  def Evaluate(self):
-    pass
+  #def Evaluate(self):
+  #  pass
   def Select(self):
     if (self.parent.fitness > self.child.fitness):
       self.parent = self.child
