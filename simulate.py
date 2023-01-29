@@ -9,7 +9,7 @@ import constants as c
 import sys
 from simulation import SIMULATION
 
-simulation = SIMULATION("DIRECT")
+simulation = SIMULATION("GUI")
 simulation.Run()
 simulation.Get_Fitness()
 
