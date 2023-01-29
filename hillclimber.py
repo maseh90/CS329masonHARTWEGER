@@ -10,6 +10,7 @@ class HILL_CLIMBER:
     self.parent.Evaluate("GUI")
     for currentGeneration in range(c.numberOfGenerations):
       self.Evolve_For_One_Generation()
+    self.Show_Best()
   def Evolve_For_One_Generation(self):
     self.Spawn()
     self.Mutate()
