@@ -13,16 +13,17 @@ class HILL_CLIMBER:
     self.Spawn()
     self.Mutate()
     self.child.Evaluate()
+    exit()
     self.Select()
   def Spawn(self):
     self.child = copy.deepcopy(self.parent)
   def Mutate(self):
-    print("PARENT")
-    print(self.parent.weights)
+    #print("PARENT")
+    #print(self.parent.weights)
     self.child.Mutate()
-    print("CHILD")
-    print(self.child.weights)
-    exit()
+    #print("CHILD")
+    #print(self.child.weights)
+    #exit()
   def Evaluate(self):
     pass
   def Select(self):
