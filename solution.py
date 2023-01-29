@@ -1,7 +1,7 @@
 import pyrosim.pyrosim as pyrosim
 import numpy
 import os
-
+import random
 class SOLUTION:
   def __init__(self):
     self.weights = numpy.random.rand(3,2)
