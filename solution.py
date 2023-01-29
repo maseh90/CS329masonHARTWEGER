@@ -9,10 +9,10 @@ class SOLUTION:
     self.weights = self.weights * 2 - 1
     #print(self.weights)
   def Evaluate(self,directOrGUI):
+    statement = "python3 simulate.py "+directOrGUI
     self.Create_World()
     self.Create_Body()
     self.Create_Brain()
-    statement = "python3 simulate.py "+directOrGUI
     os.system(statement)
     f = open("fitness.txt", "r")
     self.fitness = float(f.read())
