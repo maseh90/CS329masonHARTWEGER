@@ -5,14 +5,14 @@ from solution import SOLUTION
 class HILL_CLIMBER:
   def __init__(self):
     self.parent = SOLUTION()
-    self.parent.Evaluate()
+    self.parent.Evaluate("DIRECT")
   def Evolve(self):
     for currentGeneration in range(c.numberOfGenerations):
       self.Evolve_For_One_Generation()
   def Evolve_For_One_Generation(self):
     self.Spawn()
     self.Mutate()
-    self.child.Evaluate()
+    self.child.Evaluate("DIRECT")
     print("\n\nPARENT FITNESS: ",self.parent.fitness," CHILD FITNESS: ",self.child.fitness,"\n")
     #exit()
     self.Select()
@@ -35,3 +35,5 @@ class HILL_CLIMBER:
     #print("PARENT FITNESS:")
     #print(self.parent.fitness)
     #exit()
+  def Show_Best(self):
+    self.parent.Evaluate("GUI")
