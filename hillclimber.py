@@ -27,4 +27,5 @@ class HILL_CLIMBER:
   def Evaluate(self):
     pass
   def Select(self):
-    pass
+    print(self.child.fitness)
+    print(self.parent.fitness)
