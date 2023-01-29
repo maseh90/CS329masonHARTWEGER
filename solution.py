@@ -3,10 +3,11 @@ import numpy
 import os
 import random
 class SOLUTION:
-  def __init__(self):
+  def __init__(self,idChosen):
     self.weights = numpy.random.rand(3,2)
     #print(self.weights)
     self.weights = self.weights * 2 - 1
+    self.myID = idChosen
     #print(self.weights)
   def Evaluate(self,directOrGUI):
     self.Create_World()
