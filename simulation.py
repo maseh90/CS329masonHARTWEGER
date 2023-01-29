@@ -9,8 +9,11 @@ import math
 from world import WORLD
 from robot import ROBOT
 class SIMULATION:
-  def __init__(self):
-    self.physicsClient = p.connect(p.DIRECT)
+  def __init__(self,directOrGUI):
+    if directOrGUI == "DIRECT":
+      self.physicsClient = p.connect(p.DIRECT)
+    if directOrGUI == "GUI":
+      self.physicsClient = p.connect(p.GUI)
     p.setAdditionalSearchPath(pybullet_data.getDataPath())
     p.setGravity(0,0,c.gravity)
     self.world = WORLD()
