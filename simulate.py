@@ -6,6 +6,7 @@ import numpy
 import random
 import math
 import constants as c
+import sys
 from simulation import SIMULATION
 
 simulation = SIMULATION()
