@@ -13,7 +13,7 @@ class HILL_CLIMBER:
     self.Spawn()
     self.Mutate()
     self.child.Evaluate()
-    exit()
+    #exit()
     self.Select()
   def Spawn(self):
     self.child = copy.deepcopy(self.parent)
