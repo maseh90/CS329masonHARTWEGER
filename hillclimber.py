@@ -29,3 +29,4 @@ class HILL_CLIMBER:
   def Select(self):
     print(self.child.fitness)
     print(self.parent.fitness)
+    exit()
