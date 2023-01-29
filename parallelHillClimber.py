@@ -7,10 +7,11 @@ class PARALLEL_HILL_CLIMBER:
     self.parent = SOLUTION()
     self.parent.Evaluate("DIRECT")
   def Evolve(self):
-    self.parent.Evaluate("GUI")
-    for currentGeneration in range(c.numberOfGenerations):
-      self.Evolve_For_One_Generation()
-    self.parent.Evaluate("GUI")
+    pass
+    #self.parent.Evaluate("GUI")
+    #for currentGeneration in range(c.numberOfGenerations):
+    #  self.Evolve_For_One_Generation()
+    #self.parent.Evaluate("GUI")
   def Evolve_For_One_Generation(self):
     self.Spawn()
     self.Mutate()
@@ -38,4 +39,5 @@ class PARALLEL_HILL_CLIMBER:
     #print(self.parent.fitness)
     #exit()
   def Show_Best(self):
-    self.parent.Evaluate("GUI")
+    pass
+    #self.parent.Evaluate("GUI")
