@@ -4,7 +4,10 @@ import copy
 from solution import SOLUTION
 class PARALLEL_HILL_CLIMBER:
   def __init__(self):
-    self.parents = SOLUTION()
+    self.parents = {}
+    for key_parent in range(c.populationSize -1):
+      self.parents[key_parent] = SOLUTION()
+    print(self.parents)
     self.parent.Evaluate("DIRECT")
   def Evolve(self):
     pass
