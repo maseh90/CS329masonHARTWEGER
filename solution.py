@@ -51,4 +51,4 @@ class SOLUTION:
   def Mutate(self):
     row_chosen = random.randint(0,2)
     col_chosen = random.randint(0,1)
-    self.weights[row_chosen,col_chosen] = random.random() * 2 - 1
+    self.weights[row_chosen][col_chosen] = random.random() * 2 - 1
