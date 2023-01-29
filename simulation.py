@@ -9,7 +9,7 @@ import math
 from world import WORLD
 from robot import ROBOT
 class SIMULATION:
-  def __init__(self,directOrGUI):
+  def __init__(self,directOrGUI,solutionID):
     if directOrGUI == "DIRECT":
       self.physicsClient = p.connect(p.DIRECT)
     if directOrGUI == "GUI":
@@ -17,7 +17,7 @@ class SIMULATION:
     p.setAdditionalSearchPath(pybullet_data.getDataPath())
     p.setGravity(0,0,c.gravity)
     self.world = WORLD()
-    self.robot = ROBOT()
+    self.robot = ROBOT(solutionID)
   def Run(self):
     for i in range(c.simulationSteps):
       time.sleep(c.sleepTime)
