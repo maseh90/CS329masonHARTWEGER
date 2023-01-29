@@ -17,7 +17,7 @@ class HILL_CLIMBER:
   def Spawn(self):
     self.child = copy.deepcopy(self.parent)
   def Mutate(self):
-    pass
+    self.child.Mutate()
   def Evaluate(self):
     pass
   def Select(self):
