@@ -32,7 +32,8 @@ class SOLUTION:
     pyrosim.Send_Cube(name="FrontLeg", pos=[0.5,0,-0.5], size=[1,1,1])
     pyrosim.End()
   def Create_Brain(self):
-    pyrosim.Start_NeuralNetwork("brain.nndf")
+    brain_file = "brain" + str(self.myID) + ".nndf"
+    pyrosim.Start_NeuralNetwork(brain_file)
     pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "Torso")
     pyrosim.Send_Sensor_Neuron(name = 1 , linkName = "BackLeg")
     pyrosim.Send_Sensor_Neuron(name = 2 , linkName = "FrontLeg")
