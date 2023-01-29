@@ -12,7 +12,8 @@ class SOLUTION:
     self.Create_World()
     self.Create_Body()
     self.Create_Brain()
-    os.system("python3 simulate.py "+directOrGUI)
+    statement = "python3 simulate.py "+directOrGUI
+    os.system(statement)
     f = open("fitness.txt", "r")
     self.fitness = float(f.read())
     #print("HELLLLLO",self.fitness)
