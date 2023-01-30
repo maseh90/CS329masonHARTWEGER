@@ -57,8 +57,9 @@ class SOLUTION:
     #for neuronName in self.nn.Get_Neuron_Names():
     for currentRow in sensor_neurons:
       for currentColumn in motor_neurons:
-        pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn + 3 , weight = self.weights[currentRow][currentColumn] )
+        pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn + c.numSensorNeurons , weight = self.weights[currentRow][currentColumn] )
     pyrosim.End()
+    exit()
   def Mutate(self):
     row_chosen = random.randint(0,c.numSensorNeurons)
     col_chosen = random.randint(0,c.numMotorNeurons)
