@@ -8,6 +8,7 @@ import random
 import math
 from sensor import SENSOR
 from motor import MOTOR
+import sys
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 class ROBOT:
   def __init__(self,solutionID):
@@ -17,6 +18,7 @@ class ROBOT:
     self.nn = NEURAL_NETWORK("brain.nndf")
     self.Prepare_To_Sense()
     self.Prepare_To_Act()
+    os.system("del "+brain_name)
   def Prepare_To_Sense(self):
     self.sensors = {}
     for linkName in pyrosim.linkNamesToIndices:
