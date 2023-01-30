@@ -3,6 +3,7 @@ import numpy
 import os
 import random
 import time
+import constants as c
 class SOLUTION:
   def __init__(self,idChosen):
     self.weights = numpy.random.rand(3,2)
@@ -51,16 +52,16 @@ class SOLUTION:
     #pyrosim.Send_Synapse( sourceNeuronName = 1 , targetNeuronName = 3 , weight = -0.75 )
     #pyrosim.Send_Synapse( sourceNeuronName = 0 , targetNeuronName = 4 , weight = 1 )
     #pyrosim.Send_Synapse( sourceNeuronName = 2 , targetNeuronName = 4 , weight = 1 )
-    sensor_neurons = [0,1,2]
-    motor_neurons = [0,1]
+    sensor_neurons = list(range(c.numSensorNeurons))
+    motor_neurons = list(range(c.numMotorNeurons))
     #for neuronName in self.nn.Get_Neuron_Names():
     for currentRow in sensor_neurons:
       for currentColumn in motor_neurons:
         pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn + 3 , weight = self.weights[currentRow][currentColumn] )
     pyrosim.End()
   def Mutate(self):
-    row_chosen = random.randint(0,2)
-    col_chosen = random.randint(0,1)
+    row_chosen = random.randint(0,c.numSensorNeurons)
+    col_chosen = random.randint(0,c.numMotorNeurons)
     self.weights[row_chosen][col_chosen] = random.random() * 2 - 1
   def Set_ID(self,valueChosen):
     self.myID = valueChosen
