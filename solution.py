@@ -15,7 +15,8 @@ class SOLUTION:
     self.Create_Brain()
     statement = "python3 simulate.py " + directOrGUI + " " + str(self.myID) + "&"
     os.system(statement)
-    f = open("fitness.txt", "r")
+    open_file = "fitness" + str(self.myID) + ".txt"
+    f = open(open_file, "r")
     self.fitness = float(f.read())
     #print("HELLLLLO",self.fitness)
     f.close()
