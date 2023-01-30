@@ -52,11 +52,11 @@ class ROBOT:
     positionOfLinkZero = stateOfLinkZero[0]
     xCoordinateOfLinkZero = positionOfLinkZero[0]
     open_file = "tmp" + str(self.solutionID) + ".txt"
-    command_move = "mv " + "tmp" + str(self.solutionID) + ".txt " + "fitness" + str(self.solutionID) + ".txt"
-    os.system(command_move)
     f = open(open_file, "w")
     f.write(str(xCoordinateOfLinkZero))
     f.close()
+    command_move = "mv " + "tmp" + str(self.solutionID) + ".txt " + "fitness" + str(self.solutionID) + ".txt"
+    os.system(command_move)
     #print(positionOfLinkZero)
                                                  
     
