@@ -18,7 +18,7 @@ class ROBOT:
     self.nn = NEURAL_NETWORK("brain.nndf")
     self.Prepare_To_Sense()
     self.Prepare_To_Act()
-    os.system("del "+brain_name)
+    os.system("rm "+brain_name)
   def Prepare_To_Sense(self):
     self.sensors = {}
     for linkName in pyrosim.linkNamesToIndices:
