@@ -1,6 +1,7 @@
 import pyrosim.pyrosim as pyrosim
 import constants as c
 import copy
+import os
 from solution import SOLUTION
 class PARALLEL_HILL_CLIMBER:
   def __init__(self):
