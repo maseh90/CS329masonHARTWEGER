@@ -27,6 +27,7 @@ class SOLUTION:
     f.close()
     command_remove = "rm " + open_file
     os.system(command_remove)
+    print(self.fitness)
   def Create_World(self):
     pyrosim.Start_SDF("world.sdf")
     pyrosim.Send_Cube(name="Box1", pos=[3,3,3], size=[1,1,1])
