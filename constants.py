@@ -8,3 +8,5 @@ maxForce = 50
 gravity = -9.8
 numberOfGenerations = 10
 populationSize = 10
+numSensorNeurons = 3
+numMotorNeurons = 2
