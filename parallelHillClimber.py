@@ -28,7 +28,7 @@ class PARALLEL_HILL_CLIMBER:
     self.Evaluate(self.children)
     #print("\n\nPARENT FITNESS: ",self.parent.fitness," CHILD FITNESS: ",self.child.fitness,"\n")
     #exit()
-    #self.Select()
+    self.Select()
   def Print(self):
     print("\n")
     print("PARENT FITNESS")
@@ -40,10 +40,12 @@ class PARALLEL_HILL_CLIMBER:
     print("\n")
   def Spawn(self):
     self.children = {}
+    i = 0
     for key_parent in self.parents:
-      self.children[self.nextAvailableID] = copy.deepcopy(self.parents[key_parent])
-      self.children[self.nextAvailableID].Set_ID(self.nextAvailableID)
-      self.nextAvailableID = self.nextAvailableID + 1          
+      self.children[i] = copy.deepcopy(self.parents[key_parent])
+      self.children[i].Set_ID(self.nextAvailableID)
+      self.nextAvailableID = self.nextAvailableID + 1
+      i = i + 1
     #print(self.children)
     #self.child = copy.deepcopy(self.parent)
     #self.child.Set_ID(self.nextAvailableID)
@@ -62,8 +64,13 @@ class PARALLEL_HILL_CLIMBER:
     for key in solutions:
       solutions[key].Wait_For_Simulation_To_End()
   def Select(self):
-    if (self.parent.fitness > self.child.fitness):
-      self.parent = self.child
+    i = 0
+    for key_parent in self.parents:
+      if (self.parents[key_parent].fitness > self.children[i].fitness):
+        self.parents[key_parent].fitness = self.children[i].fitness
+      i = i + 1
+    #if (self.parent.fitness > self.child.fitness):
+    #  self.parent = self.child
     #print("CHILD FITNESS:")
     #print(self.child.fitness)
     #print("PARENT FITNESS:")
