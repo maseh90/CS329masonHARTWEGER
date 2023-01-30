@@ -10,20 +10,23 @@ class SOLUTION:
     self.weights = self.weights * 2 - 1
     self.myID = idChosen
     #print(self.weights)
-  def Evaluate(self,directOrGUI):
+    #def Evaluate(self,directOrGUI):
+  def Start_Simulation(self,directOrGUI):
     self.Create_World()
     self.Create_Body()
     self.Create_Brain()
     statement = "python3 simulate.py " + directOrGUI + " " + str(self.myID) + "&"
     os.system(statement)
+  def Wait_For_Simulation_To_End(self):
     open_file = "fitness" + str(self.myID) + ".txt"
     while not os.path.exists(open_file):
       time.sleep(0.01)
     f = open(open_file, "r")
     self.fitness = float(f.read())
     print(self.fitness)
-    #print("HELLLLLO",self.fitness)
     f.close()
+    command_remove = "rm " + open_file
+    os.system(command_remove)
   def Create_World(self):
     pyrosim.Start_SDF("world.sdf")
     pyrosim.Send_Cube(name="Box1", pos=[3,3,3], size=[1,1,1])
