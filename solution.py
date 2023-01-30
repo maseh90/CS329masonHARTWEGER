@@ -23,7 +23,6 @@ class SOLUTION:
       time.sleep(0.01)
     f = open(open_file, "r")
     self.fitness = float(f.read())
-    print(self.fitness)
     f.close()
     command_remove = "rm " + open_file
     os.system(command_remove)
