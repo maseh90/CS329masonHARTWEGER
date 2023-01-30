@@ -33,11 +33,13 @@ class PARALLEL_HILL_CLIMBER:
   def Spawn(self):
     self.children = {}
     for key_parent in self.parents:
-      self.children[self.nextAvailibleID)
+      self.children[self.nextAvailibleID] = copy.deepcopy(self.parents[key_parent])
+      self.children[self.nextAvailibleID].Set_ID(self.nextAvailableID)
       self.nextAvailableID = self.nextAvailableID + 1          
-    self.child = copy.deepcopy(self.parent)
-    self.child.Set_ID(self.nextAvailableID)
-    self.nextAvailableID = self.nextAvailableID + 1
+    print(self.children)
+    #self.child = copy.deepcopy(self.parent)
+    #self.child.Set_ID(self.nextAvailableID)
+    #self.nextAvailableID = self.nextAvailableID + 1
   def Mutate(self):
     #print("PARENT")
     #print(self.parent.weights)
