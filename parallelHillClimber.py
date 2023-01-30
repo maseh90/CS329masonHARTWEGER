@@ -17,16 +17,17 @@ class PARALLEL_HILL_CLIMBER:
     for key_parent in self.parents:
       self.parents[key_parent].Wait_For_Simulation_To_End()
     #self.parent.Evaluate("GUI")
-    #for currentGeneration in range(c.numberOfGenerations):
-    #  self.Evolve_For_One_Generation()
+    for currentGeneration in range(c.numberOfGenerations):
+      self.Evolve_For_One_Generation()
     #self.parent.Evaluate("GUI")
   def Evolve_For_One_Generation(self):
-    self.Spawn()
-    self.Mutate()
-    self.child.Evaluate("DIRECT")
-    print("\n\nPARENT FITNESS: ",self.parent.fitness," CHILD FITNESS: ",self.child.fitness,"\n")
+    pass
+    #self.Spawn()
+    #self.Mutate()
+    #self.child.Evaluate("DIRECT")
+    #print("\n\nPARENT FITNESS: ",self.parent.fitness," CHILD FITNESS: ",self.child.fitness,"\n")
     #exit()
-    self.Select()
+    #self.Select()
   def Spawn(self):
     self.child = copy.deepcopy(self.parent)
     self.child.Set_ID(self.nextAvailableID)
