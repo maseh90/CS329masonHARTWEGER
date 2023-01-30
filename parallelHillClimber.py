@@ -4,6 +4,8 @@ import copy
 from solution import SOLUTION
 class PARALLEL_HILL_CLIMBER:
   def __init__(self):
+    os.system("rm brain*.nndf")
+    os.system("rm fitness*.nndf")
     self.parents = {}
     self.nextAvailableID = 0
     for key_parent in range(c.populationSize):
