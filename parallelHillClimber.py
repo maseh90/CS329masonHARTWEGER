@@ -29,6 +29,15 @@ class PARALLEL_HILL_CLIMBER:
     #print("\n\nPARENT FITNESS: ",self.parent.fitness," CHILD FITNESS: ",self.child.fitness,"\n")
     #exit()
     #self.Select()
+  def Print(self):
+    print("\n")
+    print("PARENT FITNESS")
+    for key_parent in self.parents:
+      print(self.parents[key_parent].fitness)
+    print("CHILDREN FITNESS")
+    for key_child in self.children:
+      print(self.children[key_child].fitness)
+    print("\n")
   def Spawn(self):
     self.children = {}
     for key_parent in self.parents:
@@ -49,7 +58,7 @@ class PARALLEL_HILL_CLIMBER:
     #exit()
   def Evaluate(self,solutions):
     for key in solutions:
-      solutions[key].Start_Simulation("GUI")
+      solutions[key].Start_Simulation("DIRECT")
     for key in solutions:
       solutions[key].Wait_For_Simulation_To_End()
   def Select(self):
