@@ -42,7 +42,7 @@ class SOLUTION:
     pyrosim.Send_Joint(name = "Torso_LeftLeg" , parent= "Torso" , child = "LeftLeg" , type = "revolute", position = [-0.5,0,1], jointAxis = "0 1 0")
     pyrosim.Send_Cube(name="LeftLeg", pos=[-0.5,0,0], size=[0.2,1,0.2])
     pyrosim.Send_Joint(name = "Torso_RightLeg" , parent= "Torso" , child = "RightLeg" , type = "revolute", position = [0.5,0,1], jointAxis = "0 1 0")
-    pyrosim.Send_Cube(name="LeftLeg", pos=[0.5,0,0], size=[0.2,1,0.2])
+    pyrosim.Send_Cube(name="RightLeg", pos=[0.5,0,0], size=[0.2,1,0.2])
     pyrosim.End()
     #exit()
   def Create_Brain(self):
