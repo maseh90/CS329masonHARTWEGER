@@ -15,10 +15,7 @@ class PARALLEL_HILL_CLIMBER:
     #print(self.parents)
     #self.parent.Evaluate("DIRECT")
   def Evolve(self):
-    for key_parent in self.parents:
-      self.parents[key_parent].Start_Simulation("DIRECT")
-    for key_parent in self.parents:
-      self.parents[key_parent].Wait_For_Simulation_To_End()
+    self.Evaluate(self.parents)
     #self.parent.Evaluate("GUI")
     for currentGeneration in range(c.numberOfGenerations):
       self.Evolve_For_One_Generation()
@@ -48,8 +45,11 @@ class PARALLEL_HILL_CLIMBER:
     #print("CHILD")
     #print(self.child.weights)
     #exit()
-  #def Evaluate(self):
-  #  pass
+  def Evaluate(self,solutions):
+    for key_parent in solutions:
+      self.parents[key_parent].Start_Simulation("DIRECT")
+    for key_parent in solutions:
+      self.parents[key_parent].Wait_For_Simulation_To_End()
   def Select(self):
     if (self.parent.fitness > self.child.fitness):
       self.parent = self.child
