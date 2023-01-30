@@ -2,6 +2,7 @@ import pyrosim.pyrosim as pyrosim
 import numpy
 import os
 import random
+import time
 class SOLUTION:
   def __init__(self,idChosen):
     self.weights = numpy.random.rand(3,2)
