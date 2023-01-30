@@ -48,9 +48,9 @@ class PARALLEL_HILL_CLIMBER:
     #print(self.child.weights)
     #exit()
   def Evaluate(self,solutions):
-    for key_parent in solutions:
+    for key in solutions:
       solutions[key].Start_Simulation("GUI")
-    for key_parent in solutions:
+    for key in solutions:
       solutions[key].Wait_For_Simulation_To_End()
   def Select(self):
     if (self.parent.fitness > self.child.fitness):
