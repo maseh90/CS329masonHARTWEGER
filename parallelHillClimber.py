@@ -17,15 +17,15 @@ class PARALLEL_HILL_CLIMBER:
   def Evolve(self):
     self.Evaluate(self.parents)
     #self.parent.Evaluate("GUI")
-    for currentGeneration in range(c.numberOfGenerations-1):
+    for currentGeneration in range(c.numberOfGenerations):
       self.Evolve_For_One_Generation()
-      self.Print()
     #self.parent.Evaluate("GUI")
   def Evolve_For_One_Generation(self):
     self.Spawn()
     self.Mutate()
     #self.child.Evaluate("DIRECT")
     self.Evaluate(self.children)
+    self.Print()
     #print("\n\nPARENT FITNESS: ",self.parent.fitness," CHILD FITNESS: ",self.child.fitness,"\n")
     #exit()
     self.Select()
