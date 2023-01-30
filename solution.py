@@ -16,6 +16,8 @@ class SOLUTION:
     statement = "python3 simulate.py " + directOrGUI + " " + str(self.myID) + "&"
     os.system(statement)
     open_file = "fitness" + str(self.myID) + ".txt"
+    while not os.path.exists(open_file):
+      time.sleep(0.01)
     f = open(open_file, "r")
     self.fitness = float(f.read())
     print(self.fitness)
