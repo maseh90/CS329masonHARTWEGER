@@ -16,7 +16,7 @@ class JOINT:
 
         self.depth = 1
 
-    def Save(self,f):
+    def Save(self,f,jointAxis):
 
         Save_Whitespace(self.depth,f)
         f.write('<joint name="' + self.name + '" type="' + self.type + '">' + '\n')
@@ -38,5 +38,5 @@ class JOINT:
         f.write('   <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>\n')
 
         Save_Whitespace(self.depth,f)
-        f.write('</joint>' + '\n')
+        f.write(' <axis xyz="' + jointAxis + '"/>\n')
 
