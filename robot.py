@@ -8,7 +8,7 @@ import random
 import math
 from sensor import SENSOR
 from motor import MOTOR
-import sys
+import os
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 class ROBOT:
   def __init__(self,solutionID):
