@@ -18,6 +18,7 @@ class SOLUTION:
     open_file = "fitness" + str(self.myID) + ".txt"
     f = open(open_file, "r")
     self.fitness = float(f.read())
+    print(self.fitness)
     #print("HELLLLLO",self.fitness)
     f.close()
   def Create_World(self):
