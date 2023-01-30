@@ -24,6 +24,8 @@ class PARALLEL_HILL_CLIMBER:
     self.Spawn()
     self.Mutate()
     #self.child.Evaluate("DIRECT")
+    self.Evaluate(self.children)
+    exit()
     #print("\n\nPARENT FITNESS: ",self.parent.fitness," CHILD FITNESS: ",self.child.fitness,"\n")
     #exit()
     #self.Select()
