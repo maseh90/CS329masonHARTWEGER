@@ -7,4 +7,4 @@ simulationSteps = 300
 maxForce = 60
 gravity = -9.8
 numberOfGenerations = 10
-populationSize = 10
+populationSize = 2
