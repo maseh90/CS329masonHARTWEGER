@@ -33,7 +33,7 @@ class SOLUTION:
     pyrosim.Start_SDF("world.sdf")
     pyrosim.Send_Cube(name="Box1", pos=[3,3,3], size=[1,1,1])
     #pyrosim.Send_Cube(name="FirstStep", pos=[-52,2,0], size=[10,10,1])
-    #pyrosim.End()
+    pyrosim.End()
   def Create_Body(self):
     pyrosim.Start_URDF("body.urdf")
     pyrosim.Send_Cube(name="Torso", pos=[0,0,1], size=[1,1,1])
