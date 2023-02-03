@@ -20,7 +20,10 @@ class ROBOT:
     self.solutionID = solutionID
     brain_name = "brain" + str(solutionID) + ".nndf"
     self.nn = NEURAL_NETWORK(brain_name)
-    os.system("rm "+brain_name)
+    for file in os.listdir("."):
+      if file.startswith("brain"):
+      os.system("rm {0}".format(file))
+    #os.system("rm "+brain_name)
   def Prepare_To_Sense(self):
     self.sensors = {}
     for linkName in pyrosim.linkNamesToIndices:
