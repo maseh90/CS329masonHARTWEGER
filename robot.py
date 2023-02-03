@@ -15,8 +15,9 @@ class ROBOT:
     brain_name = "brain" + str(solutionID) + ".nndf"
     self.solutionID = solutionID
     self.robotId = p.loadURDF("body.urdf")
-    pyrosim.Prepare_To_Simulate(self.robotId)
     self.nn = NEURAL_NETWORK(brain_name)
+    pyrosim.Prepare_To_Simulate(self.robotId)
+
     self.Prepare_To_Sense()
     self.Prepare_To_Act()
     os.system("rm "+brain_name)
