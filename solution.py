@@ -52,7 +52,7 @@ class SOLUTION:
     pyrosim.Send_Joint(name = "RightLeg_RightLowerLeg" , parent= "RightLeg" , child = "RightLowerLeg" , type = "revolute", position = [1.0,0.0,0.0], jointAxis = "0 1 0")
     pyrosim.Send_Cube(name="RightLowerLeg", pos=[0,0,-0.5], size=[0.2,0.2,1.0])
     # New 45 degree legs
-    pyrosim.Send_Joint(name = "Torso_MiddleBackLeg" , parent= "Torso" , child = "MiddleBackLeg" , type = "revolute", position = [-0.5,-0.5,1], jointAxis = "1 0 0")
+    pyrosim.Send_Joint(name = "Torso_MiddleBackLeg" , parent= "Torso" , child = "MiddleBackLeg" , type = "revolute", position = [0.5,-0.5,1], jointAxis = "1 0 0")
     pyrosim.Send_Cube(name="MiddleBackLeg", pos=[-0.5,-0.5,0], size=[0.2,1,0.2])
     pyrosim.Send_Joint(name = "Torso_MiddleFrontLeg" , parent= "Torso" , child = "MiddleFrontLeg" , type = "revolute", position = [0.5,0.5,1], jointAxis = "1 0 0")
     pyrosim.Send_Cube(name="MiddleFrontLeg", pos=[0.5,0.5,0], size=[0.2,1,0.2])
