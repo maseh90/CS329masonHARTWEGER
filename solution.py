@@ -30,8 +30,8 @@ class SOLUTION:
     #print(self.fitness)
   def Create_World(self):
     pyrosim.Start_SDF("world.sdf")
-    pyrosim.Send_Cube(name="Box1", pos=[3,3,3], size=[100,100,1])
-    pyrosim.Send_Cube(name="FirstStep", pos=[-2,2,3], size=[1,1,1])
+    pyrosim.Send_Cube(name="Box1", pos=[3,3,3], size=[1,1,1])
+    pyrosim.Send_Cube(name="FirstStep", pos=[-2,2,3], size=[100,100,1])
     pyrosim.End()
   def Create_Body(self):
     pyrosim.Start_URDF("body.urdf")
