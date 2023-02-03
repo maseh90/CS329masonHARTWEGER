@@ -22,7 +22,7 @@ class ROBOT:
     self.nn = NEURAL_NETWORK(brain_name)
     for file in os.listdir("."):
       if file.startswith("brain"):
-      os.system("rm {0}".format(file))
+        os.system("rm{0}".format(file))
     #os.system("rm "+brain_name)
   def Prepare_To_Sense(self):
     self.sensors = {}
