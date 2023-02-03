@@ -6,7 +6,7 @@ import time
 import constants as c
 class SOLUTION:
   def __init__(self,idChosen):
-    self.weights = numpy.random.rand(c.numSensorNeurons,c.numMotorNeurons)
+    self.weights = 2 * numpy.random.rand(c.numSensorNeurons,c.numMotorNeurons) - 1
     #print(self.weights)
     self.weights = self.weights * 2 - 1
     self.myID = idChosen
