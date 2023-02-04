@@ -19,6 +19,7 @@ class SOLUTION:
     #statement = "python3 simulate.py " + directOrGUI + " " + str(self.myID) + " 2&>1 &"
     statement = "python3 simulate.py " + directOrGUI + " " + str(self.myID) + " &"
     os.system(statement)
+    pyrosim.End()
   def Wait_For_Simulation_To_End(self):
     open_file = "fitness" + str(self.myID) + ".txt"
     while not os.path.exists(open_file):
