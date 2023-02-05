@@ -16,8 +16,8 @@ class SOLUTION:
     self.Create_World()
     self.Create_Body()
     self.Create_Brain()
-    #statement = "python3 simulate.py " + directOrGUI + " " + str(self.myID) + " 2&>1 &"
-    statement = "python3 simulate.py " + directOrGUI + " " + str(self.myID) + " &"
+    statement = "python3 simulate.py " + directOrGUI + " " + str(self.myID) + " 2&>1 &"
+    #statement = "python3 simulate.py " + directOrGUI + " " + str(self.myID) + " &"
     os.system(statement)
     #pyrosim.End()
   def Wait_For_Simulation_To_End(self):
