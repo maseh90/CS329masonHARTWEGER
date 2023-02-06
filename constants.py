@@ -1,10 +1,10 @@
 import math
-amplitude = 1.5*math.pi
+amplitude = 2*math.pi
 frequency = 2
 offset = 0
 sleepTime = 1/60
 simulationSteps = 7500
-maxForce = 350
+maxForce = 200
 gravity = -9.8
 numberOfGenerations = 25
 populationSize = 10
