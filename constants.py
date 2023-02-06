@@ -1,12 +1,12 @@
 import math
 amplitude = 1.5*math.pi/2
-frequency = 2
+frequency = 3
 offset = 0
 sleepTime = 1/60
-simulationSteps = 12500
+simulationSteps = 1000
 maxForce = 300
 gravity = -9.8
-numberOfGenerations = 25
+numberOfGenerations = 50
 populationSize = 10
 numSensorNeurons = 8
 numMotorNeurons = 16
