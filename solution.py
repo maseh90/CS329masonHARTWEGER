@@ -83,7 +83,7 @@ class SOLUTION:
         break
       name_new = names_body_elements[i] + "_" + names_body_elements[i+1]
       joint_name_list.append(name_new)
-      pyrosim.Send_Joint(name = name_new , parent= names_body_elements[i] , child = names_body_elements[i+1] , type = "revolute", position = [joint_element_x[i],joint_element_y[i],joint_element_z[i]],, jointAxis = "1 0 0")
+      pyrosim.Send_Joint(name = name_new , parent= names_body_elements[i] , child = names_body_elements[i+1] , type = "revolute", position = [joint_element_x[i],joint_element_y[i],joint_element_z[i]], jointAxis = "1 0 0")
     #pyrosim.Send_Cube(name="Torso", pos=[1.5,0,1.5], size=[1,1,1])
     #pyrosim.Send_Joint(name = "Torso_BackLeg" , parent= "Torso" , child = "BackLeg" , type = "revolute", position = [1,0,1])
     #pyrosim.Send_Cube(name="BackLeg", pos=[-0.5,0,-0.5], size=[1,1,1])
