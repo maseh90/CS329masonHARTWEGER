@@ -121,7 +121,7 @@ class SOLUTION:
     print(self.numMotor_Neurons)
     for currentRow in sensor_neurons:
       for currentColumn in motor_neurons:
-        pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn, weight = self.weights[currentRow-1][currentColumn-sensor_name_index-2] )
+        pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn, weight = self.weights[currentRow-1][currentColumn-sensor_name_index-1] )
     pyrosim.End()
     #exit()
   def Mutate(self):
