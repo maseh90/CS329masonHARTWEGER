@@ -24,7 +24,7 @@ class LINK_URDF:
 
         self.geometry = GEOMETRY_URDF(size)
 
-        self.visual    = VISUAL_URDF(self.origin , self.geometry)
+        self.visual    = VISUAL_URDF(self.origin , self.geometry,RED,GREEN,BLUE)
 
         self.collision = COLLISION_URDF(self.origin , self.geometry)
 
