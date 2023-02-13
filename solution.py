@@ -127,8 +127,15 @@ class SOLUTION:
     pyrosim.End()
     #exit()
   def Mutate(self):
-    row_chosen = random.randint(0,self.numSensor_Neurons-1)
-    col_chosen = random.randint(0,self.numMotor_Neurons-1)
+    if self.numSensor_Neurons-1 == 0:
+      row_chosen = 0
+    else:
+      row_chosen = random.randint(0,self.numSensor_Neurons-1)
+    if self.numMotor_Neurons-1 == 0:
+      col_chosen = 0
+    else:
+      col_chosen = random.randint(0,self.numMotor_Neurons-1)
+    
     self.weights[row_chosen][col_chosen] = random.random() * 2 - 1
   def Set_ID(self,valueChosen):
     self.myID = valueChosen
