@@ -42,6 +42,7 @@ class SOLUTION:
     pyrosim.Send_Cube(name="Box1", pos=[3,3,3], size=[1,1,1])
     pyrosim.End()
   def Create_Body_and_Brain(self):
+    pyrosim.Start_URDF("body.urdf")
     number_body_elements = self.body_num_el
     names_body_elements = ["0"]*number_body_elements
     body_element_width = [0]*number_body_elements
@@ -72,7 +73,7 @@ class SOLUTION:
       if (i >= (number_body_elements-2)):
         continue
       joint_element_x[i+1] = body_element_width[i+1]
-    pyrosim.Start_URDF("body.urdf")
+    
     joint_name_list = []
     for i in range(number_body_elements-1):
       pyrosim.Send_Cube(name=names_body_elements[i], pos=[body_element_x[i],body_element_y[i],body_element_z[i]], size=[body_element_width[i],body_element_length[i],body_element_height[i]])
