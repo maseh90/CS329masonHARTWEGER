@@ -26,7 +26,7 @@ class SIMULATION:
       self.robot.Think()
       self.robot.Act(i)
       p.stepSimulation()
-    self.robot.Save_Values()
+    #self.robot.Save_Values()
   def __del__(self):
     p.disconnect()
   def Get_Fitness(self):
