@@ -8,13 +8,13 @@ class SOLUTION:
   def __init__(self,idChosen):
     self.body_num_el = random.randint(1,10)
     self.touch_sensor_no_sensor_new = [0]*self.body_num_el
-    numSensor_Neurons = 0
+    self.numSensor_Neurons = 0
     for i in range(self.body_num_el):
       self.touch_sensor_no_sensor_new[i] = random.randint(0,1)
       if self.touch_sensor_no_sensor_new[i] == 1:
-        numSensor_Neurons = numSensor_Neurons + 1
-    numMotor_Neurons = numSensor_Neurons - 1
-    self.weights = 2 * numpy.random.rand(numSensor_Neurons,numMotor_Neurons) - 1
+        self.numSensor_Neurons = self.numSensor_Neurons + 1
+    self.numMotor_Neurons = self.numSensor_Neurons - 1
+    self.weights = 2 * numpy.random.rand(self.numSensor_Neurons,self.numMotor_Neurons) - 1
     #print(self.weights)
     #self.weights = self.weights * 2 - 1
     self.myID = idChosen
@@ -121,8 +121,8 @@ class SOLUTION:
     pyrosim.End()
     #exit()
   def Mutate(self):
-    row_chosen = random.randint(0,c.numSensorNeurons-1)
-    col_chosen = random.randint(0,c.numMotorNeurons-1)
+    row_chosen = random.randint(0,self.numSensor_Neurons-1)
+    col_chosen = random.randint(0,self.numMotor_Neurons-1)
     self.weights[row_chosen][col_chosen] = random.random() * 2 - 1
   def Set_ID(self,valueChosen):
     self.myID = valueChosen
