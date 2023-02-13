@@ -6,7 +6,7 @@ import time
 import constants as c
 class SOLUTION:
   def __init__(self,idChosen):
-    random.seed(random.randint(1,30))
+    random.seed(random.randint(1,1000))
     self.body_num_el = random.randint(1,10)
     self.touch_sensor_no_sensor_new = [0]*self.body_num_el
     self.numSensor_Neurons = 0
