@@ -70,9 +70,9 @@ class SOLUTION:
     for i in range(number_body_elements-1):
       body_element_x[i+1] = joint_element_x[0] + body_element_width[i+1]/2
       if number_body_elements == 1:
-        break
-      if (i == (number_body_elements - 1)):
-        break
+        continue
+      if (i == (number_body_elements-1)):
+        continue
       joint_element_x[i+1] = body_element_width[i+1]
     pyrosim.Start_URDF("body.urdf")
     joint_name_list = []
