@@ -13,7 +13,7 @@ class SOLUTION:
       self.touch_sensor_no_sensor_new[i] = random.randint(0,1)
       if self.touch_sensor_no_sensor_new[i] == 1:
         self.numSensor_Neurons = self.numSensor_Neurons + 1
-    self.numMotor_Neurons = self.numSensor_Neurons - 1
+    self.numMotor_Neurons = self.body_num_el - 1
     self.weights = 2 * numpy.random.rand(self.numSensor_Neurons,self.numMotor_Neurons) - 1
     #print(self.weights)
     #self.weights = self.weights * 2 - 1
