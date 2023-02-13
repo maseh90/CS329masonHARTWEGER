@@ -115,6 +115,10 @@ class SOLUTION:
     for i in range(len(motor_neurons)):
       motor_neurons[i] = motor_neurons[i] + sensor_name_index
     #for neuronName in self.nn.Get_Neuron_Names():
+    print(sensor_neurons)
+    print(motor_neurons)
+    print(self.numSensor_Neurons)
+    print(self.numMotor_Neurons)
     for currentRow in sensor_neurons:
       for currentColumn in motor_neurons:
         pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn, weight = self.weights[currentRow-1][currentColumn-sensor_name_index-2] )
