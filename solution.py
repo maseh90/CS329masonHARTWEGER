@@ -56,9 +56,9 @@ class SOLUTION:
     joint_element_z = [0]*(number_body_elements-1)
     touch_sensor_no_sensor = self.touch_sensor_no_sensor_new
     for i in range(number_body_elements):
-      body_element_width[i] = round(random.uniform(0,3),2)
-      body_element_length[i] = round(random.uniform(0,3),2)
-      body_element_height[i] = round(random.uniform(0,3),2)
+      body_element_width[i] = round(random.uniform(0.1,3),2)
+      body_element_length[i] = round(random.uniform(0.1,3),2)
+      body_element_height[i] = round(random.uniform(0.1,3),2)
       #touch_sensor_no_sensor[i] = random.randint(0,1)
       names_body_elements[i] = str(i)
     body_element_x[0] = 0
