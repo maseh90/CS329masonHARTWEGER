@@ -99,5 +99,5 @@ y = 0
 z = 0.5
 index = 0
 Create_World()
-Generate_Body()
+Generate_Body_and_Brain()
 #Generate_Brain()
