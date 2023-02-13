@@ -6,7 +6,15 @@ import time
 import constants as c
 class SOLUTION:
   def __init__(self,idChosen):
-    self.weights = 2 * numpy.random.rand(c.numSensorNeurons,c.numMotorNeurons) - 1
+    self.body_num_el = random.randint(1,10)
+    self.touch_sensor_no_sensor_new = [0]*number_body_elements
+    numSensor_Neurons = 0
+    for i in range(number_body_elements):
+      self.touch_sensor_no_sensor_new[i] = random.randint(0,1)
+      if self.touch_sensor_no_sensor_new[i] == 1:
+        numSensor_Neurons = numSensor_Neurons + 1
+    numMotor_Neurons = numSensor_Neurons - 1
+    self.weights = 2 * numpy.random.rand(numSensor_Neurons,numMotor_Neurons) - 1
     #print(self.weights)
     self.weights = self.weights * 2 - 1
     self.myID = idChosen
@@ -32,20 +40,9 @@ class SOLUTION:
   def Create_World(self):
     pyrosim.Start_SDF("world.sdf")
     pyrosim.Send_Cube(name="Box1", pos=[3,3,3], size=[1,1,1])
-    pyrosim.Send_Cube(name="FirstStep", pos=[-52.5,2,0.125], size=[100,100,0.25],mass=1000.0)
-    pyrosim.Send_Cube(name="SecondStep", pos=[-53.5,2,0.375], size=[100,100,0.25],mass=1000.0)
-    pyrosim.Send_Cube(name="ThirdStep", pos=[-54.5,2,0.625], size=[100,100,0.25],mass=1000.0)
-    pyrosim.Send_Cube(name="FourthStep", pos=[-55.5,2,0.875], size=[100,100,0.25],mass=1000.0)
-    pyrosim.Send_Cube(name="FifthStep", pos=[-56.5,2,1.125], size=[100,100,0.25],mass=1000.0)
-    pyrosim.Send_Cube(name="SixthStep", pos=[-57.5,2,1.375], size=[100,100,0.25],mass=1000.0)
-    pyrosim.Send_Cube(name="SeventhStep", pos=[-58.5,2,1.625], size=[100,100,0.25],mass=1000.0)
-    pyrosim.Send_Cube(name="EighthStep", pos=[-59.5,2,1.875], size=[100,100,0.25],mass=1000.0)
-    pyrosim.Send_Cube(name="NinthStep", pos=[-60.5,2,2.125], size=[100,100,0.25],mass=1000.0)
-    pyrosim.Send_Cube(name="TenthStep", pos=[-61.5,2,2.375], size=[100,100,0.25],mass=1000.0)
-    pyrosim.Send_Cube(name="EleventhStep", pos=[-62.5,2,2.625], size=[100,100,0.25],mass=1000.0)
     pyrosim.End()
   def Create_Body_and_Brain(self):
-    number_body_elements = random.randint(1,10)
+    number_body_elements = self.body_num_el
     names_body_elements = ["0"]*number_body_elements
     body_element_width = [0]*number_body_elements
     body_element_length = [0]*number_body_elements
@@ -56,12 +53,12 @@ class SOLUTION:
     joint_element_x = [0]*(number_body_elements-1) # this will change, build in +x directiomn
     joint_element_y = [0]*(number_body_elements-1)
     joint_element_z = [0]*(number_body_elements-1)
-    touch_sensor_no_sensor = [0]*number_body_elements
+    touch_sensor_no_sensor = self.touch_sensor_no_sensor_new
     for i in range(number_body_elements):
       body_element_width[i] = round(random.uniform(0,3),2)
       body_element_length[i] = round(random.uniform(0,3),2)
       body_element_height[i] = round(random.uniform(0,3),2)
-      touch_sensor_no_sensor[i] = random.randint(0,1)
+      #touch_sensor_no_sensor[i] = random.randint(0,1)
       names_body_elements[i] = str(i)
     body_element_x[0] = 0
     body_element_z[0] = 1.5
