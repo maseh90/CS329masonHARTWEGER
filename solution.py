@@ -78,9 +78,9 @@ class SOLUTION:
     joint_name_list = []
     for i in range(number_body_elements):
       if touch_sensor_no_sensor[i]:
-        pyrosim.Send_Cube(name=names_body_elements[i], pos=[body_element_x[i],body_element_y[i],body_element_z[i]], size=[body_element_width[i],body_element_length[i],body_element_height[i]],"0.0","1.0","0.0")
+        pyrosim.Send_Cube("0.0","1.0","0.0",name=names_body_elements[i], pos=[body_element_x[i],body_element_y[i],body_element_z[i]], size=[body_element_width[i],body_element_length[i],body_element_height[i]])
       else:
-        pyrosim.Send_Cube(name=names_body_elements[i], pos=[body_element_x[i],body_element_y[i],body_element_z[i]], size=[body_element_width[i],body_element_length[i],body_element_height[i]],,"0.0","0.0","1.0")
+        pyrosim.Send_Cube("0.0","0.0","1.0",name=names_body_elements[i], pos=[body_element_x[i],body_element_y[i],body_element_z[i]], size=[body_element_width[i],body_element_length[i],body_element_height[i]])
       if (number_body_elements == 1):
         break
       if (i == (number_body_elements - 1)):
