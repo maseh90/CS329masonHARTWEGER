@@ -4,7 +4,7 @@ from parallelHillClimber import PARALLEL_HILL_CLIMBER
 
 phc = PARALLEL_HILL_CLIMBER()
 #phc.Show_Best()
-#phc.Evolve()
+phc.Evolve()
 phc.Show_Best()
 #for i in range(5):
 #  os.system("python3 generate.py")
