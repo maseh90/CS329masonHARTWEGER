@@ -128,11 +128,11 @@ class SOLUTION:
     pyrosim.End()
     #exit()
   def Mutate(self):
-    if self.numSensor_Neurons-1 == 0:
+    if self.numSensor_Neurons-1 == 0 or self.numSensor_Neurons-1 == -1:
       row_chosen = 0
     else:
       row_chosen = random.randint(0,self.numSensor_Neurons-1)
-    if self.numMotor_Neurons-1 == 0:
+    if self.numMotor_Neurons-1 == 0 or self.numMotor_Neurons-1 == -1:
       col_chosen = 0
     else:
       col_chosen = random.randint(0,self.numMotor_Neurons-1)
