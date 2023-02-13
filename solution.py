@@ -68,7 +68,7 @@ class SOLUTION:
     joint_element_x[0] = 0 + body_element_width[0]/2
     joint_element_z[0] = 1.5
     for i in range(number_body_elements-1):
-      body_element_x[i+1] = joint_element[0] + body_element_width[i+1]/2
+      body_element_x[i+1] = joint_element_x[0] + body_element_width[i+1]/2
       if number_body_elements == 1:
         break
       if (i == (number_body_elements - 1)):
