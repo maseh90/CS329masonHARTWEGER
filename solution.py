@@ -71,7 +71,7 @@ class SOLUTION:
       body_element_x[i+1] = joint_element_x[0] + body_element_width[i+1]/2
       if number_body_elements == 1:
         continue
-      if (i == (number_body_elements-1)):
+      if (i >= (number_body_elements-1)):
         continue
       joint_element_x[i+1] = body_element_width[i+1]
     pyrosim.Start_URDF("body.urdf")
