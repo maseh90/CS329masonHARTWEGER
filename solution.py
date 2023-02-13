@@ -9,7 +9,7 @@ class SOLUTION:
     self.body_num_el = random.randint(1,10)
     self.touch_sensor_no_sensor_new = [0]*self.body_num_el
     numSensor_Neurons = 0
-    for i in range(number_body_elements):
+    for i in range(self.number_body_elements):
       self.touch_sensor_no_sensor_new[i] = random.randint(0,1)
       if self.touch_sensor_no_sensor_new[i] == 1:
         numSensor_Neurons = numSensor_Neurons + 1
