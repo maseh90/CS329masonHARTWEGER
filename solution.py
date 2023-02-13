@@ -110,7 +110,7 @@ class SOLUTION:
     #pyrosim.Send_Synapse( sourceNeuronName = 0 , targetNeuronName = 4 , weight = 1 )
     #pyrosim.Send_Synapse( sourceNeuronName = 2 , targetNeuronName = 4 , weight = 1 )
     sensor_neurons = list(range(sensor_name_index-1))
-    motor_neurons = list(range(motor_name_index-sensor_name_index-1))
+    motor_neurons = list(range(motor_name_index-sensor_name_index))
     for i in range(len(motor_neurons)):
       motor_neurons[i] = motor_neurons[i] + sensor_name_index
     #for neuronName in self.nn.Get_Neuron_Names():
