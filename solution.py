@@ -14,8 +14,7 @@ class SOLUTION:
     #def Evaluate(self,directOrGUI):
   def Start_Simulation(self,directOrGUI):
     self.Create_World()
-    self.Create_Body()
-    self.Create_Brain()
+    self.Create_Body_and_Brain()
     statement = "python3 simulate.py " + directOrGUI + " " + str(self.myID) + " 2&>1 &"
     #statement = "python3 simulate.py " + directOrGUI + " " + str(self.myID) + " &"
     os.system(statement)
