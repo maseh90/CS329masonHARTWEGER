@@ -97,7 +97,7 @@ class SOLUTION:
     sensor_name_index = 0
     for i in range(number_body_elements):
       if touch_sensor_no_sensor[i]:
-        pyrosim.Send_Sensor_Neuron(name = name_index, linkName = names_body_elements[i])
+        pyrosim.Send_Sensor_Neuron(name = sensor_name_index, linkName = names_body_elements[i])
         sensor_name_index = sensor_name_index + 1
     motor_name_index = sensor_name_index
     for element_name in joint_name_list:
