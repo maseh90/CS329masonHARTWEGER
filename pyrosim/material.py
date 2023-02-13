@@ -2,11 +2,11 @@ from pyrosim.commonFunctions import Save_Whitespace
 
 class MATERIAL: 
 
-    def __init__(self,RED,GREEN,BLUE):
+    def __init__(self,COLOR_NAME,RED,GREEN,BLUE):
 
         self.depth  = 3
-
-        self.string1 = '<material name="Cyan">'
+        self.string1 = '<material name="'+COLOR_NAME+'">'
+        #self.string1 = '<material name="Cyan">'
         self.string2 = '    <color rgba="'+RED+" "+GREEN+" "+BLUE+" 1.0" + '"/>'
         #self.string2 = '    <color rgba="0 1.0 1.0 1.0"/>'
 
