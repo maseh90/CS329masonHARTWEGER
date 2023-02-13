@@ -75,7 +75,7 @@ class SOLUTION:
       joint_element_x[i+1] = body_element_width[i+1]
     
     joint_name_list = []
-    for i in range(number_body_elements-1):
+    for i in range(number_body_elements):
       pyrosim.Send_Cube(name=names_body_elements[i], pos=[body_element_x[i],body_element_y[i],body_element_z[i]], size=[body_element_width[i],body_element_length[i],body_element_height[i]])
       if (i == (number_body_elements - 2)):
         break
