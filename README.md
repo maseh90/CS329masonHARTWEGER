@@ -1,7 +1,7 @@
-# CS329masonHARTWEGER
-a repo to showcase my CS 329 bots - Mason Hartweger (Northwestern University)
+# CS396masonHARTWEGER
+a repo to showcase my CS 396 bots - Mason Hartweger (Northwestern University)
 
-"assignment5" branch: This version includes an "Eight-Legged Spider Climbing Up Stairs" -- The fitness function evaluates the x-coordinate of the spider's torso, and it selects for spiders with the most negative fitness function values (most negative x-coordinates, spider encouraged to move left and up the stairs placed in the world).
+"snake" branch: This version includes a file that can be used to generate a random "snake" (a random number of randomly shaped cubes that can rotate along the x-y plane with respect to each other). All of the cubes are linked together via simple joints that can rotate in either direction except with respect to the z-axis (the joints cannot rotate up and down). The snakes can move on their own (despite there being no evolution occurring), but these movements are often barely noticeable. Sometimes, the snakes tend to "tense" up and refuse to move. moreover, if a snake is generated with no sensor-enabled cubes touching the ground, then the snake will typically not move either. On each snake, the green cubes indicate body cubes tht have sensors attached.Cubes that are blue have no sensors attached. NOTE: If the command "python3 search.py produces an error, simply run the command again in Terminal.
 
 To run the repository shown, first download the repository somewhere on your local computer.
 
