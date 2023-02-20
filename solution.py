@@ -7,7 +7,7 @@ import constants as c
 class SOLUTION:
   def __init__(self,idChosen):
     random.seed(random.randint(1,1000))
-    self.body_num_el = random.randint(1,10)
+    self.body_num_el = random.randint(1,15)
     self.touch_sensor_no_sensor_new = [0]*self.body_num_el
     self.numSensor_Neurons = 0
     self.orientation_with_respect_to_first = [0]*self.body_num_el
