@@ -10,13 +10,23 @@ class SOLUTION:
     self.body_num_el = random.randint(1,10)
     self.touch_sensor_no_sensor_new = [0]*self.body_num_el
     self.numSensor_Neurons = 0
+    self.orientation_with_respect_to_first = []
     for i in range(self.body_num_el):
+      self.orientation_with_respect_to_first[i] = random.randint(0,5)
       self.touch_sensor_no_sensor_new[i] = random.randint(0,1)
       if self.touch_sensor_no_sensor_new[i] == 1:
         self.numSensor_Neurons = self.numSensor_Neurons + 1
     self.numMotor_Neurons = self.body_num_el - 1
     self.weights = 2 * numpy.random.rand(self.numSensor_Neurons,self.numMotor_Neurons) - 1
     #print(self.weights)
+    self.number_limbs = random.randint(1,5)
+    self.number_elements_per_limb = []
+    self.location_on_main_body_limb = []
+    self.orientation_on_main_body_limb = []
+    for i in range(self.number_limbs):
+      self.number_elements_per_limb[i] = random.randint(1,6) # simple number
+      self.location_on_main_body_limb[i] = random.randint(0,self.body_num_el-1) # index
+      self.orientation_on_main_body_limb[i] = random.randint(1,4) # simple number
     #self.weights = self.weights * 2 - 1
     self.myID = idChosen
     #print(self.weights)
@@ -74,7 +84,29 @@ class SOLUTION:
         continue
       if (i >= (number_body_elements-2)):
         continue
-      joint_element_x[i+1] = body_element_width[i+1]
+      if self.orientation_with_respect_to_first[i+1] == 1:
+        joint_element_x[i+1] = body_element_width[i+1]
+        body_element_x[i+1] = body_element_width[i+1]/2
+      elif self.orientation_with_respect_to_first[i+1] == 2:
+        joint_element_x[i+1] = body_element_width[i+1]/2
+        joint_element_y[i+1] = body_element_length[i+1]/2
+        body_element_x[i+1] = body_element_width[i+1]/2
+        body_element_y[i+1] = body_element_length[i+1]/2
+      elif self.orientation_with_respect_to_first[i+1] == 3:
+        joint_element_x[i+1] = body_element_width[i+1]/2
+        joint_element_y[i+1] = -1*body_element_length[i+1]/2
+        body_element_x[i+1] = body_element_width[i+1]/2
+        body_element_y[i+1] = -body_element_length[i+1]/2
+      elif self.orientation_with_respect_to_first[i+1] == 4:
+        joint_element_x[i+1] = body_element_width[i+1]/2
+        joint_element_z[i+1] = body_element_height[i+1]/2
+        body_element_x[i+1] = body_element_width[i+1]/2
+        body_element_z[i+1] = body_element_height[i+1]/2
+      elif self.orientation_with_respect_to_first[i+1] == 5:
+        joint_element_x[i+1] = body_element_width[i+1]/2
+        joint_element_z[i+1] = -1*body_element_height[i+1]/2
+        body_element_x[i+1] = body_element_width[i+1]/2
+        body_element_z[i+1] = body_element_height[i+1]/2
     
     joint_name_list = []
     for i in range(number_body_elements):
