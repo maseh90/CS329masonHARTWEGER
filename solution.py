@@ -16,6 +16,7 @@ class SOLUTION:
       self.touch_sensor_no_sensor_new[i] = random.randint(0,1)
       if self.touch_sensor_no_sensor_new[i] == 1:
         self.numSensor_Neurons = self.numSensor_Neurons + 1
+    print(self.orientation_with_respect_to_first)
     self.numMotor_Neurons = self.body_num_el - 1
     self.weights = 2 * numpy.random.rand(self.numSensor_Neurons,self.numMotor_Neurons) - 1
     #print(self.weights)
@@ -110,7 +111,7 @@ class SOLUTION:
     
     joint_name_list = []
     for i in range(number_body_elements):
-      print(touch_sensor_no_sensor)
+      #print(touch_sensor_no_sensor)
       if touch_sensor_no_sensor[i]:
         pyrosim.Send_Cube(name=names_body_elements[i], pos=[body_element_x[i],body_element_y[i],body_element_z[i]], size=[body_element_width[i],body_element_length[i],body_element_height[i]],COLOR_NAME="Green",RED="0.0",GREEN="1.0",BLUE="0.0")
       else:
@@ -155,10 +156,10 @@ class SOLUTION:
     for i in range(len(motor_neurons)):
       motor_neurons[i] = motor_neurons[i] + sensor_name_index
     #for neuronName in self.nn.Get_Neuron_Names():
-    print(sensor_neurons)
-    print(motor_neurons)
-    print(self.numSensor_Neurons)
-    print(self.numMotor_Neurons)
+    #print(sensor_neurons)
+    #print(motor_neurons)
+    #print(self.numSensor_Neurons)
+    #print(self.numMotor_Neurons)
     for currentRow in sensor_neurons:
       for currentColumn in motor_neurons:
         pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn, weight = self.weights[currentRow-1][currentColumn-sensor_name_index-1] )
