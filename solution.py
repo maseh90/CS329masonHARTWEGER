@@ -10,7 +10,7 @@ class SOLUTION:
     self.body_num_el = random.randint(1,10)
     self.touch_sensor_no_sensor_new = [0]*self.body_num_el
     self.numSensor_Neurons = 0
-    self.orientation_with_respect_to_first = []
+    self.orientation_with_respect_to_first = [0]*self.body_num_el
     for i in range(self.body_num_el):
       self.orientation_with_respect_to_first[i] = random.randint(0,5)
       self.touch_sensor_no_sensor_new[i] = random.randint(0,1)
