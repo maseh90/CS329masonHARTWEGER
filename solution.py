@@ -85,7 +85,7 @@ class SOLUTION:
         pyrosim.Send_Cube(name=names_body_elements[i], pos=[body_element_x[i],body_element_y[i],body_element_z[i]], size=[body_element_width[i],body_element_length[i],body_element_height[i]],COLOR_NAME="Blue",RED="0.0",GREEN="0.0",BLUE="1.0")
       if (number_body_elements == 1):
         break
-      if (i >= (number_body_elements)): # add -1
+      if (i >= (number_body_elements - 1)): # add -1
         break
       name_new = names_body_elements[i] + "_" + names_body_elements[i+1]
       joint_name_list.append(name_new)
