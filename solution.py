@@ -91,22 +91,22 @@ class SOLUTION:
       elif self.orientation_with_respect_to_first[i+1] == 2:
         joint_element_x[i+1] = body_element_width[i]/2
         joint_element_y[i+1] = body_element_length[i]/2
-        #body_element_x[i+1] = body_element_width[i+1]/2
+        body_element_x[i+1] = body_element_width[i+1]/2
         body_element_y[i+1] = body_element_length[i+1]/2
       elif self.orientation_with_respect_to_first[i+1] == 3:
         joint_element_x[i+1] = body_element_width[i]/2
         joint_element_y[i+1] = -1*body_element_length[i]/2
-        #body_element_x[i+1] = body_element_width[i+1]/2
+        body_element_x[i+1] = body_element_width[i+1]/2
         body_element_y[i+1] = -1*body_element_length[i+1]/2
       elif self.orientation_with_respect_to_first[i+1] == 4:
         joint_element_x[i+1] = body_element_width[i]/2
         joint_element_z[i+1] = body_element_height[i]/2
-        #body_element_x[i+1] = body_element_width[i+1]/2
+        body_element_x[i+1] = body_element_width[i+1]/2
         body_element_z[i+1] = body_element_height[i+1]/2
       elif self.orientation_with_respect_to_first[i+1] == 5:
         joint_element_x[i+1] = body_element_width[i]/2
         joint_element_z[i+1] = -1*body_element_height[i]/2
-        #body_element_x[i+1] = body_element_width[i+1]/2
+        body_element_x[i+1] = body_element_width[i+1]/2
         body_element_z[i+1] = -1*body_element_height[i+1]/2
     
     joint_name_list = []
