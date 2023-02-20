@@ -75,6 +75,7 @@ class SOLUTION:
       names_body_elements[i] = str(i)
     body_element_x[0] = 0
     body_element_z[0] = 1.5
+    self.orientation_with_respect_to_first[0] = 1
     if number_body_elements != 1:
       joint_element_x[0] = 0 + body_element_width[0]/2
       joint_element_z[0] = 1.5
@@ -89,25 +90,41 @@ class SOLUTION:
         joint_element_x[i+1] = body_element_width[i+1]
         body_element_x[i+1] = body_element_width[i+1]/2
       elif self.orientation_with_respect_to_first[i+1] == 2:
-        joint_element_x[i+1] = body_element_width[i]/2
-        joint_element_y[i+1] = body_element_length[i]/2
-        #body_element_x[i+1] = body_element_width[i+1]/2
-        body_element_y[i+1] = body_element_length[i+1]/2
+        if self.orientation_with_respect_to_first[i] == 2:
+          joint_element_y[i+1] = body_element_length[i+1]
+          body_element_y[i+1] = body_element_length[i+1]/2
+        else:
+          joint_element_x[i+1] = body_element_width[i]/2
+          joint_element_y[i+1] = body_element_length[i]/2
+          #body_element_x[i+1] = body_element_width[i+1]/2
+          body_element_y[i+1] = body_element_length[i+1]/2
       elif self.orientation_with_respect_to_first[i+1] == 3:
-        joint_element_x[i+1] = body_element_width[i]/2
-        joint_element_y[i+1] = -1*body_element_length[i]/2
-        #body_element_x[i+1] = body_element_width[i+1]/2
-        body_element_y[i+1] = -1*body_element_length[i+1]/2
+        if self.orientation_with_respect_to_first[i] == 3:
+          joint_element_y[i+1] = -body_element_length[i+1]
+          body_element_y[i+1] = -body_element_length[i+1]/2
+        else:
+          joint_element_x[i+1] = body_element_width[i]/2
+          joint_element_y[i+1] = -1*body_element_length[i]/2
+          #body_element_x[i+1] = body_element_width[i+1]/2
+          body_element_y[i+1] = -1*body_element_length[i+1]/2
       elif self.orientation_with_respect_to_first[i+1] == 4:
-        joint_element_x[i+1] = body_element_width[i]/2
-        joint_element_z[i+1] = body_element_height[i]/2
-        #body_element_x[i+1] = body_element_width[i+1]/2
-        body_element_z[i+1] = body_element_height[i+1]/2
+        if self.orientation_with_respect_to_first[i] == 4:
+          joint_element_z[i+1] = body_element_height[i+1]
+          body_element_z[i+1] = body_element_height[i+1]/2
+        else:
+          joint_element_x[i+1] = body_element_width[i]/2
+          joint_element_z[i+1] = body_element_height[i]/2
+          #body_element_x[i+1] = body_element_width[i+1]/2
+          body_element_z[i+1] = body_element_height[i+1]/2
       elif self.orientation_with_respect_to_first[i+1] == 5:
-        joint_element_x[i+1] = body_element_width[i]/2
-        joint_element_z[i+1] = -1*body_element_height[i]/2
-        #body_element_x[i+1] = body_element_width[i+1]/2
-        body_element_z[i+1] = -1*body_element_height[i+1]/2
+        if self.orientation_with_respect_to_first[i] == 5:
+          joint_element_z[i+1] = -body_element_height[i+1]
+          body_element_z[i+1] = -body_element_height[i+1]/2
+        else:
+          joint_element_x[i+1] = body_element_width[i]/2
+          joint_element_z[i+1] = -1*body_element_height[i]/2
+          #body_element_x[i+1] = body_element_width[i+1]/2
+          body_element_z[i+1] = -1*body_element_height[i+1]/2
     
     joint_name_list = []
     for i in range(number_body_elements):
