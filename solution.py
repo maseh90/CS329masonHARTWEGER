@@ -20,9 +20,9 @@ class SOLUTION:
     self.weights = 2 * numpy.random.rand(self.numSensor_Neurons,self.numMotor_Neurons) - 1
     #print(self.weights)
     self.number_limbs = random.randint(1,5)
-    self.number_elements_per_limb = []
-    self.location_on_main_body_limb = []
-    self.orientation_on_main_body_limb = []
+    self.number_elements_per_limb = []*self.number_limbs
+    self.location_on_main_body_limb = []*self.number_limbs
+    self.orientation_on_main_body_limb = []*self.number_limbs
     for i in range(self.number_limbs):
       self.number_elements_per_limb[i] = random.randint(1,6) # simple number
       self.location_on_main_body_limb[i] = random.randint(0,self.body_num_el-1) # index
