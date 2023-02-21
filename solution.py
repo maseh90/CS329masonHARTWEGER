@@ -112,7 +112,7 @@ class SOLUTION:
         self.orientation_with_respect_to_first_limbs[i].append(random.randint(1,5))
         self.limb_names[i][j] = str(ii)
         ii = ii + 1
-      self.orientation_with_respect_to_first_limbs[i][0] = 1
+      self.orientation_with_respect_to_first_limbs[i][0] = random.randint(1,5)
       self.limb_joint_element_x[i][0] = 0
       self.limb_joint_element_y[i][0] = 0
       self.limb_joint_element_z[i][0] = 0
