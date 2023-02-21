@@ -195,7 +195,7 @@ class SOLUTION:
             self.limb_joint_element_y[i][j+1] = -self.limb_dimensions_y[i][j+1]
             self.limb_positions_y[i][j+1] = -self.limb_dimensions_y[i][j+1]/2
           else:
-            self.limb_joint_element_x[i][j+1] = self.limb_dimensions_x[i][j+1]/2
+            self.limb_joint_element_x[i][j+1] = self.limb_dimensions_x[i][j]/2
             self.limb_joint_element_y[i][j+1] = -1*self.limb_dimensions_y[i][j]/2
             #body_element_x[i+1] = body_element_width[i+1]/2
             self.limb_positions_y[i][j+1] = -1*self.limb_dimensions_y[i][j+1]/2
