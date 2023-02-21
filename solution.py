@@ -39,6 +39,7 @@ class SOLUTION:
     self.limb_joint_element_z = []
     self.limb_names = []
     self.joint_name_limb_list = []
+    self.limb_weights = []
     for i in range(self.number_limbs):
       self.number_elements_per_limb[i] = random.randint(2,15) # simple number
       self.location_on_main_body_limb[i] = random.randint(0,self.body_num_el-1) # index
@@ -59,7 +60,6 @@ class SOLUTION:
       for j in range(self.number_elements_per_limb[i] ):
         self.limb_sensors[i][j] = random.randint(0,1)
       self.limb_weights.append([])
-    self.limb_weights = []
     print("Number elements per limb")
     print(self.number_elements_per_limb)
     #self.weights = self.weights * 2 - 1
