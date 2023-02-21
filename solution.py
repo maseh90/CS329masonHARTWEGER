@@ -319,6 +319,9 @@ class SOLUTION:
       motor_neurons_limbs = list(range(motor_name_index_limbs-sensor_name_index_limbs))
       for i in range(len(motor_neurons_limbs)):
         motor_neurons_limbs[i] = motor_neurons_limbs[i] + sensor_name_index_limbs
+      self.limb_weights = []
+      for i in range(len(sensor_neuron_limbs)):
+        self.limb_weights.append([])
       for currentRow in sensor_neurons_limbs:
         for currentColumn in motor_neurons_limbs:
           self.limb_weights[currentRow].append( 2*random.random() - 1 )
