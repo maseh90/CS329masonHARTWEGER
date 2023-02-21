@@ -79,6 +79,10 @@ class SOLUTION:
     if number_body_elements != 1:
       joint_element_x[0] = 0 + body_element_width[0]/2
       joint_element_z[0] = 1.5
+    going_right = 0
+    going_left = 0
+    going_straight = 0
+    going_back = 0
     for i in range(number_body_elements-1):
       body_element_x[i+1] = body_element_width[i+1]/2
       #body_element_x[i+1] = joint_element_x[i] + body_element_width[i+1]/2
@@ -86,6 +90,7 @@ class SOLUTION:
         continue
       if (i >= (number_body_elements-2)):
         continue
+      
       if self.orientation_with_respect_to_first[i+1] == 1:
         joint_element_x[i+1] = body_element_width[i+1]
         body_element_x[i+1] = body_element_width[i+1]/2
@@ -125,7 +130,6 @@ class SOLUTION:
           joint_element_z[i+1] = -1*body_element_height[i]/2
           #body_element_x[i+1] = body_element_width[i+1]/2
           body_element_z[i+1] = -1*body_element_height[i+1]/2
-    
     joint_name_list = []
     for i in range(number_body_elements):
       #print(touch_sensor_no_sensor)
