@@ -234,7 +234,8 @@ class SOLUTION:
       name_new = names_body_elements[i] + "_" + names_body_elements[i+1]
       joint_name_list.append(name_new)
       pyrosim.Send_Joint(name = name_new , parent= names_body_elements[i] , child = names_body_elements[i+1] , type = "revolute", position = [joint_element_x[i],joint_element_y[i],joint_element_z[i]], jointAxis = "0 0 1")
-    
+    print("NAMES BODY ELEMENTS")
+    print(names_body_elements)
     joint_name_limb_list = []
     for i in range(self.number_limbs):
       for j in range(self.number_elements_per_limb[i]):
