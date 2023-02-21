@@ -315,12 +315,12 @@ class SOLUTION:
         if element_name != 0:
           pyrosim.Send_Motor_Neuron( name = motor_name_index_limbs , jointName = element_name)
           motor_name_index_limbs = motor_name_index_limbs + 1
-      sensor_neurons_limbs = list(range(sensor_name_index))
-      motor_neurons_limbs = list(range(motor_name_index-sensor_name_index))
-      for i in range(len(motor_neurons)):
-        motor_neurons[i] = motor_neurons[i] + sensor_name_index
-      for currentRow in sensor_neurons:
-        for currentColumn in motor_neurons:
+      sensor_neurons_limbs = list(range(sensor_name_index_limbs))
+      motor_neurons_limbs = list(range(motor_name_index_limbs-sensor_name_index_limbs))
+      for i in range(len(motor_neurons_limbs)):
+        motor_neurons_limbs[i] = motor_neurons_limbs[i] + sensor_name_index_limbs
+      for currentRow in sensor_neurons_limbs:
+        for currentColumn in motor_neurons_limbs:
           self.limb_weights[currentRow].append( 2*random.random() - 1 )
           pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn, weight = self.limb_weights[currentRow-1][currentColumn-sensor_name_index_limbs-1] )
       sensor_name_index_limbs = 0
