@@ -103,7 +103,7 @@ class SOLUTION:
         self.limb_dimensions_y[i].append(round(random.uniform(0.1,2),2))
         self.limb_dimensions_z[i].append(round(random.uniform(0.1,2),2))
         self.orientation_with_respect_to_first_limbs[i].append(random.randint(1,5))
-      self.orientation_with_respect_to_first[i][0] = 1
+      self.orientation_with_respect_to_first_limbs[i][0] = 1
     body_element_x[0] = 0
     body_element_z[0] = 1.5
     self.orientation_with_respect_to_first[0] = 1
