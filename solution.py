@@ -16,6 +16,7 @@ class SOLUTION:
       self.touch_sensor_no_sensor_new[i] = random.randint(0,1)
       if self.touch_sensor_no_sensor_new[i] == 1:
         self.numSensor_Neurons = self.numSensor_Neurons + 1
+    print("ORIENTATIONS OF MAIN LIMBS WITH RESPECT TO EACH OTHER")
     print(self.orientation_with_respect_to_first)
     self.numMotor_Neurons = self.body_num_el - 1
     self.weights = 2 * numpy.random.rand(self.numSensor_Neurons,self.numMotor_Neurons) - 1
@@ -116,6 +117,7 @@ class SOLUTION:
       self.limb_positions_x[i][0] = 0
       self.limb_positions_y[i][0] = 0
       self.limb_positions_z[i][0] = 0
+    print("LOCATION ON MAIN BODY LIMB")
     print(self.location_on_main_body_limb)
     body_element_x[0] = 0
     body_element_z[0] = 1.5
