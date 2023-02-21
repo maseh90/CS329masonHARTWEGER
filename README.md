@@ -27,6 +27,13 @@ In Example 2, one main branch consisting of 4 elements is constructed. Then, 3 l
 
 As of right now, the creatures are being built with a random range of elements on the main body (between 1 and 10 elements), which can be modified by changing the range of the self.body_num_el in the initialization of the solution file. The creatures are then given a random number of limbs (between 1 and 7 limbs), which can be modified by changing the range of the self.number_limbs in the initialization of the solution file. The number of elements per limb ranges between 2 and 7 and can be similarly modified by changing the self.number_elements_per_limb range.
 
+### How the Creature's Brain is Generated
+
+The brains of the creatures are developed as follows. First, it must be understood that the sensor/motor neurons in each body/limb are completely independent of one another. Therefore, the body and all the respective limbs essentially have their own isolated connections. 
+
+Within a given body/limb, motor neurons are placed at the intersection of all joints. Sensor neurons are randomly assigned to some of the individual segments. The sensor neurons are then connected to all the other motor neurons in the body/limb with random weights for each of the generated synapses. Once evolution is simulated, these weights will be constantly mutating and changing. Here is a diagram of how the brain is constructed for one of the limbs -- this figure can be generalized to all limbs/bodies in the 3D creatures:
+
+
 ### Instructions for Running
 
 NOTE: If the command "python3 search.py produces an error, simply run the command again in Terminal.
