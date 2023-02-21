@@ -87,9 +87,9 @@ class SOLUTION:
       names_body_elements[i] = str(i)
     for i in range(self.number_limbs):
       for j in range(self.number_elements_per_limb[i]):
-        self.limb_dimensions_x[i][j].append(round(random.uniform(0.1,2),2))
-        self.limb_dimensions_y[i][j].append(round(random.uniform(0.1,2),2))
-        self.limb_dimensions_z[i][j].append(round(random.uniform(0.1,2),2))
+        self.limb_dimensions_x[i].append(round(random.uniform(0.1,2),2))
+        self.limb_dimensions_y[i].append(round(random.uniform(0.1,2),2))
+        self.limb_dimensions_z[i].append(round(random.uniform(0.1,2),2))
     body_element_x[0] = 0
     body_element_z[0] = 1.5
     self.orientation_with_respect_to_first[0] = 1
