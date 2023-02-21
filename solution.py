@@ -235,11 +235,11 @@ class SOLUTION:
     for i in range(self.number_limbs):
       for j in range(self.number_elements_per_limb[i]):
         if self.limb_sensors[i][j]:
-          pass
-          #pyrosim.Send_Cube(name=self.limb_names[i][j], pos=[self.limb_positions_x[i][j],self.limb_positions_y[i][j],self.limb_positions_z[i][j]], size=[self.limb_dimensions_x[i][j],self.limb_dimensions_y[i][j],self.limb_dimensions_z[i][j]],COLOR_NAME="Green",RED="0.0",GREEN="1.0",BLUE="0.0")
+          #pass
+          pyrosim.Send_Cube(name=self.limb_names[i][j], pos=[self.limb_positions_x[i][j],self.limb_positions_y[i][j],self.limb_positions_z[i][j]], size=[self.limb_dimensions_x[i][j],self.limb_dimensions_y[i][j],self.limb_dimensions_z[i][j]],COLOR_NAME="Green",RED="0.0",GREEN="1.0",BLUE="0.0")
         else:
-          pass
-          #pyrosim.Send_Cube(name=self.limb_names[i][j], pos=[self.limb_positions_x[i][j],self.limb_positions_y[i][j],self.limb_positions_z[i][j]], size=[self.limb_dimensions_x[i][j],self.limb_dimensions_y[i][j],self.limb_dimensions_z[i][j]],COLOR_NAME="Blue",RED="0.0",GREEN="0.0",BLUE="1.0")
+          #pass
+          pyrosim.Send_Cube(name=self.limb_names[i][j], pos=[self.limb_positions_x[i][j],self.limb_positions_y[i][j],self.limb_positions_z[i][j]], size=[self.limb_dimensions_x[i][j],self.limb_dimensions_y[i][j],self.limb_dimensions_z[i][j]],COLOR_NAME="Blue",RED="0.0",GREEN="0.0",BLUE="1.0")
         if (self.number_elements_per_limb[i] == 1):
           break
         if (j >= (self.number_elements_per_limb[i] - 1)): # add -1
