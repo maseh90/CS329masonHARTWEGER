@@ -38,7 +38,7 @@ class SOLUTION:
     self.limb_joint_element_z = []
     self.limb_names = []
     for i in range(self.number_limbs):
-      self.number_elements_per_limb[i] = random.randint(1,6) # simple number
+      self.number_elements_per_limb[i] = random.randint(2,8) # simple number
       self.location_on_main_body_limb[i] = random.randint(0,self.body_num_el-1) # index
       self.orientation_on_main_body_limb[i] = random.randint(1,4) # simple number
       self.limb_dimensions_x.append( [0]*self.number_elements_per_limb[i] )
