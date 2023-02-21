@@ -7,6 +7,8 @@ This version includes a file that can be used to generate a random "3D creature"
 
 The creatures can move on their own (despite there being no evolution occurring), but these movements are often barely noticeable. Sometimes, the creatures tend to "tense" up and refuse to move. moreover, if a snake is generated with no sensor-enabled cubes touching the ground, then the creature will typically not move either. On each creature, the green cubes indicate body cubes tht have sensors attached. Cubes that are blue have no sensors attached. 
 
+EXAMPLE:<img width="263" alt="Screen Shot 2023-02-21 at 4 02 11 PM" src="https://user-images.githubusercontent.com/79173890/220468792-f05b5dae-9b5e-4be0-90c3-d6cb71663653.png">
+
 ### How the Creatures are Built
 
 The initial "body" of the creature is constructed as a "3D snake" of a kind. A random number of initial body components are built on top of each other (in 5 possible different directions trending in the positive x-direction). For example, successive body elements are built either on top of each other, on bottom of each other, to the right, to the left, and forwards as shown in this diagram.
