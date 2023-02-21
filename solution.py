@@ -20,6 +20,7 @@ class SOLUTION:
     print(self.orientation_with_respect_to_first)
     self.numMotor_Neurons = self.body_num_el - 1
     self.weights = 2 * numpy.random.rand(self.numSensor_Neurons,self.numMotor_Neurons) - 1
+    
     #print(self.weights)
     self.number_limbs = random.randint(1,10)
     self.number_elements_per_limb = [0]*self.number_limbs
@@ -37,6 +38,7 @@ class SOLUTION:
     self.limb_joint_element_y = []
     self.limb_joint_element_z = []
     self.limb_names = []
+    self.joint_name_limb_list = []
     for i in range(self.number_limbs):
       self.number_elements_per_limb[i] = random.randint(2,15) # simple number
       self.location_on_main_body_limb[i] = random.randint(0,self.body_num_el-1) # index
@@ -50,11 +52,13 @@ class SOLUTION:
       self.limb_joint_element_x.append( [0]*self.number_elements_per_limb[i] )
       self.limb_joint_element_y.append( [0]*self.number_elements_per_limb[i] )
       self.limb_joint_element_z.append( [0]*self.number_elements_per_limb[i] )
+      self.joint_name_limb_list.append( [0]*self.number_elements_per_limb[i] )
       self.limb_names.append( [0]*self.number_elements_per_limb[i] )
       self.orientation_with_respect_to_first_limbs.append( [0]*self.number_elements_per_limb[i] )
       self.limb_sensors.append( [0]*self.number_elements_per_limb[i] )
       for j in range(self.number_elements_per_limb[i] ):
         self.limb_sensors[i][j] = random.randint(0,1)
+    self.limb_weights = []
     print("Number elements per limb")
     print(self.number_elements_per_limb)
     #self.weights = self.weights * 2 - 1
@@ -236,7 +240,6 @@ class SOLUTION:
       pyrosim.Send_Joint(name = name_new , parent= names_body_elements[i] , child = names_body_elements[i+1] , type = "revolute", position = [joint_element_x[i],joint_element_y[i],joint_element_z[i]], jointAxis = "0 0 1")
     print("NAMES BODY ELEMENTS")
     print(names_body_elements)
-    joint_name_limb_list = []
     for i in range(self.number_limbs):
       for j in range(self.number_elements_per_limb[i]):
         if self.limb_sensors[i][j]:
@@ -249,8 +252,7 @@ class SOLUTION:
           break
         if (j >= (self.number_elements_per_limb[i] - 1)): # add -1
           break
-        name_new = self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
-        joint_name_limb_list.append(name_new)
+        
         if j == 0:
           print("BRANCHING ON")
           print(self.limb_names[i][j])
@@ -258,13 +260,17 @@ class SOLUTION:
           print(names_body_elements[self.location_on_main_body_limb[i]])
           name_link_torso =  names_body_elements[self.location_on_main_body_limb[i]] + "_" + self.limb_names[i][j+1]
           name_link_torso_2 =  self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
+          self.joint_name_limb_list[i][j] = name_link_torso
+          self.joint_name_limb_list[i][j] = name_link_torso_2
           #name_link_torso_second = names_body_elements[0] + "_" + self.limb_names[i][j]
           #pyrosim.Send_Joint(name = name_link_torso_second , parent=names_body_elements[0] , child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
           pyrosim.Send_Joint(name = name_link_torso , parent= names_body_elements[self.location_on_main_body_limb[i]], child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
           pyrosim.Send_Joint(name = name_link_torso_2 , parent= self.limb_names[i][j], child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
           #pyrosim.Send_Joint(name = name_new , parent= names_body_elements[self.location_on_main_body_limb[i]] , child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
         else:
+          name_new = self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
           name_link_torso_second = self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
+          joint_name_limb_list[i][j] = name_link_torso_second
           pyrosim.Send_Joint(name = name_link_torso_second , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
           
           #pyrosim.Send_Joint(name = name_new , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
@@ -295,7 +301,27 @@ class SOLUTION:
     for currentRow in sensor_neurons:
       for currentColumn in motor_neurons:
         pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn, weight = self.weights[currentRow-1][currentColumn-sensor_name_index-1] )
-    
+        
+    sensor_name_index_limbs = 0
+    motor_name_index_limbs = 0
+    for i in range(self.number_limbs):
+      for j in range(self.number_elements_per_limb[i]):
+        if self.limb_sensors[i][j]:
+          pyrosim.Send_Sensor_Neuron(name = sensor_name_index_limbs, linkName = self.limb_names[i][j])
+          sensor_name_index_limbs = sensor_name_index_limbs + 1
+      motor_name_index_limbs = sensor_name_index_limbs
+      for element_name in self.joint_name_limb_list[i]:
+        pyrosim.Send_Motor_Neuron( name = motor_name_index_limbs , jointName = element_name)
+        motor_name_index_limbs = motor_name_index_limbs + 1
+      sensor_neurons_limbs = list(range(sensor_name_index))
+      motor_neurons_limbs = list(range(motor_name_index-sensor_name_index))
+      for i in range(len(motor_neurons)):
+        motor_neurons[i] = motor_neurons[i] + sensor_name_index
+      for currentRow in sensor_neurons:
+        for currentColumn in motor_neurons:
+          pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn, weight = self.weights[currentRow-1][currentColumn-sensor_name_index-1] )
+      sensor_name_index_limbs = 0
+      motor_name_index_limbs = 0
     pyrosim.End()
     
   def Mutate(self):
