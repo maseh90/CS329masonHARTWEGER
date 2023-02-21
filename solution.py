@@ -7,7 +7,7 @@ import constants as c
 class SOLUTION:
   def __init__(self,idChosen):
     random.seed(random.randint(1,1000))
-    self.body_num_el = random.randint(1,15)
+    self.body_num_el = random.randint(1,10)
     self.touch_sensor_no_sensor_new = [0]*self.body_num_el
     self.numSensor_Neurons = 0
     self.orientation_with_respect_to_first = [0]*self.body_num_el
@@ -22,7 +22,7 @@ class SOLUTION:
     self.weights = 2 * numpy.random.rand(self.numSensor_Neurons,self.numMotor_Neurons) - 1
     
     #print(self.weights)
-    self.number_limbs = random.randint(1,10)
+    self.number_limbs = random.randint(1,7)
     self.number_elements_per_limb = [0]*self.number_limbs
     self.location_on_main_body_limb = [0]*self.number_limbs
     self.orientation_on_main_body_limb = [0]*self.number_limbs
