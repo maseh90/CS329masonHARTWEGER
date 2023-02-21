@@ -24,10 +24,22 @@ class SOLUTION:
     self.number_elements_per_limb = [0]*self.number_limbs
     self.location_on_main_body_limb = [0]*self.number_limbs
     self.orientation_on_main_body_limb = [0]*self.number_limbs
+    self.limb_dimensions_x = []
+    self.limb_dimensions_y = []
+    self.limb_dimensions_z = []
+    self.limb_positions_x = []
+    self.limb_positions_y = []
+    self.limb_positions_z = []
     for i in range(self.number_limbs):
       self.number_elements_per_limb[i] = random.randint(1,6) # simple number
       self.location_on_main_body_limb[i] = random.randint(0,self.body_num_el-1) # index
       self.orientation_on_main_body_limb[i] = random.randint(1,4) # simple number
+      self.limb_dimensions_x.append( [0]*self.number_elements_per_limb[i] )
+      self.limb_dimensions_y.append( [0]*self.number_elements_per_limb[i] )
+      self.limb_dimensions_z.append( [0]*self.number_elements_per_limb[i] )
+      self.limb_positions_x.append( [0]*self.number_elements_per_limb[i] )
+      self.limb_positions_y.append( [0]*self.number_elements_per_limb[i] )
+      self.limb_positions_z.append( [0]*self.number_elements_per_limb[i] )
     #self.weights = self.weights * 2 - 1
     self.myID = idChosen
     #print(self.weights)
@@ -73,19 +85,18 @@ class SOLUTION:
       body_element_height[i] = round(random.uniform(0.1,2),2)
       #touch_sensor_no_sensor[i] = random.randint(0,1)
       names_body_elements[i] = str(i)
+    for i in range(self.number_limbs):
+      for j in range(self.number_elements_per_limb[i]):
+        self.limb_dimensions_x[i][j].append(round(random.uniform(0.1,2),2))
+        self.limb_dimensions_y[i][j].append(round(random.uniform(0.1,2),2))
+        self.limb_dimensions_z[i][j].append(round(random.uniform(0.1,2),2))
     body_element_x[0] = 0
     body_element_z[0] = 1.5
     self.orientation_with_respect_to_first[0] = 1
     if number_body_elements != 1:
       joint_element_x[0] = 0 + body_element_width[0]/2
       joint_element_z[0] = 1.5
-    going_right = 0
-    going_left = 0
-    going_straight = 0
-    going_back = 0
     for i in range(number_body_elements-1):
-      body_element_x[i+1] = body_element_width[i+1]/2
-      #body_element_x[i+1] = joint_element_x[i] + body_element_width[i+1]/2
       if number_body_elements == 1:
         continue
       if (i >= (number_body_elements-2)):
@@ -130,6 +141,14 @@ class SOLUTION:
           joint_element_z[i+1] = -1*body_element_height[i]/2
           #body_element_x[i+1] = body_element_width[i+1]/2
           body_element_z[i+1] = -1*body_element_height[i+1]/2
+    for i in range(self.number_limbs):
+      
+      for j in range(self.number_elements_per_limb[i]-1):
+        if self.number_elements_per_limb[i] == 1:
+          continue
+        if (i >= (self.number_elements_per_limb[i]-2)):
+          continue
+        
     joint_name_list = []
     for i in range(number_body_elements):
       #print(touch_sensor_no_sensor)
