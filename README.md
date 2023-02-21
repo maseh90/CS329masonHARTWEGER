@@ -22,6 +22,7 @@ In Example 2, one main branch consisting of 4 elements is constructed. Then, 3 l
 
 <img width="506" alt="Screen Shot 2023-02-21 at 2 29 32 PM" src="https://user-images.githubusercontent.com/79173890/220451498-66c5de18-eb10-4644-89ec-73d2bebef751.png">
 
+As of right now, the creatures are being built with a random range of elements on the main body (between 1 and 10 elements), which can be modified by changing the range of the self.body_num_el in the initialization of the solution file. The creatures are then given a random number of limbs (between 1 and 7 limbs), which can be modified by changing the range of the self.number_limbs in the initialization of the solution file. The number of elements per limb ranges between 1 and 7 and can be similarly modified by changing the self.number_elements_per_limb range.
 
 ### Instructions for Running
 
