@@ -259,7 +259,7 @@ class SOLUTION:
           print(self.limb_names[i][j])
           print("CONNECTING TO")
           print(names_body_elements[self.location_on_main_body_limb[i]])
-          name_link_torso =  names_body_elements[self.location_on_main_body_limb[i]] + "_" + self.limb_names[i][j+1]
+          name_link_torso =  names_body_elements[self.location_on_main_body_limb[i]] + "_" + self.limb_names[i][j]
           name_link_torso_2 =  self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
           self.joint_name_limb_list[i][j] = name_link_torso
           self.joint_name_limb_list[i][j] = name_link_torso_2
