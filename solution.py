@@ -258,7 +258,10 @@ class SOLUTION:
           #pyrosim.Send_Joint(name = name_link_torso_second , parent="0" , child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
           #pyrosim.Send_Joint(name = name_new , parent= names_body_elements[self.location_on_main_body_limb[i]] , child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
         else:
-          pyrosim.Send_Joint(name = name_new , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
+          name_link_torso_second = names_body_elements[0] + "_" + self.limb_names[i][j]
+          pyrosim.Send_Joint(name = name_link_torso_second , parent=names_body_elements[0] , child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
+          
+          #pyrosim.Send_Joint(name = name_new , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
     #pyrosim.Send_Cube(name="Torso", pos=[1.5,0,1.5], size=[1,1,1])
     #pyrosim.Send_Joint(name = "Torso_BackLeg" , parent= "Torso" , child = "BackLeg" , type = "revolute", position = [1,0,1])
     #pyrosim.Send_Cube(name="BackLeg", pos=[-0.5,0,-0.5], size=[1,1,1])
