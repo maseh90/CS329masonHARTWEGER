@@ -97,18 +97,18 @@ class SOLUTION:
     joint_element_z = [0]*(number_body_elements-1)
     touch_sensor_no_sensor = self.touch_sensor_no_sensor_new
     for i in range(number_body_elements):
-      body_element_width[i] = round(random.uniform(0.1,1),2)
-      body_element_length[i] = round(random.uniform(0.1,1),2)
-      body_element_height[i] = round(random.uniform(0.1,1),2)
+      body_element_width[i] = round(random.uniform(0.5,1.5),2)
+      body_element_length[i] = round(random.uniform(0.5,1.5),2)
+      body_element_height[i] = round(random.uniform(0.5,1.5),2)
       #touch_sensor_no_sensor[i] = random.randint(0,1)
       names_body_elements[i] = str(i)
     ii = number_body_elements
     for i in range(self.number_limbs):
       self.location_on_main_body_limb[i] = random.randint(0,number_body_elements-1)
       for j in range(self.number_elements_per_limb[i]):
-        self.limb_dimensions_x[i].append(round(random.uniform(0.1,1),2))
-        self.limb_dimensions_y[i].append(round(random.uniform(0.1,1),2))
-        self.limb_dimensions_z[i].append(round(random.uniform(0.1,1),2))
+        self.limb_dimensions_x[i].append(round(random.uniform(0.5,1.5),2))
+        self.limb_dimensions_y[i].append(round(random.uniform(0.5,1.5),2))
+        self.limb_dimensions_z[i].append(round(random.uniform(0.5,1.5),2))
         self.orientation_with_respect_to_first_limbs[i].append(random.randint(1,5))
         self.limb_names[i][j] = str(ii)
         ii = ii + 1
