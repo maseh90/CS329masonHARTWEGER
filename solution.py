@@ -58,6 +58,7 @@ class SOLUTION:
       self.limb_sensors.append( [0]*self.number_elements_per_limb[i] )
       for j in range(self.number_elements_per_limb[i] ):
         self.limb_sensors[i][j] = random.randint(0,1)
+      self.limb_weights.append([])
     self.limb_weights = []
     print("Number elements per limb")
     print(self.number_elements_per_limb)
@@ -320,7 +321,8 @@ class SOLUTION:
         motor_neurons[i] = motor_neurons[i] + sensor_name_index
       for currentRow in sensor_neurons:
         for currentColumn in motor_neurons:
-          pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn, weight = self.weights[currentRow-2][currentColumn-sensor_name_index-1] )
+          self.limb_weights[current_row].append( 2*random.random() - 1 )
+          pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn, weight = self.limb_weights[currentRow-1][currentColumn-sensor_name_index-1] )
       sensor_name_index_limbs = 0
       motor_name_index_limbs = 0
     pyrosim.End()
