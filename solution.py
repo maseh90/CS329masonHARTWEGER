@@ -109,7 +109,7 @@ class SOLUTION:
         self.limb_dimensions_x[i][j] = (round(random.uniform(0.5,1.5),2))
         self.limb_dimensions_y[i][j] = (round(random.uniform(0.5,1.5),2))
         self.limb_dimensions_z[i][j] = (round(random.uniform(0.5,1.5),2))
-        self.orientation_with_respect_to_first_limbs[i].append(random.randint(1,5))
+        self.orientation_with_respect_to_first_limbs[i][j] = (random.randint(1,5))
         self.limb_names[i][j] = str(ii)
         ii = ii + 1
       self.orientation_with_respect_to_first_limbs[i][0] = random.randint(1,5)
