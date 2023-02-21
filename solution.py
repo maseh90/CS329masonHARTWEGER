@@ -116,7 +116,7 @@ class SOLUTION:
       self.limb_positions_x[i][0] = 0
       self.limb_positions_y[i][0] = 0
       self.limb_positions_z[i][0] = 0
-    
+    print(self.location_on_main_body_limb)
     body_element_x[0] = 0
     body_element_z[0] = 1.5
     self.orientation_with_respect_to_first[0] = 1
