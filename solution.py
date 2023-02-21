@@ -118,12 +118,12 @@ class SOLUTION:
         self.limb_names[i][j] = str(ii)
         ii = ii + 1
       self.orientation_with_respect_to_first_limbs[i][0] = random.randint(1,5)
-      self.limb_joint_element_x[i][0] = 0
-      self.limb_joint_element_y[i][0] = 0
-      self.limb_joint_element_z[i][0] = 0
-      self.limb_positions_x[i][0] = 0
-      self.limb_positions_y[i][0] = 0
-      self.limb_positions_z[i][0] = 0
+      #self.limb_joint_element_x[i][0] = 0
+      #self.limb_joint_element_y[i][0] = 0
+      #self.limb_joint_element_z[i][0] = 0
+      #self.limb_positions_x[i][0] = 0
+      #self.limb_positions_y[i][0] = 0
+      #self.limb_positions_z[i][0] = 0
     print("LOCATION ON MAIN BODY LIMB")
     print(self.location_on_main_body_limb)
     body_element_x[0] = 0
