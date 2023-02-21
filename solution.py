@@ -311,8 +311,9 @@ class SOLUTION:
           sensor_name_index_limbs = sensor_name_index_limbs + 1
       motor_name_index_limbs = sensor_name_index_limbs
       for element_name in self.joint_name_limb_list[i]:
-        pyrosim.Send_Motor_Neuron( name = str(motor_name_index_limbs) , jointName = element_name)
-        motor_name_index_limbs = motor_name_index_limbs + 1
+        if element_name != 0:
+          pyrosim.Send_Motor_Neuron( name = motor_name_index_limbs , jointName = element_name)
+          motor_name_index_limbs = motor_name_index_limbs + 1
       sensor_neurons_limbs = list(range(sensor_name_index))
       motor_neurons_limbs = list(range(motor_name_index-sensor_name_index))
       for i in range(len(motor_neurons)):
