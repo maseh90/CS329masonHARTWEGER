@@ -31,8 +31,11 @@ As of right now, the creatures are being built with a random range of elements o
 
 The brains of the creatures are developed as follows. First, it must be understood that the sensor/motor neurons in each body/limb are completely independent of one another. Therefore, the body and all the respective limbs essentially have their own isolated connections. 
 
-Within a given body/limb, motor neurons are placed at the intersection of all joints. Sensor neurons are randomly assigned to some of the individual segments. The sensor neurons are then connected to all the other motor neurons in the body/limb with random weights for each of the generated synapses. Once evolution is simulated, these weights will be constantly mutating and changing. Here is a diagram of how the brain is constructed for one of the limbs -- this figure can be generalized to all limbs/bodies in the 3D creatures:
+Within a given body/limb, motor neurons are placed at the intersection of all joints. Sensor neurons are randomly assigned to some of the individual segments. The sensor neurons are then connected to all the other motor neurons in the body/limb with random weights for each of the generated synapses. Once evolution is simulated, these weights will be constantly mutating and changing. Here is a diagram of how the brain is constructed for one of the limbs -- this figure can be generalized to all limbs/bodies in the 3D creatures.
 
+This is a figure representing a single limb. There are 2 segments with sensors on them, which are each connected to all 3 of the motor neurons located at the links between segments. Each of the arrows represents a synapse connecting the neurons, which will be given a specific weight:
+
+<img width="485" alt="Screen Shot 2023-02-21 at 4 18 25 PM" src="https://user-images.githubusercontent.com/79173890/220471616-e3b957fe-bf8d-4db9-92bd-3830ced9f3b3.png">
 
 ### Instructions for Running
 
