@@ -101,6 +101,7 @@ class SOLUTION:
       names_body_elements[i] = str(i)
     ii = number_body_elements
     for i in range(self.number_limbs):
+      self.location_on_main_body_limb[i] = random.randint(0,number_body_elements-1)
       for j in range(self.number_elements_per_limb[i]):
         self.limb_dimensions_x[i].append(round(random.uniform(0.1,2),2))
         self.limb_dimensions_y[i].append(round(random.uniform(0.1,2),2))
@@ -243,7 +244,11 @@ class SOLUTION:
           break
         name_new = self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
         joint_name_limb_list.append(name_new)
-        pyrosim.Send_Joint(name = name_new , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
+        if j == 0:
+          name_new = names_body_elements[self.location_on_main_body_limb[i]] + "_" + self.limb_names[i][j]
+          pyrosim.Send_Joint(name = name_new , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
+        else:
+          pyrosim.Send_Joint(name = name_new , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
     #pyrosim.Send_Cube(name="Torso", pos=[1.5,0,1.5], size=[1,1,1])
     #pyrosim.Send_Joint(name = "Torso_BackLeg" , parent= "Torso" , child = "BackLeg" , type = "revolute", position = [1,0,1])
     #pyrosim.Send_Cube(name="BackLeg", pos=[-0.5,0,-0.5], size=[1,1,1])
