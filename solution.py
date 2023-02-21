@@ -106,9 +106,9 @@ class SOLUTION:
     for i in range(self.number_limbs):
       self.location_on_main_body_limb[i] = random.randint(0,number_body_elements-1)
       for j in range(self.number_elements_per_limb[i]):
-        self.limb_dimensions_x[i].append(round(random.uniform(0.5,1.5),2))
-        self.limb_dimensions_y[i].append(round(random.uniform(0.5,1.5),2))
-        self.limb_dimensions_z[i].append(round(random.uniform(0.5,1.5),2))
+        self.limb_dimensions_x[i][j].append(round(random.uniform(0.5,1.5),2))
+        self.limb_dimensions_y[i][j].append(round(random.uniform(0.5,1.5),2))
+        self.limb_dimensions_z[i][j].append(round(random.uniform(0.5,1.5),2))
         self.orientation_with_respect_to_first_limbs[i].append(random.randint(1,5))
         self.limb_names[i][j] = str(ii)
         ii = ii + 1
