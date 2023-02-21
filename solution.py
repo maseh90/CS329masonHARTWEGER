@@ -55,6 +55,8 @@ class SOLUTION:
       self.limb_sensors.append( [0]*self.number_elements_per_limb[i] )
       for j in range(self.number_elements_per_limb[i] ):
         self.limb_sensors[i][j] = random.randint(0,1)
+    print("Number elements per limb")
+    print(self.number_elements_per_limb)
     #self.weights = self.weights * 2 - 1
     self.myID = idChosen
     #print(self.weights)
