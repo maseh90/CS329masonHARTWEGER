@@ -30,6 +30,11 @@ class SOLUTION:
     self.limb_positions_x = []
     self.limb_positions_y = []
     self.limb_positions_z = []
+    self.orientation_with_respect_to_first_limbs = []
+    self.limb_sensors = []
+    self.limb_joint_element_x = []
+    self.limb_joint_element_y = []
+    self.limb_joint_element_z = []
     for i in range(self.number_limbs):
       self.number_elements_per_limb[i] = random.randint(1,6) # simple number
       self.location_on_main_body_limb[i] = random.randint(0,self.body_num_el-1) # index
@@ -40,6 +45,13 @@ class SOLUTION:
       self.limb_positions_x.append( [0]*self.number_elements_per_limb[i] )
       self.limb_positions_y.append( [0]*self.number_elements_per_limb[i] )
       self.limb_positions_z.append( [0]*self.number_elements_per_limb[i] )
+      self.limb_joint_element_x.append( [0]*self.number_elements_per_limb[i] )
+      self.limb_joint_element_y.append( [0]*self.number_elements_per_limb[i] )
+      self.limb_joint_element_z.append( [0]*self.number_elements_per_limb[i] )
+      self.orientation_with_respect_to_first_limbs.append( [0]*self.number_elements_per_limb[i] )
+      self.limb_sensors.append( [0]*self.number_elements_per_limb[i] )
+      for j in range(self.number_elements_per_limb[i] ):
+        self.limb_sensors[i][j] = random.randint(0,1)
     #self.weights = self.weights * 2 - 1
     self.myID = idChosen
     #print(self.weights)
@@ -90,6 +102,8 @@ class SOLUTION:
         self.limb_dimensions_x[i].append(round(random.uniform(0.1,2),2))
         self.limb_dimensions_y[i].append(round(random.uniform(0.1,2),2))
         self.limb_dimensions_z[i].append(round(random.uniform(0.1,2),2))
+        self.orientation_with_respect_to_first_limbs[i].append(random.randint(1,5))
+      self.orientation_with_respect_to_first[i][0] = 1
     body_element_x[0] = 0
     body_element_z[0] = 1.5
     self.orientation_with_respect_to_first[0] = 1
