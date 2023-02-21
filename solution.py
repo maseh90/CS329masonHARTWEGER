@@ -252,6 +252,8 @@ class SOLUTION:
         name_new = self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
         joint_name_limb_list.append(name_new)
         if j == 0:
+          print("BRANCHING ON")
+          print(self.limb_names[i][j])
           name_link_torso =  self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
           name_link_torso_second = names_body_elements[0] + "_" + self.limb_names[i][j]
           pyrosim.Send_Joint(name = name_link_torso_second , parent=names_body_elements[0] , child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
