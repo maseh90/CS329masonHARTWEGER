@@ -322,7 +322,7 @@ class SOLUTION:
       for currentRow in sensor_neurons:
         for currentColumn in motor_neurons:
           self.limb_weights[currentRow].append( 2*random.random() - 1 )
-          pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn, weight = self.limb_weights[currentRow-1][currentColumn-sensor_name_index-1] )
+          pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn, weight = self.limb_weights[currentRow-1][currentColumn-sensor_name_index_limbs-1] )
       sensor_name_index_limbs = 0
       motor_name_index_limbs = 0
     pyrosim.End()
