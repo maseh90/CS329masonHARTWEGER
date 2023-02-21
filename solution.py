@@ -104,6 +104,13 @@ class SOLUTION:
         self.limb_dimensions_z[i].append(round(random.uniform(0.1,2),2))
         self.orientation_with_respect_to_first_limbs[i].append(random.randint(1,5))
       self.orientation_with_respect_to_first_limbs[i][0] = 1
+      self.limb_joint_element_x[i][0] = 0
+      self.limb_joint_element_y[i][0] = 0
+      self.limb_joint_element_z[i][0] = 0
+      self.limb_positions_x[i][0] = 0
+      self.limb_positions_y[i][0] = 0
+      self.limb_positions_z[i][0] = 0
+    
     body_element_x[0] = 0
     body_element_z[0] = 1.5
     self.orientation_with_respect_to_first[0] = 1
@@ -156,12 +163,50 @@ class SOLUTION:
           #body_element_x[i+1] = body_element_width[i+1]/2
           body_element_z[i+1] = -1*body_element_height[i+1]/2
     for i in range(self.number_limbs):
-      
       for j in range(self.number_elements_per_limb[i]-1):
         if self.number_elements_per_limb[i] == 1:
           continue
         if (i >= (self.number_elements_per_limb[i]-2)):
           continue
+        if self.orientation_with_respect_to_first_limbs[i][j+1] == 1:
+          self.limb_joint_element_x[i][j+1] = self.limb_dimensions_x[i][j+1]
+          self.limb_positions_x[i][j+1] = self.limb_dimensions_x[i][j+1]/2
+        elif self.orientation_with_respect_to_first_limbs[i][j+1] == 2:
+          if self.orientation_with_respect_to_first_limbs[i][j] == 2:
+            self.limb_joint_element_y[i][j+1] = self.limb_dimensions_y[i][j+1]
+            self.limb_positions_y[i][j+1] = self.limb_dimensions_y[i][j+1]/2
+          else:
+            self.limb_joint_element_x[i][j+1] = self.limb_dimensions_x[i][j]/2
+            self.limb_joint_element_y[i][j+1] = self.limb_dimensions_y[i][j]/2
+            #body_element_x[i+1] = body_element_width[i+1]/2
+            self.limb_positions_y[i][j+1] = self.limb_dimensions_y[i][j+1]/2
+        elif self.orientation_with_respect_to_first_limbs[i][j+1] == 3:
+          if self.orientation_with_respect_to_first_limbs[i][j] == 3:
+            self.limb_joint_element_y[i][j+1] = -self.limb_dimensions_y[i][j+1]
+            self.limb_positions_y[i][j+1] = -self.limb_dimensions_y[i][j+1]/2
+          else:
+            self.limb_joint_element_x[i][j+1] = self.limb_dimensions_x[i][j+1]/2
+            self.limb_joint_element_y[i][j+1] = -1*self.limb_dimensions_y[i][j]/2
+            #body_element_x[i+1] = body_element_width[i+1]/2
+            self.limb_positions_y[i][j+1] = -1*self.limb_dimensions_y[i][j+1]/2
+        elif self.orientation_with_respect_to_first_limbs[i][j+1] == 4:
+          if self.orientation_with_respect_to_first_limbs[i][j] == 4:
+            self.limb_joint_element_z[i][j+1] = self.limb_dimensions_z[i][j+1]
+            self.limb_positions_z[i][j+1] = self.limb_dimensions_z[i][j+1]/2
+          else:
+            self.limb_joint_element_x[i][j+1] = self.limb_dimensions_x[i][j]/2
+            self.limb_joint_element_z[i][j+1] = self.limb_dimensions_z[i][j]/2
+            #body_element_x[i+1] = body_element_width[i+1]/2
+            self.limb_positions_z[i][j+1] = self.limb_dimensions_z[i][j+1]/2
+        elif self.orientation_with_respect_to_first_limbs[i][j+1] == 5:
+          if self.orientation_with_respect_to_first_limbs[i][j] == 5:
+            self.limb_joint_element_z[i][j+1] = -self.limb_dimensions_z[i][j+1]
+            self.limb_positions_z[i][j+1] = -self.limb_dimensions_z[i][j+1]/2
+          else:
+            self.limb_joint_element_x[i][j+1] = self.limb_dimensions_x[i][j]/2
+            self.limb_joint_element_z[i][j+1] = -1*self.limb_dimensions_z[i][j]/2
+            #body_element_x[i+1] = body_element_width[i+1]/2
+            self.limb_positions_z[i][j+1] = -1*self.limb_dimensions_z[i][j+1]/2
         
     joint_name_list = []
     for i in range(number_body_elements):
