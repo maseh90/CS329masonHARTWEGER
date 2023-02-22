@@ -16,8 +16,8 @@ class SOLUTION:
       self.touch_sensor_no_sensor_new[i] = random.randint(0,1)
       if self.touch_sensor_no_sensor_new[i] == 1:
         self.numSensor_Neurons = self.numSensor_Neurons + 1
-    print("ORIENTATIONS OF MAIN LIMBS WITH RESPECT TO EACH OTHER")
-    print(self.orientation_with_respect_to_first)
+    #print("ORIENTATIONS OF MAIN LIMBS WITH RESPECT TO EACH OTHER")
+    #print(self.orientation_with_respect_to_first)
     self.numMotor_Neurons = self.body_num_el - 1
     self.weights = 2 * numpy.random.rand(self.numSensor_Neurons,self.numMotor_Neurons) - 1
     
@@ -60,8 +60,8 @@ class SOLUTION:
       for j in range(self.number_elements_per_limb[i] ):
         self.limb_sensors[i][j] = random.randint(0,1)
       self.limb_weights.append([])
-    print("Number elements per limb")
-    print(self.number_elements_per_limb)
+    #print("Number elements per limb")
+    #print(self.number_elements_per_limb)
     #self.weights = self.weights * 2 - 1
     self.myID = idChosen
     #print(self.weights)
@@ -124,8 +124,8 @@ class SOLUTION:
       #self.limb_positions_x[i][0] = 0
       #self.limb_positions_y[i][0] = 0
       #self.limb_positions_z[i][0] = 0
-    print("LOCATION ON MAIN BODY LIMB")
-    print(self.location_on_main_body_limb)
+    #print("LOCATION ON MAIN BODY LIMB")
+    #print(self.location_on_main_body_limb)
     body_element_x[0] = 0
     body_element_z[0] = 5
     self.orientation_with_respect_to_first[0] = 1
@@ -239,8 +239,8 @@ class SOLUTION:
       name_new = names_body_elements[i] + "_" + names_body_elements[i+1]
       joint_name_list.append(name_new)
       pyrosim.Send_Joint(name = name_new , parent= names_body_elements[i] , child = names_body_elements[i+1] , type = "revolute", position = [joint_element_x[i],joint_element_y[i],joint_element_z[i]], jointAxis = "0 0 1")
-    print("NAMES BODY ELEMENTS")
-    print(names_body_elements)
+    #print("NAMES BODY ELEMENTS")
+    #print(names_body_elements)
     for i in range(self.number_limbs):
       for j in range(self.number_elements_per_limb[i]):
         if self.limb_sensors[i][j]:
@@ -255,10 +255,10 @@ class SOLUTION:
           break
         
         if j == 0:
-          print("BRANCHING ON")
-          print(self.limb_names[i][j])
-          print("CONNECTING TO")
-          print(names_body_elements[self.location_on_main_body_limb[i]])
+          #print("BRANCHING ON")
+          #print(self.limb_names[i][j])
+          #print("CONNECTING TO")
+          #print(names_body_elements[self.location_on_main_body_limb[i]])
           name_link_torso =  names_body_elements[self.location_on_main_body_limb[i]] + "_" + self.limb_names[i][j]
           name_link_torso_2 =  self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
           self.joint_name_limb_list[i][j] = name_link_torso
@@ -277,7 +277,9 @@ class SOLUTION:
     self.Create_Brain(joint_name_list,number_body_elements,names_body_elements,body_element_width,body_element_length,body_element_height,touch_sensor_no_sensor)
     
   def Create_Brain(self,joint_name_list,number_body_elements,names_body_elements,body_element_width,body_element_length,body_element_height,touch_sensor_no_sensor):
+    
     brain_file = "brain" + str(self.myID) + ".nndf"
+    #print("creating brain")
     pyrosim.Start_NeuralNetwork(brain_file)
     sensor_name_index = 0
     for i in range(number_body_elements):
