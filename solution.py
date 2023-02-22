@@ -279,7 +279,7 @@ class SOLUTION:
   def Create_Brain(self,joint_name_list,number_body_elements,names_body_elements,body_element_width,body_element_length,body_element_height,touch_sensor_no_sensor):
     
     brain_file = "brain" + str(self.myID) + ".nndf"
-    #print("creating brain")
+    print("creating brain")
     pyrosim.Start_NeuralNetwork(brain_file)
     sensor_name_index = 0
     for i in range(number_body_elements):
