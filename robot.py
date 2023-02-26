@@ -68,7 +68,7 @@ class ROBOT:
     #xPosition = basePosition[0]
     open_file = "tmp" + str(self.solutionID) + ".txt"
     f = open(open_file, "w")
-    f.write(str(xCoordinateOfLinkZero))
+    f.write(str(xCoordinateOfLinkZero_difference))
     f.close()
     command_move = "mv " + "tmp" + str(self.solutionID) + ".txt " + "fitness" + str(self.solutionID) + ".txt"
     os.system(command_move)
