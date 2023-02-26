@@ -279,7 +279,7 @@ class SOLUTION:
           self.joint_name_limb_list[i][j] = name_link_torso_second
           pyrosim.Send_Joint(name = name_link_torso_second , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
     pyrosim.End()
-    self.Create_Brain(joint_name_list,number_body_elements,names_body_elements,body_element_width,body_element_length,body_element_height,touch_sensor_no_sensor)
+    self.Create_Brain()
     
   def Create_Brain(self):
     
