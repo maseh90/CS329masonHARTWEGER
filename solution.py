@@ -62,7 +62,7 @@ class SOLUTION:
       for j in range(self.number_elements_per_limb[i] ):
         self.limb_sensors[i][j] = random.randint(0,1)
       self.limb_weights.append([])
-      self.numMotorNeurons[i] = self.number_elements_per_limb[i]
+      self.numMotorNeurons[i] = self.number_elements_per_limb[i]-1
       self.numSensorNeurons[i] = sum(self.limb_sensors[i])
     #print("Number elements per limb")
     #print(self.number_elements_per_limb)
