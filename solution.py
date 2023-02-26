@@ -363,8 +363,10 @@ class SOLUTION:
     if remove_limb_binary > 0.5:
       if self.number_elements_per_limb[limb_selected] == 1:
         self.limb_names[limb_selected].pop()
-        self.joint_name_limb_list[limb_selected].pop()
-        self.joint_name_limb_list[limb_selected].pop()
+        if len(self.joint_name_limb_list[limb_selected]) != 0:
+          self.joint_name_limb_list[limb_selected].pop()
+        if len(self.joint_name_limb_list[limb_selected]) != 0:
+          self.joint_name_limb_list[limb_selected].pop()
       self.number_elements_per_limb[limb_selected] = self.number_elements_per_limb[limb_selected] - 1
       if len(self.joint_name_limb_list[limb_selected]) != 0:
         self.joint_name_limb_list[limb_selected].pop()
