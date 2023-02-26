@@ -107,18 +107,18 @@ class SOLUTION:
     joint_element_z = [0]*(number_body_elements-1)
     touch_sensor_no_sensor = self.touch_sensor_no_sensor_new
     for i in range(number_body_elements):
-      body_element_width[i] = round(random.uniform(0.1,0.5),2)
-      body_element_length[i] = round(random.uniform(0.1,0.5),2)
-      body_element_height[i] = round(random.uniform(0.1,0.5),2)
+      body_element_width[i] = round(random.uniform(0.1,0.5),3)
+      body_element_length[i] = round(random.uniform(0.1,0.5),3)
+      body_element_height[i] = round(random.uniform(0.1,0.5),3)
       #touch_sensor_no_sensor[i] = random.randint(0,1)
       names_body_elements[i] = str(i)
     ii = number_body_elements
     for i in range(self.number_limbs):
       self.location_on_main_body_limb[i] = random.randint(0,number_body_elements-1)
       for j in range(self.number_elements_per_limb[i]):
-        self.limb_dimensions_x[i][j] = (round(random.uniform(0.1,0.5),2))
-        self.limb_dimensions_y[i][j] = (round(random.uniform(0.1,0.5),2))
-        self.limb_dimensions_z[i][j] = (round(random.uniform(0.1,0.5),2))
+        self.limb_dimensions_x[i][j] = (round(random.uniform(0.1,0.5),3))
+        self.limb_dimensions_y[i][j] = (round(random.uniform(0.1,0.5),3))
+        self.limb_dimensions_z[i][j] = (round(random.uniform(0.1,0.5),3))
         self.orientation_with_respect_to_first_limbs[i][j] = (random.randint(2,5))
         self.limb_names[i][j] = str(ii)
         ii = ii + 1
@@ -144,11 +144,11 @@ class SOLUTION:
         continue
       
       if self.orientation_with_respect_to_first[i+1] == 1:
-        joint_element_x[i+1] = body_element_width[i+1]
+        joint_element_x[i+1] = body_element_width[i+1]/2
         body_element_x[i+1] = body_element_width[i+1]/2
       elif self.orientation_with_respect_to_first[i+1] == 2:
         if self.orientation_with_respect_to_first[i] == 2:
-          joint_element_y[i+1] = body_element_length[i+1]
+          joint_element_y[i+1] = body_element_length[i+1]/2
           body_element_y[i+1] = body_element_length[i+1]/2
         else:
           joint_element_x[i+1] = body_element_width[i]/2
@@ -157,7 +157,7 @@ class SOLUTION:
           body_element_y[i+1] = body_element_length[i+1]/2
       elif self.orientation_with_respect_to_first[i+1] == 3:
         if self.orientation_with_respect_to_first[i] == 3:
-          joint_element_y[i+1] = -body_element_length[i+1]
+          joint_element_y[i+1] = -body_element_length[i+1]/2
           body_element_y[i+1] = -body_element_length[i+1]/2
         else:
           joint_element_x[i+1] = body_element_width[i]/2
@@ -166,7 +166,7 @@ class SOLUTION:
           body_element_y[i+1] = -1*body_element_length[i+1]/2
       elif self.orientation_with_respect_to_first[i+1] == 4:
         if self.orientation_with_respect_to_first[i] == 4:
-          joint_element_z[i+1] = body_element_height[i+1]
+          joint_element_z[i+1] = body_element_height[i+1]/2
           body_element_z[i+1] = body_element_height[i+1]/2
         else:
           joint_element_x[i+1] = body_element_width[i]/2
@@ -175,7 +175,7 @@ class SOLUTION:
           body_element_z[i+1] = body_element_height[i+1]/2
       elif self.orientation_with_respect_to_first[i+1] == 5:
         if self.orientation_with_respect_to_first[i] == 5:
-          joint_element_z[i+1] = -body_element_height[i+1]
+          joint_element_z[i+1] = -body_element_height[i+1]/2
           body_element_z[i+1] = -body_element_height[i+1]/2
         else:
           joint_element_x[i+1] = body_element_width[i]/2
@@ -189,11 +189,11 @@ class SOLUTION:
         if (i >= (self.number_elements_per_limb[i]-2)):
           continue
         if self.orientation_with_respect_to_first_limbs[i][j+1] == 1:
-          self.limb_joint_element_x[i][j+1] = self.limb_dimensions_x[i][j+1]
+          self.limb_joint_element_x[i][j+1] = self.limb_dimensions_x[i][j+1]/2
           self.limb_positions_x[i][j+1] = self.limb_dimensions_x[i][j+1]/2
         elif self.orientation_with_respect_to_first_limbs[i][j+1] == 2:
           if self.orientation_with_respect_to_first_limbs[i][j] == 2:
-            self.limb_joint_element_y[i][j+1] = self.limb_dimensions_y[i][j+1]
+            self.limb_joint_element_y[i][j+1] = self.limb_dimensions_y[i][j+1]/2
             self.limb_positions_y[i][j+1] = self.limb_dimensions_y[i][j+1]/2
           else:
             self.limb_joint_element_x[i][j+1] = self.limb_dimensions_x[i][j]/2
@@ -202,7 +202,7 @@ class SOLUTION:
             self.limb_positions_y[i][j+1] = self.limb_dimensions_y[i][j+1]/2
         elif self.orientation_with_respect_to_first_limbs[i][j+1] == 3:
           if self.orientation_with_respect_to_first_limbs[i][j] == 3:
-            self.limb_joint_element_y[i][j+1] = -self.limb_dimensions_y[i][j+1]
+            self.limb_joint_element_y[i][j+1] = -self.limb_dimensions_y[i][j+1]/2
             self.limb_positions_y[i][j+1] = -self.limb_dimensions_y[i][j+1]/2
           else:
             self.limb_joint_element_x[i][j+1] = self.limb_dimensions_x[i][j]/2
@@ -211,7 +211,7 @@ class SOLUTION:
             self.limb_positions_y[i][j+1] = -1*self.limb_dimensions_y[i][j+1]/2
         elif self.orientation_with_respect_to_first_limbs[i][j+1] == 4:
           if self.orientation_with_respect_to_first_limbs[i][j] == 4:
-            self.limb_joint_element_z[i][j+1] = self.limb_dimensions_z[i][j+1]
+            self.limb_joint_element_z[i][j+1] = self.limb_dimensions_z[i][j+1]/2
             self.limb_positions_z[i][j+1] = self.limb_dimensions_z[i][j+1]/2
           else:
             self.limb_joint_element_x[i][j+1] = self.limb_dimensions_x[i][j]/2
@@ -220,7 +220,7 @@ class SOLUTION:
             self.limb_positions_z[i][j+1] = self.limb_dimensions_z[i][j+1]/2
         elif self.orientation_with_respect_to_first_limbs[i][j+1] == 5:
           if self.orientation_with_respect_to_first_limbs[i][j] == 5:
-            self.limb_joint_element_z[i][j+1] = -self.limb_dimensions_z[i][j+1]
+            self.limb_joint_element_z[i][j+1] = -self.limb_dimensions_z[i][j+1]/2
             self.limb_positions_z[i][j+1] = -self.limb_dimensions_z[i][j+1]/2
           else:
             self.limb_joint_element_x[i][j+1] = self.limb_dimensions_x[i][j]/2
