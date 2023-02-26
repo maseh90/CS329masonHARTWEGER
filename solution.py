@@ -94,27 +94,27 @@ class SOLUTION:
   def Create_Body_and_Brain(self):
     body_file = "body" + str(self.myID) + ".urdf"
     pyrosim.Start_URDF(body_file)
-    number_body_elements = self.body_num_el
-    names_body_elements = ["0"]*number_body_elements
-    body_element_width = [0]*number_body_elements
-    body_element_length = [0]*number_body_elements
-    body_element_height = [0]*number_body_elements
-    body_element_x = [0]*number_body_elements # this will change, build in +x directiomn
-    body_element_y = [0]*number_body_elements
-    body_element_z = [0]*number_body_elements
-    joint_element_x = [0]*(number_body_elements-1) # this will change, build in +x directiomn
-    joint_element_y = [0]*(number_body_elements-1)
-    joint_element_z = [0]*(number_body_elements-1)
-    touch_sensor_no_sensor = self.touch_sensor_no_sensor_new
-    for i in range(number_body_elements):
-      body_element_width[i] = round(random.uniform(0.1,0.5),3)
-      body_element_length[i] = round(random.uniform(0.1,0.5),3)
-      body_element_height[i] = round(random.uniform(0.1,0.5),3)
+    self.number_body_elements = self.body_num_el
+    self.names_body_elements = ["0"]*self.number_body_elements
+    self.body_element_width = [0]*self.number_body_elements
+    self.body_element_length = [0]*self.number_body_elements
+    self.body_element_height = [0]*self.number_body_elements
+    self.body_element_x = [0]*self.number_body_elements # this will change, build in +x directiomn
+    self.body_element_y = [0]*self.number_body_elements
+    self.body_element_z = [0]*self.number_body_elements
+    self.joint_element_x = [0]*(self.number_body_elements-1) # this will change, build in +x directiomn
+    self.joint_element_y = [0]*(self.number_body_elements-1)
+    self.joint_element_z = [0]*(self.number_body_elements-1)
+    self.touch_sensor_no_sensor = self.touch_sensor_no_sensor_new
+    for i in range(self.number_body_elements):
+      self.body_element_width[i] = round(random.uniform(0.1,0.5),3)
+      self.body_element_length[i] = round(random.uniform(0.1,0.5),3)
+      self.body_element_height[i] = round(random.uniform(0.1,0.5),3)
       #touch_sensor_no_sensor[i] = random.randint(0,1)
-      names_body_elements[i] = str(i)
-    ii = number_body_elements
+      self.names_body_elements[i] = str(i)
+    ii = self.number_body_elements
     for i in range(self.number_limbs):
-      self.location_on_main_body_limb[i] = random.randint(0,number_body_elements-1)
+      self.location_on_main_body_limb[i] = random.randint(0,self.number_body_elements-1)
       for j in range(self.number_elements_per_limb[i]):
         self.limb_dimensions_x[i][j] = (round(random.uniform(0.1,0.5),3))
         self.limb_dimensions_y[i][j] = (round(random.uniform(0.1,0.5),3))
@@ -131,57 +131,57 @@ class SOLUTION:
       #self.limb_positions_z[i][0] = 0
     #print("LOCATION ON MAIN BODY LIMB")
     #print(self.location_on_main_body_limb)
-    body_element_x[0] = 0
-    body_element_z[0] = 3
+    self.body_element_x[0] = 0
+    self.body_element_z[0] = 3
     self.orientation_with_respect_to_first[0] = 1
-    if number_body_elements != 1:
-      joint_element_x[0] = 0 + body_element_width[0]/2
-      joint_element_z[0] = 3
-    for i in range(number_body_elements-1):
-      if number_body_elements == 1:
+    if self.number_body_elements != 1:
+      self.joint_element_x[0] = 0 + self.body_element_width[0]/2
+      self.joint_element_z[0] = 3
+    for i in range(self.number_body_elements-1):
+      if self.number_body_elements == 1:
         continue
-      if (i >= (number_body_elements-2)):
+      if (i >= (self.number_body_elements-2)):
         continue
       
       if self.orientation_with_respect_to_first[i+1] == 1:
-        joint_element_x[i+1] = body_element_width[i+1]/2
-        body_element_x[i+1] = body_element_width[i+1]/2
+        self.joint_element_x[i+1] = self.body_element_width[i+1]/2
+        self.body_element_x[i+1] = self.body_element_width[i+1]/2
       elif self.orientation_with_respect_to_first[i+1] == 2:
         if self.orientation_with_respect_to_first[i] == 2:
-          joint_element_y[i+1] = body_element_length[i+1]/2
-          body_element_y[i+1] = body_element_length[i+1]/2
+          self.joint_element_y[i+1] = self.body_element_length[i+1]/2
+          self.body_element_y[i+1] = self.body_element_length[i+1]/2
         else:
-          joint_element_x[i+1] = body_element_width[i]/2
-          joint_element_y[i+1] = body_element_length[i]/2
+          self.joint_element_x[i+1] = self.body_element_width[i]/2
+          self.joint_element_y[i+1] = self.body_element_length[i]/2
           #body_element_x[i+1] = body_element_width[i+1]/2
-          body_element_y[i+1] = body_element_length[i+1]/2
+          self.body_element_y[i+1] = self.body_element_length[i+1]/2
       elif self.orientation_with_respect_to_first[i+1] == 3:
         if self.orientation_with_respect_to_first[i] == 3:
-          joint_element_y[i+1] = -body_element_length[i+1]/2
-          body_element_y[i+1] = -body_element_length[i+1]/2
+          self.joint_element_y[i+1] = -self.body_element_length[i+1]/2
+          self.body_element_y[i+1] = -self.body_element_length[i+1]/2
         else:
-          joint_element_x[i+1] = body_element_width[i]/2
-          joint_element_y[i+1] = -1*body_element_length[i]/2
+          self.joint_element_x[i+1] = self.body_element_width[i]/2
+          self.joint_element_y[i+1] = -1*self.body_element_length[i]/2
           #body_element_x[i+1] = body_element_width[i+1]/2
-          body_element_y[i+1] = -1*body_element_length[i+1]/2
+          self.body_element_y[i+1] = -1*self.body_element_length[i+1]/2
       elif self.orientation_with_respect_to_first[i+1] == 4:
         if self.orientation_with_respect_to_first[i] == 4:
-          joint_element_z[i+1] = body_element_height[i+1]/2
-          body_element_z[i+1] = body_element_height[i+1]/2
+          self.joint_element_z[i+1] = self.body_element_height[i+1]/2
+          self.body_element_z[i+1] = self.body_element_height[i+1]/2
         else:
-          joint_element_x[i+1] = body_element_width[i]/2
-          joint_element_z[i+1] = body_element_height[i]/2
+          self.joint_element_x[i+1] = self.body_element_width[i]/2
+          self.joint_element_z[i+1] = self.body_element_height[i]/2
           #body_element_x[i+1] = body_element_width[i+1]/2
-          body_element_z[i+1] = body_element_height[i+1]/2
+          self.body_element_z[i+1] = self.body_element_height[i+1]/2
       elif self.orientation_with_respect_to_first[i+1] == 5:
         if self.orientation_with_respect_to_first[i] == 5:
-          joint_element_z[i+1] = -body_element_height[i+1]/2
-          body_element_z[i+1] = -body_element_height[i+1]/2
+          self.joint_element_z[i+1] = -self.body_element_height[i+1]/2
+          self.body_element_z[i+1] = -self.body_element_height[i+1]/2
         else:
-          joint_element_x[i+1] = body_element_width[i]/2
-          joint_element_z[i+1] = -1*body_element_height[i]/2
+          self.joint_element_x[i+1] = self.body_element_width[i]/2
+          self.joint_element_z[i+1] = -1*self.body_element_height[i]/2
           #body_element_x[i+1] = body_element_width[i+1]/2
-          body_element_z[i+1] = -1*body_element_height[i+1]/2
+          self.body_element_z[i+1] = -1*self.body_element_height[i+1]/2
     for i in range(self.number_limbs):
       for j in range(self.number_elements_per_limb[i]-1):
         if self.number_elements_per_limb[i] == 1:
@@ -230,20 +230,20 @@ class SOLUTION:
    
     
     
-    joint_name_list = []
-    for i in range(number_body_elements):
+    self.joint_name_list = []
+    for i in range(self.number_body_elements):
       #print(touch_sensor_no_sensor)
-      if touch_sensor_no_sensor[i]:
-        pyrosim.Send_Cube(name=names_body_elements[i], pos=[body_element_x[i],body_element_y[i],body_element_z[i]], size=[body_element_width[i],body_element_length[i],body_element_height[i]],COLOR_NAME="Green",RED="0.0",GREEN="1.0",BLUE="0.0")
+      if self.touch_sensor_no_sensor[i]:
+        pyrosim.Send_Cube(name=self.names_body_elements[i], pos=[self.body_element_x[i],self.body_element_y[i],self.body_element_z[i]], size=[self.body_element_width[i],self.body_element_length[i],self.body_element_height[i]],COLOR_NAME="Green",RED="0.0",GREEN="1.0",BLUE="0.0")
       else:
-        pyrosim.Send_Cube(name=names_body_elements[i], pos=[body_element_x[i],body_element_y[i],body_element_z[i]], size=[body_element_width[i],body_element_length[i],body_element_height[i]],COLOR_NAME="Blue",RED="0.0",GREEN="0.0",BLUE="1.0")
-      if (number_body_elements == 1):
+        pyrosim.Send_Cube(name=self.names_body_elements[i], pos=[self.body_element_x[i],self.body_element_y[i],self.body_element_z[i]], size=[self.body_element_width[i],self.body_element_length[i],self.body_element_height[i]],COLOR_NAME="Blue",RED="0.0",GREEN="0.0",BLUE="1.0")
+      if (self.number_body_elements == 1):
         break
-      if (i >= (number_body_elements - 1)): # add -1
+      if (i >= (self.number_body_elements - 1)): # add -1
         break
-      name_new = names_body_elements[i] + "_" + names_body_elements[i+1]
-      joint_name_list.append(name_new)
-      pyrosim.Send_Joint(name = name_new , parent= names_body_elements[i] , child = names_body_elements[i+1] , type = "revolute", position = [joint_element_x[i],joint_element_y[i],joint_element_z[i]], jointAxis = "0 0 1")
+      name_new = self.names_body_elements[i] + "_" + self.names_body_elements[i+1]
+      self.joint_name_list.append(name_new)
+      pyrosim.Send_Joint(name = name_new , parent= self.names_body_elements[i] , child = self.names_body_elements[i+1] , type = "revolute", position = [self.joint_element_x[i],self.joint_element_y[i],self.joint_element_z[i]], jointAxis = "0 0 1")
     #print("NAMES BODY ELEMENTS")
     #print(names_body_elements)
     for i in range(self.number_limbs):
@@ -264,13 +264,13 @@ class SOLUTION:
           #print(self.limb_names[i][j])
           #print("CONNECTING TO")
           #print(names_body_elements[self.location_on_main_body_limb[i]])
-          name_link_torso =  names_body_elements[self.location_on_main_body_limb[i]] + "_" + self.limb_names[i][j]
+          name_link_torso =  self.names_body_elements[self.location_on_main_body_limb[i]] + "_" + self.limb_names[i][j]
           name_link_torso_2 =  self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
           self.joint_name_limb_list[i][j] = name_link_torso
           self.joint_name_limb_list[i][j] = name_link_torso_2
           #name_link_torso_second = names_body_elements[0] + "_" + self.limb_names[i][j]
           #pyrosim.Send_Joint(name = name_link_torso_second , parent=names_body_elements[0] , child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
-          pyrosim.Send_Joint(name = name_link_torso , parent= names_body_elements[self.location_on_main_body_limb[i]], child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
+          pyrosim.Send_Joint(name = name_link_torso , parent= self.names_body_elements[self.location_on_main_body_limb[i]], child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
           pyrosim.Send_Joint(name = name_link_torso_2 , parent= self.limb_names[i][j], child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
           #pyrosim.Send_Joint(name = name_new , parent= names_body_elements[self.location_on_main_body_limb[i]] , child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
         else:
@@ -281,7 +281,7 @@ class SOLUTION:
     pyrosim.End()
     self.Create_Brain(joint_name_list,number_body_elements,names_body_elements,body_element_width,body_element_length,body_element_height,touch_sensor_no_sensor)
     
-  def Create_Brain(self,joint_name_list,number_body_elements,names_body_elements,body_element_width,body_element_length,body_element_height,touch_sensor_no_sensor):
+  def Create_Brain(self):
     
     brain_file = "brain" + str(self.myID) + ".nndf"
     print("creating brain")
@@ -361,9 +361,11 @@ class SOLUTION:
     if remove_limb_binary > 0.5:
       self.number_elements_per_limb[limb_selected] = self.number_elements_per_limb[limb_selected] - 1
       self.joint_name_limb_list[limb_selected].pop()
+      
     # add limb element possibly
       
-      
+  def Create_New_Updated_Brain_and_Body(self):
+    
       
   def Set_ID(self,valueChosen):
     self.myID = valueChosen
