@@ -12,7 +12,8 @@ import os
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 class ROBOT:
   def __init__(self,solutionID):
-    self.robotId = p.loadURDF("body.urdf")
+    body_file = "body" + str(solutionID) + ".urdf"
+    self.robotId = p.loadURDF(body_file)
     pyrosim.Prepare_To_Simulate(self.robotId)
 
     self.Prepare_To_Sense()
