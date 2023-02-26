@@ -267,7 +267,7 @@ class SOLUTION:
           name_link_torso =  self.names_body_elements[self.location_on_main_body_limb[i]] + "_" + self.limb_names[i][j]
           name_link_torso_2 =  self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
           self.joint_name_limb_list[i][j] = name_link_torso
-          self.joint_name_limb_list[i][j] = name_link_torso_2
+          self.joint_name_limb_list[i][j+1] = name_link_torso_2
           #name_link_torso_second = names_body_elements[0] + "_" + self.limb_names[i][j]
           #pyrosim.Send_Joint(name = name_link_torso_second , parent=names_body_elements[0] , child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
           pyrosim.Send_Joint(name = name_link_torso , parent= self.names_body_elements[self.location_on_main_body_limb[i]], child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
@@ -361,11 +361,42 @@ class SOLUTION:
     if remove_limb_binary > 0.5:
       self.number_elements_per_limb[limb_selected] = self.number_elements_per_limb[limb_selected] - 1
       self.joint_name_limb_list[limb_selected].pop()
+      self.Create_New_Updated_Brain_and_Body()
       
     # add limb element possibly
       
   def Create_New_Updated_Brain_and_Body(self):
-    pass
+    body_file = "body" + str(self.myID) + ".urdf"
+    pyrosim.Start_URDF(body_file)
+    for i in range(self.number_body_elements):
+      if self.touch_sensor_no_sensor[i]:
+        pyrosim.Send_Cube(name=self.names_body_elements[i], pos=[self.body_element_x[i],self.body_element_y[i],self.body_element_z[i]], size=[self.body_element_width[i],self.body_element_length[i],self.body_element_height[i]],COLOR_NAME="Green",RED="0.0",GREEN="1.0",BLUE="0.0")
+      else:
+        pyrosim.Send_Cube(name=self.names_body_elements[i], pos=[self.body_element_x[i],self.body_element_y[i],self.body_element_z[i]], size=[self.body_element_width[i],self.body_element_length[i],self.body_element_height[i]],COLOR_NAME="Blue",RED="0.0",GREEN="0.0",BLUE="1.0")
+      if (self.number_body_elements == 1):
+        break
+      if (i >= (self.number_body_elements - 1)): # add -1
+        break
+      pyrosim.Send_Joint(name = self.joint_name_list[i] , parent= self.names_body_elements[i] , child = self.names_body_elements[i+1] , type = "revolute", position = [self.joint_element_x[i],self.joint_element_y[i],self.joint_element_z[i]], jointAxis = "0 0 1")
+    for i in range(self.number_limbs):
+      for j in range(self.number_elements_per_limb[i]):
+        if self.limb_sensors[i][j]:
+          #pass
+          pyrosim.Send_Cube(name=self.limb_names[i][j], pos=[self.limb_positions_x[i][j],self.limb_positions_y[i][j],self.limb_positions_z[i][j]], size=[self.limb_dimensions_x[i][j],self.limb_dimensions_y[i][j],self.limb_dimensions_z[i][j]],COLOR_NAME="Green",RED="0.0",GREEN="1.0",BLUE="0.0")
+        else:
+          #pass
+          pyrosim.Send_Cube(name=self.limb_names[i][j], pos=[self.limb_positions_x[i][j],self.limb_positions_y[i][j],self.limb_positions_z[i][j]], size=[self.limb_dimensions_x[i][j],self.limb_dimensions_y[i][j],self.limb_dimensions_z[i][j]],COLOR_NAME="Blue",RED="0.0",GREEN="0.0",BLUE="1.0")
+        if (self.number_elements_per_limb[i] == 1):
+          break
+        if (j >= (self.number_elements_per_limb[i] - 1)): # add -1
+          break
+        
+        if j == 0:
+          pyrosim.Send_Joint(name = self.joint_name_limb_list[i][j] , parent= self.names_body_elements[self.location_on_main_body_limb[i]], child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
+          pyrosim.Send_Joint(name = self.joint_name_limb_list[i][j+1] , parent= self.limb_names[i][j], child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
+        else:
+          pyrosim.Send_Joint(name = self.joint_name_limb_list[i][j] , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
+    pyrosim.End()
       
   def Set_ID(self,valueChosen):
     self.myID = valueChosen
