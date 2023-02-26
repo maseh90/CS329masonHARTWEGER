@@ -40,6 +40,8 @@ class SOLUTION:
     self.limb_names = []
     self.joint_name_limb_list = []
     self.limb_weights = []
+    self.numSensorNeurons = []*self.number_limbs
+    self.numMotorNeurons = []*self.number_limbs
     for i in range(self.number_limbs):
       self.number_elements_per_limb[i] = random.randint(2,7) # simple number
       self.location_on_main_body_limb[i] = random.randint(0,self.body_num_el-1) # index
@@ -60,6 +62,8 @@ class SOLUTION:
       for j in range(self.number_elements_per_limb[i] ):
         self.limb_sensors[i][j] = random.randint(0,1)
       self.limb_weights.append([])
+      self.numMotorNeurons[i] = self.number_elements_per_limb[i]
+      self.numSensorNeurons[i] = sum(self.limb_sensors[i])
     #print("Number elements per limb")
     #print(self.number_elements_per_limb)
     #self.weights = self.weights * 2 - 1
@@ -326,6 +330,19 @@ class SOLUTION:
     pyrosim.End()
     
   def Mutate(self):
+    #body
+    if self.numSensor_Neurons-1 == 0 or self.numSensor_Neurons-1 == -1:
+      row_chosen = 0
+    else:
+      row_chosen = random.randint(0,self.numSensor_Neurons-1)
+    if self.numMotor_Neurons-1 == 0 or self.numMotor_Neurons-1 == -1:
+      col_chosen = 0
+    else:
+      col_chosen = random.randint(0,self.numMotor_Neurons-1)
+    if self.numMotor_Neurons != 0 and self.numSensor_Neurons !=0:
+      self.weights[row_chosen][col_chosen] = random.random() * 2 - 1
+      
+    #limbs
     if self.numSensor_Neurons-1 == 0 or self.numSensor_Neurons-1 == -1:
       row_chosen = 0
     else:
