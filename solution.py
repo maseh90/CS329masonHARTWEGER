@@ -354,6 +354,16 @@ class SOLUTION:
         col_chosen = random.randint(0,self.numMotorNeurons[i]-1)
       if self.numMotorNeurons[i] != 0 and self.numSensorNeurons[i] !=0:
         self.limb_weights[i][row_chosen][col_chosen] = random.random() * 2 - 1
+    
+    # remove limb element possibly
+    limb_selected = random.randint(0,self.number_limbs-1)
+    remove_limb_binary = random.random()
+    if remove_limb_binary > 0.5:
+      self.number_elements_per_limb[limb_selected] = self.number_elements_per_limb[limb_selected] - 1
+    
+    # add limb element possibly
+      
+      
       
   def Set_ID(self,valueChosen):
     self.myID = valueChosen
