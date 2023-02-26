@@ -132,11 +132,11 @@ class SOLUTION:
     #print("LOCATION ON MAIN BODY LIMB")
     #print(self.location_on_main_body_limb)
     body_element_x[0] = 0
-    body_element_z[0] = 3
+    body_element_z[0] = 8
     self.orientation_with_respect_to_first[0] = 1
     if number_body_elements != 1:
       joint_element_x[0] = 0 + body_element_width[0]/2
-      joint_element_z[0] = 3
+      joint_element_z[0] = 8
     for i in range(number_body_elements-1):
       if number_body_elements == 1:
         continue
