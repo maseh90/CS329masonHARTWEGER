@@ -359,8 +359,8 @@ class SOLUTION:
     limb_selected = random.randint(0,self.number_limbs-1)
     remove_limb_binary = random.random()
     if remove_limb_binary > 0.5:
-      self.number_elements_per_limb[limb_selected] = self.number_elements_per_limb[limb_selected] - 1
-      self.joint_name_limb_list[limb_selected].pop()
+      #self.number_elements_per_limb[limb_selected] = self.number_elements_per_limb[limb_selected] - 1
+      #self.joint_name_limb_list[limb_selected].pop()
       self.Create_New_Updated_Brain_and_Body()
       
     # add limb element possibly
