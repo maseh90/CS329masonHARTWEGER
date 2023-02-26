@@ -347,7 +347,7 @@ class SOLUTION:
       if self.numSensorNeurons[i]-1 == 0 or self.numSensorNeurons[i]-1 == -1:
         row_chosen = 0
       else:
-        row_chosen = random.randint(0,self.numSensor_Neurons-1)
+        row_chosen = random.randint(0,self.numSensorNeurons[i]-1)
       if self.numMotorNeurons[i]-1 == 0 or self.numMotorNeurons[i]-1 == -1:
         col_chosen = 0
       else:
