@@ -343,16 +343,17 @@ class SOLUTION:
       self.weights[row_chosen][col_chosen] = random.random() * 2 - 1
       
     #limbs
-    if self.numSensor_Neurons-1 == 0 or self.numSensor_Neurons-1 == -1:
-      row_chosen = 0
-    else:
-      row_chosen = random.randint(0,self.numSensor_Neurons-1)
-    if self.numMotor_Neurons-1 == 0 or self.numMotor_Neurons-1 == -1:
-      col_chosen = 0
-    else:
-      col_chosen = random.randint(0,self.numMotor_Neurons-1)
-    if self.numMotor_Neurons != 0 and self.numSensor_Neurons !=0:
-      self.weights[row_chosen][col_chosen] = random.random() * 2 - 1
+    for i in range(self.number_limbs):
+      if self.numSensorNeurons[i]-1 == 0 or self.numSensorNeurons[i]-1 == -1:
+        row_chosen = 0
+      else:
+        row_chosen = random.randint(0,self.numSensor_Neurons-1)
+      if self.numMotorNeurons[i]-1 == 0 or self.numMotorNeurons[i]-1 == -1:
+        col_chosen = 0
+      else:
+        col_chosen = random.randint(0,self.numMotorNeurons[i]-1)
+      if self.numMotorNeurons[i] != 0 and self.numSensorNeurons[i] !=0:
+        self.limb_weights[i][row_chosen][col_chosen] = random.random() * 2 - 1
       
   def Set_ID(self,valueChosen):
     self.myID = valueChosen
