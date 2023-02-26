@@ -360,7 +360,7 @@ class SOLUTION:
     remove_limb_binary = random.random()
     if remove_limb_binary > 0.5:
       self.number_elements_per_limb[limb_selected] = self.number_elements_per_limb[limb_selected] - 1
-    
+      self.joint_name_limb_list[limb_selected].pop()
     # add limb element possibly
       
       
