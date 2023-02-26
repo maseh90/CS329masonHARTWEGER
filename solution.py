@@ -40,8 +40,8 @@ class SOLUTION:
     self.limb_names = []
     self.joint_name_limb_list = []
     self.limb_weights = []
-    self.numSensorNeurons = []*self.number_limbs
-    self.numMotorNeurons = []*self.number_limbs
+    self.numSensorNeurons = [0]*self.number_limbs
+    self.numMotorNeurons = [0]*self.number_limbs
     for i in range(self.number_limbs):
       self.number_elements_per_limb[i] = random.randint(2,7) # simple number
       self.location_on_main_body_limb[i] = random.randint(0,self.body_num_el-1) # index
