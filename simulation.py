@@ -33,4 +33,5 @@ class SIMULATION:
   def Get_Fitness(self):
     if self.fitness_call_number == 0:
       self.robot.fitness_call_number = 0
+    self.robot.fitness_call_number = self.robot.fitness_call_number + 1
     self.robot.Get_Fitness()
