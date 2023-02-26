@@ -19,6 +19,7 @@ class SIMULATION:
     p.setGravity(0,0,c.gravity)
     self.world = WORLD()
     self.robot = ROBOT(solutionID)
+    self.fitness_call_number = 0
   def Run(self):
     for i in range(c.simulationSteps):
       time.sleep(c.sleepTime)
@@ -30,4 +31,6 @@ class SIMULATION:
   def __del__(self):
     p.disconnect()
   def Get_Fitness(self):
+    if self.fitness_call_number == 0:
+      self.robot.fitness_call_number = 0
     self.robot.Get_Fitness()
