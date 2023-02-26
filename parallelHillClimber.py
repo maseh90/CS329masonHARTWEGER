@@ -3,11 +3,16 @@ import constants as c
 import copy
 import os
 from solution import SOLUTION
+
+import matplotlib
+import matplotlib.pyplot as plt
+
 class PARALLEL_HILL_CLIMBER:
   def __init__(self):
     os.system("rm brain*.nndf")
     os.system("rm fitness*.nndf")
     self.parents = {}
+    self.fitness_scores_gens = []
     self.nextAvailableID = 0
     for key_parent in range(c.populationSize):
       self.parents[key_parent] = SOLUTION(self.nextAvailableID)
@@ -20,6 +25,11 @@ class PARALLEL_HILL_CLIMBER:
     for currentGeneration in range(c.numberOfGenerations):
       print("GENERATION #: ",currentGeneration)
       self.Evolve_For_One_Generation()
+      fitness_comp = 10000
+      for key_parent in self.parents:
+        if self.parents[key_parent].fitness < fitness_comp:
+          fitness_comp = self.parents[key_parent].fitness
+      self.fitness_scores_gens.append(fitness_comp)
     #self.parent.Evaluate("GUI")
   def Evolve_For_One_Generation(self):
     self.Spawn()
@@ -84,4 +94,9 @@ class PARALLEL_HILL_CLIMBER:
         fitness_comp = self.parents[key_parent].fitness
         best_parent = self.parents[key_parent]
     print(fitness_comp)
+    plt.plot(self.fitness_scores_gens)
+    plt.xlabel("Generation #")
+    plt.ylabel("Fitness Score")
+    plt.savefig("FITNESS_PLOT.png")
     best_parent.Start_Simulation("GUI")
+    
