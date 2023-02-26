@@ -287,7 +287,7 @@ class SOLUTION:
     print("creating brain")
     pyrosim.Start_NeuralNetwork(brain_file)
     sensor_name_index = 0
-    for i in range(number_body_elements):
+    for i in range(self.number_body_elements):
       if self.touch_sensor_no_sensor[i]:
         pyrosim.Send_Sensor_Neuron(name = sensor_name_index, linkName = self.names_body_elements[i])
         sensor_name_index = sensor_name_index + 1
