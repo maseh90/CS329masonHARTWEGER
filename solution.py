@@ -88,7 +88,8 @@ class SOLUTION:
     pyrosim.Send_Cube(name="Box1", pos=[3,3,3], size=[1,1,1])
     pyrosim.End()
   def Create_Body_and_Brain(self):
-    pyrosim.Start_URDF("body.urdf")
+    body_file = "body" + str(self.myID) + ".urdf"
+    pyrosim.Start_URDF(body_file)
     number_body_elements = self.body_num_el
     names_body_elements = ["0"]*number_body_elements
     body_element_width = [0]*number_body_elements
