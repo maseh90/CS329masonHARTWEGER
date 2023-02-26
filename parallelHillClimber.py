@@ -94,7 +94,8 @@ class PARALLEL_HILL_CLIMBER:
         fitness_comp = self.parents[key_parent].fitness
         best_parent = self.parents[key_parent]
     print(fitness_comp)
-    plt.plot(self.fitness_scores_gens)
+    index_list = list(range(0,len(self.fitness_scores_gens)))
+    plt.plot(index_list,self.fitness_scores_gens)
     plt.xlabel("Generation #")
     plt.ylabel("Fitness Score")
     plt.savefig("FITNESS_PLOT.png")
