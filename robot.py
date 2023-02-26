@@ -46,7 +46,8 @@ class ROBOT:
       if self.nn.Is_Motor_Neuron(neuronName):
         jointName = self.nn.Get_Motor_Neurons_Joint(neuronName)
         desiredAngle = c.motorJointRange*self.nn.Get_Value_Of(neuronName)
-        self.motors[jointName].Set_Value(self.robotId,desiredAngle)
+        if (jointName in motors):
+          self.motors[jointName].Set_Value(self.robotId,desiredAngle)
   def Save_Values(self):
     #numpy.save("data/targetAngles1.npy",self.motors["Torso_BackLeg"].motorValues)
     #numpy.save("data/targetAngles2.npy",self.motors["Torso_FrontLeg"].motorValues)
