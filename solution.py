@@ -288,11 +288,11 @@ class SOLUTION:
     pyrosim.Start_NeuralNetwork(brain_file)
     sensor_name_index = 0
     for i in range(number_body_elements):
-      if touch_sensor_no_sensor[i]:
-        pyrosim.Send_Sensor_Neuron(name = sensor_name_index, linkName = names_body_elements[i])
+      if self.touch_sensor_no_sensor[i]:
+        pyrosim.Send_Sensor_Neuron(name = sensor_name_index, linkName = self.names_body_elements[i])
         sensor_name_index = sensor_name_index + 1
     motor_name_index = sensor_name_index
-    for element_name in joint_name_list:
+    for element_name in self.joint_name_list:
       pyrosim.Send_Motor_Neuron( name = motor_name_index , jointName = element_name)
       motor_name_index = motor_name_index + 1
     sensor_neurons = list(range(sensor_name_index))
