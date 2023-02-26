@@ -397,6 +397,50 @@ class SOLUTION:
         else:
           pyrosim.Send_Joint(name = self.joint_name_limb_list[i][j] , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
     pyrosim.End()
+    
+    
+    brain_file = "brain" + str(self.myID) + ".nndf"
+    print("creating brain")
+    pyrosim.Start_NeuralNetwork(brain_file)
+    sensor_name_index = 0
+    for i in range(self.number_body_elements):
+      if self.touch_sensor_no_sensor[i]:
+        pyrosim.Send_Sensor_Neuron(name = sensor_name_index, linkName = self.names_body_elements[i])
+        sensor_name_index = sensor_name_index + 1
+    motor_name_index = sensor_name_index
+    for element_name in self.joint_name_list:
+      pyrosim.Send_Motor_Neuron( name = motor_name_index , jointName = element_name)
+      motor_name_index = motor_name_index + 1
+    sensor_neurons = list(range(sensor_name_index))
+    motor_neurons = list(range(motor_name_index-sensor_name_index))
+    for i in range(len(motor_neurons)):
+      motor_neurons[i] = motor_neurons[i] + sensor_name_index
+    for currentRow in sensor_neurons:
+      for currentColumn in motor_neurons:
+        pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn, weight = self.weights[currentRow-1][currentColumn-sensor_name_index-1] )
+        
+    sensor_name_index_limbs = 0
+    motor_name_index_limbs = 0
+    for i in range(self.number_limbs):
+      for j in range(self.number_elements_per_limb[i]):
+        if self.limb_sensors[i][j]:
+          pyrosim.Send_Sensor_Neuron(name = sensor_name_index_limbs, linkName = self.limb_names[i][j])
+          sensor_name_index_limbs = sensor_name_index_limbs + 1
+      motor_name_index_limbs = sensor_name_index_limbs
+      for element_name in self.joint_name_limb_list[i]:
+        if element_name != 0:
+          pyrosim.Send_Motor_Neuron( name = motor_name_index_limbs , jointName = element_name)
+          motor_name_index_limbs = motor_name_index_limbs + 1
+      sensor_neurons_limbs = list(range(sensor_name_index_limbs))
+      motor_neurons_limbs = list(range(motor_name_index_limbs-sensor_name_index_limbs))
+      for k in range(len(motor_neurons_limbs)):
+        motor_neurons_limbs[k] = motor_neurons_limbs[k] + sensor_name_index_limbs
+      for currentRow in sensor_neurons_limbs:
+        for currentColumn in motor_neurons_limbs:
+          pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn, weight = self.limb_weights[i][currentRow][currentColumn-sensor_name_index_limbs-1] )
+      sensor_name_index_limbs = 0
+      motor_name_index_limbs = 0
+    pyrosim.End()
       
   def Set_ID(self,valueChosen):
     self.myID = valueChosen
