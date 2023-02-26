@@ -15,7 +15,7 @@ class ROBOT:
     body_file = "body" + str(solutionID) + ".urdf"
     self.robotId = p.loadURDF(body_file)
     pyrosim.Prepare_To_Simulate(self.robotId)
-
+    self.fitness_call_number = 1
     self.Prepare_To_Sense()
     self.Prepare_To_Act()
     self.solutionID = solutionID
@@ -25,6 +25,9 @@ class ROBOT:
     #  if file.startswith("brain"):
     #    os.system("rm{0} ".format(file))
     os.system("rm "+brain_name)
+    self.stateOfLinkZero_original = 0
+    self.positionOfLinkZero_original = 0
+    self.xCoordinateOfLinkZero_original = 0
   def Prepare_To_Sense(self):
     self.sensors = {}
     for linkName in pyrosim.linkNamesToIndices:
@@ -53,9 +56,13 @@ class ROBOT:
     self.nn.Update()
     #self.nn.Print()
   def Get_Fitness(self):
+    if self.fitness_call_number == 0:
+      self.stateOfLinkZero_original = p.getLinkState(self.robotId,0)
+      self.positionOfLinkZero_original = stateOfLinkZero[0]
+      self.xCoordinateOfLinkZero_original = positionOfLinkZero[0]
     stateOfLinkZero = p.getLinkState(self.robotId,0)
     positionOfLinkZero = stateOfLinkZero[0]
-    xCoordinateOfLinkZero = positionOfLinkZero[0]
+    xCoordinateOfLinkZero_difference = positionOfLinkZero[0] - self.xCoordinateOfLinkZero_original
     #basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
     #basePosition = basePositionAndOrientation[0]
     #xPosition = basePosition[0]
