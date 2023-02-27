@@ -42,10 +42,13 @@ class SOLUTION:
     self.limb_weights = []
     self.numSensorNeurons = [0]*self.number_limbs
     self.numMotorNeurons = [0]*self.number_limbs
+    self.joint_axes = ["0 0 1","0 0 0","1 0 1","0 0 1","1 1 1","0 1 1","1 1 0","1 0 0"] # 8 possibilities
+    self.joint_orientations = []
     for i in range(self.number_limbs):
       self.number_elements_per_limb[i] = random.randint(2,15) # simple number
       self.location_on_main_body_limb[i] = random.randint(0,self.body_num_el-1) # index
       self.orientation_on_main_body_limb[i] = random.randint(2,5) # simple number
+      self.joint_orientations( [0]*self.number_elements_per_limb[i] )
       self.limb_dimensions_x.append( [0]*self.number_elements_per_limb[i] )
       self.limb_dimensions_y.append( [0]*self.number_elements_per_limb[i] )
       self.limb_dimensions_z.append( [0]*self.number_elements_per_limb[i] )
@@ -110,7 +113,9 @@ class SOLUTION:
     self.joint_element_y = [0]*(self.number_body_elements-1)
     self.joint_element_z = [0]*(self.number_body_elements-1)
     self.touch_sensor_no_sensor = self.touch_sensor_no_sensor_new
+    self.body_joint_orientations = [" "]*(self.number_body_elements-1)
     for i in range(self.number_body_elements):
+      self.body_joint_orientations[i] = self.joint_axes[random.randint(0,7)]
       self.body_element_width[i] = round(random.uniform(0.1,0.5),3)
       self.body_element_length[i] = round(random.uniform(0.1,0.5),3)
       self.body_element_height[i] = round(random.uniform(0.1,0.5),3)
@@ -120,6 +125,7 @@ class SOLUTION:
     for i in range(self.number_limbs):
       self.location_on_main_body_limb[i] = random.randint(0,self.number_body_elements-1)
       for j in range(self.number_elements_per_limb[i]):
+        self.joint_orientations[i][j] = self.joint_axes[random.randint(0,7)]
         self.limb_dimensions_x[i][j] = (round(random.uniform(0.1,0.5),3))
         self.limb_dimensions_y[i][j] = (round(random.uniform(0.1,0.5),3))
         self.limb_dimensions_z[i][j] = (round(random.uniform(0.1,0.5),3))
@@ -247,7 +253,7 @@ class SOLUTION:
         break
       name_new = self.names_body_elements[i] + "_" + self.names_body_elements[i+1]
       self.joint_name_list.append(name_new)
-      pyrosim.Send_Joint(name = name_new , parent= self.names_body_elements[i] , child = self.names_body_elements[i+1] , type = "revolute", position = [self.joint_element_x[i],self.joint_element_y[i],self.joint_element_z[i]], jointAxis = "0 0 1")
+      pyrosim.Send_Joint(name = name_new , parent= self.names_body_elements[i] , child = self.names_body_elements[i+1] , type = "revolute", position = [self.joint_element_x[i],self.joint_element_y[i],self.joint_element_z[i]], jointAxis = self.body_joint_orientations[i])
     #print("NAMES BODY ELEMENTS")
     #print(names_body_elements)
     for i in range(self.number_limbs):
@@ -274,14 +280,14 @@ class SOLUTION:
           self.joint_name_limb_list[i][j+1] = name_link_torso_2
           #name_link_torso_second = names_body_elements[0] + "_" + self.limb_names[i][j]
           #pyrosim.Send_Joint(name = name_link_torso_second , parent=names_body_elements[0] , child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
-          pyrosim.Send_Joint(name = name_link_torso , parent= self.names_body_elements[self.location_on_main_body_limb[i]], child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
-          pyrosim.Send_Joint(name = name_link_torso_2 , parent= self.limb_names[i][j], child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
+          pyrosim.Send_Joint(name = name_link_torso , parent= self.names_body_elements[self.location_on_main_body_limb[i]], child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = self.joint_orientations[i][j])
+          pyrosim.Send_Joint(name = name_link_torso_2 , parent= self.limb_names[i][j], child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = self.joint_orientations[i])
           #pyrosim.Send_Joint(name = name_new , parent= names_body_elements[self.location_on_main_body_limb[i]] , child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
         else:
           name_new = self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
           name_link_torso_second = self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
           self.joint_name_limb_list[i][j+1] = name_link_torso_second
-          pyrosim.Send_Joint(name = name_link_torso_second , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
+          pyrosim.Send_Joint(name = name_link_torso_second , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = self.joint_orientations[i][j])
     pyrosim.End()
     self.Create_Brain()
     
@@ -361,6 +367,15 @@ class SOLUTION:
           col_chosen = random.randint(0,self.numMotorNeurons[i]-1)
         if self.numMotorNeurons[i] != 0 and self.numSensorNeurons[i] !=0:
           self.limb_weights[i][row_chosen][col_chosen] = random.random() * 2 - 1
+
+    #randomizing axis rotations
+    self.body_joint_orientations[random.randint(0,self.number_body_elements-1)] = self.joint_axes[random.randint(0,7)]
+    random_limb = random.randint(0, self.number_limbs-1)
+    random_joint = random.randint(0, self.number_elements_per_limb[random_limb]-1)
+    random_limb2 = random.randint(0, self.number_limbs-1)
+    random_joint2 = random.randint(0, self.number_elements_per_limb[random_limb]-1)
+    self.joint_orientations[random_limb][random_joint] = self.joint_axes[random.randint(0,7)]
+    self.joint_orientations[random_limb2][random_joint2] = self.joint_axes[random.randint(0,7)]
     
     # remove limb element possibly
     limb_selected = random.randint(0,self.number_limbs-1)
