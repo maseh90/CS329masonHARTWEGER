@@ -76,7 +76,7 @@ class SOLUTION:
       self.Create_Body_and_Brain()
       self.simulation_start = True
     if self.simulation_start:
-      self.Create_New_Updated_Brain_and_Body(self)
+      self.Create_New_Updated_Brain_and_Body()
     #statement = "python3 simulate.py " + directOrGUI + " " + str(self.myID) + " 2&>1 &"
     statement = "python3 simulate.py " + directOrGUI + " " + str(self.myID) + " &"
     os.system(statement)
