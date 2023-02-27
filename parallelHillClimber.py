@@ -3,6 +3,7 @@ import constants as c
 import copy
 import os
 from solution import SOLUTION
+import math
 
 import matplotlib
 import matplotlib.pyplot as plt
