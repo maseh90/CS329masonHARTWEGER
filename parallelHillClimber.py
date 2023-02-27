@@ -79,6 +79,7 @@ class PARALLEL_HILL_CLIMBER:
     for key_parent in self.parents:
       if self.parents[key_parent].fitness == float("NaN"):
         self.parents[key_parent] = self.children[i]
+        self.parents[key_parent].fitness = 1000
       if (self.parents[key_parent].fitness > self.children[i].fitness):
         self.parents[key_parent] = self.children[i]
       i = i + 1
