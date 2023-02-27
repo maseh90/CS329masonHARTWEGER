@@ -42,7 +42,7 @@ class SOLUTION:
     self.limb_weights = []
     self.numSensorNeurons = [0]*self.number_limbs
     self.numMotorNeurons = [0]*self.number_limbs
-    self.joint_axes = ["0 0 1","0 0 0","1 0 1","0 0 1","1 1 1","0 1 1","1 1 0","1 0 0"] # 8 possibilities
+    self.joint_axes = ["0 0 1"]*8 #,"0 0 0","1 0 1","0 0 1","1 1 1","0 1 1","1 1 0","1 0 0"] # 8 possibilities
     self.joint_orientations = []
     for i in range(self.number_limbs):
       self.number_elements_per_limb[i] = random.randint(2,7) # simple number
