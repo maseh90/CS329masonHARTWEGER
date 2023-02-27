@@ -288,7 +288,7 @@ class SOLUTION:
   def Create_Brain(self):
     
     brain_file = "brain" + str(self.myID) + ".nndf"
-    print("creating brain")
+    #print("creating brain")
     pyrosim.Start_NeuralNetwork(brain_file)
     sensor_name_index = 0
     for i in range(self.number_body_elements):
@@ -311,7 +311,7 @@ class SOLUTION:
     motor_name_index_limbs = 0
     
     for i in range(self.number_limbs):
-      print(self.joint_name_limb_list[i])
+      #print(self.joint_name_limb_list[i])
       for j in range(self.number_elements_per_limb[i]):
         if self.limb_sensors[i][j]:
           pyrosim.Send_Sensor_Neuron(name = sensor_name_index_limbs, linkName = self.limb_names[i][j])
@@ -442,7 +442,7 @@ class SOLUTION:
     sensor_name_index_limbs = 0
     motor_name_index_limbs = 0
     for i in range(self.number_limbs):
-      print(self.joint_name_limb_list[i])
+      #print(self.joint_name_limb_list[i])
       for j in range(self.number_elements_per_limb[i]):
         if self.limb_sensors[i][j]:
           pyrosim.Send_Sensor_Neuron(name = sensor_name_index_limbs, linkName = self.limb_names[i][j])
