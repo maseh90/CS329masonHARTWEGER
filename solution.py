@@ -20,7 +20,7 @@ class SOLUTION:
     #print(self.orientation_with_respect_to_first)
     self.numMotor_Neurons = self.body_num_el - 1
     self.weights = 2 * numpy.random.rand(self.numSensor_Neurons,self.numMotor_Neurons) - 1
-    
+    self.simulation_start = False
     #print(self.weights)
     self.number_limbs = random.randint(1,7)
     self.number_elements_per_limb = [0]*self.number_limbs
@@ -72,7 +72,10 @@ class SOLUTION:
     #def Evaluate(self,directOrGUI):
   def Start_Simulation(self,directOrGUI):
     self.Create_World()
-    self.Create_Body_and_Brain()
+    if !self.simulation_start:
+      self.Create_Body_and_Brain()
+    if self.simulation_start:
+      self.Create_New_Updated_Brain_and_Body(self)
     #statement = "python3 simulate.py " + directOrGUI + " " + str(self.myID) + " 2&>1 &"
     statement = "python3 simulate.py " + directOrGUI + " " + str(self.myID) + " &"
     os.system(statement)
@@ -373,7 +376,7 @@ class SOLUTION:
           self.joint_name_limb_list[limb_selected].pop()
       if len(self.limb_names[limb_selected]) != 0:
         self.limb_names[limb_selected].pop()
-      self.Create_New_Updated_Brain_and_Body()
+      #self.Create_New_Updated_Brain_and_Body()
       
     # add limb element possibly
       
