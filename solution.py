@@ -48,7 +48,7 @@ class SOLUTION:
       self.number_elements_per_limb[i] = random.randint(2,15) # simple number
       self.location_on_main_body_limb[i] = random.randint(0,self.body_num_el-1) # index
       self.orientation_on_main_body_limb[i] = random.randint(2,5) # simple number
-      self.joint_orientations( [0]*self.number_elements_per_limb[i] )
+      self.joint_orientations.append( [0]*self.number_elements_per_limb[i] )
       self.limb_dimensions_x.append( [0]*self.number_elements_per_limb[i] )
       self.limb_dimensions_y.append( [0]*self.number_elements_per_limb[i] )
       self.limb_dimensions_z.append( [0]*self.number_elements_per_limb[i] )
