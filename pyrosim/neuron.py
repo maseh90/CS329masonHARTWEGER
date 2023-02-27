@@ -6,6 +6,8 @@ import pyrosim.pyrosim as pyrosim
 
 import pyrosim.constants as c
 
+import math
+
 class NEURON: 
 
     def __init__(self,line):
@@ -62,9 +64,31 @@ class NEURON:
 
         # print("")
 
-    def Set_Value(self,value):
 
+    def Set_Value(self,value):
         self.value = value
+        
+    def Update_Sensor_Neuron(self):
+        self.Set_Value(pyrosim.Get_Touch_Sensor_Value_For_Link(self.Get_Link_Name()))
+        
+    def Update_Hidden_Or_Motor_Neuron(self,neurons,synapses):
+        self.Set_Value(0)
+        #print("Currently Updating: ",self.Get_Name())
+        for synapse_key in synapses:
+           if (self.Get_Name() == synapse_key[1]):
+              #print(neurons[self.Get_Name()].Get_Value())
+              #print(synapses[synapse_key].Get_Weight())
+              #print(neurons[synapse_key[0]].Get_Value())
+              self.Add_To_Value(self.Allow_Presynaptic_Neuron_To_Influence_Me(synapses[synapse_key].Get_Weight(),neurons[synapse_key[0]].Get_Value()))
+              #print(neurons[self.Get_Name()].Get_Value())
+        #exit()
+           #print("Pre-synaptic neuron: ",synapse_key[0]) 0
+           #print("Post-synaptic neuron: ",synapse_key[1]) 3
+        #exit()
+        self.Threshold()
+    def Allow_Presynaptic_Neuron_To_Influence_Me(self,weight_current_synapse,pre_neuron_value):
+        return (weight_current_synapse*pre_neuron_value)
+        
 
 # -------------------------- Private methods -------------------------
 

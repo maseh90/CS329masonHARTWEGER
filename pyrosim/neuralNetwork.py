@@ -13,7 +13,7 @@ class NEURAL_NETWORK:
         f = open(nndfFileName,"r")
 
         for line in f.readlines():
-
+            #print(self.synapses)
             self.Digest(line)
 
         f.close()
@@ -27,6 +27,24 @@ class NEURAL_NETWORK:
         self.Print_Motor_Neuron_Values()
 
         print("")
+    def Update(self):
+        for key_neuron in self.neurons:
+            if self.neurons[key_neuron].Is_Sensor_Neuron():
+                self.neurons[key_neuron].Update_Sensor_Neuron()
+            else:
+                self.neurons[key_neuron].Update_Hidden_Or_Motor_Neuron(self.neurons,self.synapses)
+    def Get_Neuron_Names(self):
+        neuron_list = []
+        for key_neuron in self.neurons:
+            neuron_list.append(key_neuron)
+        return neuron_list
+    def Is_Motor_Neuron(self,neuronName):
+        return self.neurons[neuronName].Is_Motor_Neuron()
+    def Get_Motor_Neurons_Joint(self,neuronName):
+        return self.neurons[neuronName].Get_Joint_Name()
+    def Get_Value_Of(self,neuronName):
+        return self.neurons[neuronName].Get_Value()
+            
 
 # ---------------- Private methods --------------------------------------
 

@@ -48,7 +48,9 @@ def Get_Touch_Sensor_Value_For_Link(linkName):
 
     desiredLinkIndex = linkNamesToIndices[linkName]
 
-    pts = p.getContactPoints()
+    pts = None
+    while pts is None:
+        pts = p.getContactPoints()
 
     for pt in pts:
 
@@ -106,7 +108,7 @@ def Prepare_To_Simulate(bodyID):
 
     Prepare_Joint_Dictionary(bodyID)
 
-def Send_Cube(name="default",pos=[0,0,0],size=[1,1,1]):
+def Send_Cube(name="default",pos=[0,0,0],size=[1,1,1],mass=1.0,COLOR_NAME="Blue",RED="1.0",GREEN="0.0",BLUE="0.0"):
 
     global availableLinkIndex
 
@@ -116,11 +118,11 @@ def Send_Cube(name="default",pos=[0,0,0],size=[1,1,1]):
 
         Start_Model(name,pos)
 
-        link = LINK_SDF(name,pos,size)
+        link = LINK_SDF(name,pos,size,mass)
 
         links.append(link)
     else:
-        link = LINK_URDF(name,pos,size)
+        link = LINK_URDF(name,pos,size,COLOR_NAME,RED,GREEN,BLUE)
 
         links.append(link)
 
@@ -134,11 +136,11 @@ def Send_Cube(name="default",pos=[0,0,0],size=[1,1,1]):
 
     availableLinkIndex = availableLinkIndex + 1
 
-def Send_Joint(name,parent,child,type,position):
+def Send_Joint(name,parent,child,type,position,jointAxis):
 
     joint = JOINT(name,parent,child,type,position)
 
-    joint.Save(f)
+    joint.Save(f,jointAxis)
 
 def Send_Motor_Neuron(name,jointName):
 

@@ -1,11 +1,13 @@
 import math
-amplitude = math.pi/4
-frequency = 0.25
+amplitude = 2*math.pi/2
+frequency = 3
 offset = 0
-sleepTime = 1/30
-simulationSteps = 200
-maxForce = 100
+sleepTime = 1/60
+simulationSteps = 1000
+maxForce = 5000
 gravity = -9.8
-#amplitudeFront = math.pi/2
-#frequencyFront = 1
-#phaseOffsetFront = 0.5*math.pi
+numberOfGenerations = 10
+populationSize = 10
+numSensorNeurons = 8
+numMotorNeurons = 16
+motorJointRange = 0.25
