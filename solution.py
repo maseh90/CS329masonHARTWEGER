@@ -48,7 +48,7 @@ class SOLUTION:
       self.number_elements_per_limb[i] = random.randint(2,15) # simple number
       self.location_on_main_body_limb[i] = random.randint(0,self.body_num_el-1) # index
       self.orientation_on_main_body_limb[i] = random.randint(2,5) # simple number
-      self.joint_orientations.append( [0]*self.number_elements_per_limb[i] )
+      self.joint_orientations.append( ["0 0 1"]*self.number_elements_per_limb[i] )
       self.limb_dimensions_x.append( [0]*self.number_elements_per_limb[i] )
       self.limb_dimensions_y.append( [0]*self.number_elements_per_limb[i] )
       self.limb_dimensions_z.append( [0]*self.number_elements_per_limb[i] )
@@ -113,7 +113,7 @@ class SOLUTION:
     self.joint_element_y = [0]*(self.number_body_elements-1)
     self.joint_element_z = [0]*(self.number_body_elements-1)
     self.touch_sensor_no_sensor = self.touch_sensor_no_sensor_new
-    self.body_joint_orientations = [" "]*(self.number_body_elements)
+    self.body_joint_orientations = ["0 0 1"]*(self.number_body_elements)
     for i in range(self.number_body_elements):
       self.body_joint_orientations[i] = self.joint_axes[random.randint(0,7)]
       self.body_element_width[i] = round(random.uniform(0.1,0.5),3)
