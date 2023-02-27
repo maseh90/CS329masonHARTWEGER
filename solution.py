@@ -276,7 +276,7 @@ class SOLUTION:
         else:
           name_new = self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
           name_link_torso_second = self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
-          self.joint_name_limb_list[i][j] = name_link_torso_second
+          self.joint_name_limb_list[i][j+1] = name_link_torso_second
           pyrosim.Send_Joint(name = name_link_torso_second , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
     pyrosim.End()
     self.Create_Brain()
