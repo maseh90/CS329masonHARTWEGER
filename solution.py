@@ -253,7 +253,7 @@ class SOLUTION:
         break
       name_new = self.names_body_elements[i] + "_" + self.names_body_elements[i+1]
       self.joint_name_list.append(name_new)
-      pyrosim.Send_Joint(name = name_new , parent= self.names_body_elements[i] , child = self.names_body_elements[i+1] , type = "revolute", position = [self.joint_element_x[i],self.joint_element_y[i],self.joint_element_z[i]], jointAxis = self.body_joint_orientations[i])
+      pyrosim.Send_Joint(name = name_new , parent= self.names_body_elements[i] , child = self.names_body_elements[i+1] , type = "revolute", position = [self.joint_element_x[i],self.joint_element_y[i],self.joint_element_z[i]], jointAxis = "0 0 1")#self.body_joint_orientations[i])
     #print("NAMES BODY ELEMENTS")
     #print(names_body_elements)
     for i in range(self.number_limbs):
