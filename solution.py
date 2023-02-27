@@ -72,7 +72,7 @@ class SOLUTION:
     #def Evaluate(self,directOrGUI):
   def Start_Simulation(self,directOrGUI):
     self.Create_World()
-    if !self.simulation_start:
+    if not self.simulation_start:
       self.Create_Body_and_Brain()
     if self.simulation_start:
       self.Create_New_Updated_Brain_and_Body(self)
