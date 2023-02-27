@@ -407,7 +407,7 @@ class SOLUTION:
           pyrosim.Send_Joint(name = self.joint_name_limb_list[i][j] , parent= self.names_body_elements[self.location_on_main_body_limb[i]], child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
           pyrosim.Send_Joint(name = self.joint_name_limb_list[i][j+1] , parent= self.limb_names[i][j], child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
         else:
-          pyrosim.Send_Joint(name = self.joint_name_limb_list[i][j+1] , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
+          pyrosim.Send_Joint(name = self.joint_name_limb_list[i][j+1] , parent= self.limb_names[i][j+1] , child = self.limb_names[i][j+2] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
     pyrosim.End()
     
     
