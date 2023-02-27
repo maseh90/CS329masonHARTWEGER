@@ -370,6 +370,8 @@ class SOLUTION:
       self.number_elements_per_limb[limb_selected] = self.number_elements_per_limb[limb_selected] - 1
       if len(self.joint_name_limb_list[limb_selected]) != 0:
         self.joint_name_limb_list[limb_selected].pop()
+      if len(self.joint_name_limb_list[limb_selected]) == 1:
+          self.joint_name_limb_list[limb_selected].pop()
       if len(self.limb_names[limb_selected]) != 0:
         self.limb_names[limb_selected].pop()
       self.Create_New_Updated_Brain_and_Body()
