@@ -113,7 +113,7 @@ class SOLUTION:
     self.joint_element_y = [0]*(self.number_body_elements-1)
     self.joint_element_z = [0]*(self.number_body_elements-1)
     self.touch_sensor_no_sensor = self.touch_sensor_no_sensor_new
-    self.body_joint_orientations = [" "]*(self.number_body_elements-1)
+    self.body_joint_orientations = [" "]*(self.number_body_elements)
     for i in range(self.number_body_elements):
       self.body_joint_orientations[i] = self.joint_axes[random.randint(0,7)]
       self.body_element_width[i] = round(random.uniform(0.1,0.5),3)
