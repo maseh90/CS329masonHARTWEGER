@@ -77,10 +77,10 @@ class PARALLEL_HILL_CLIMBER:
   def Select(self):
     i = 0
     for key_parent in self.parents:
-      if self.parents[key_parent].fitness == float("NaN"):
+      if self.parents[key_parent].fitness == float('nan') and self.children[i] != float('nan'):
         self.parents[key_parent] = self.children[i]
         self.parents[key_parent].fitness = 1000
-      if (self.parents[key_parent].fitness > self.children[i].fitness):
+      elif (self.parents[key_parent].fitness > self.children[i].fitness):
         self.parents[key_parent] = self.children[i]
       i = i + 1
     #if (self.parent.fitness > self.child.fitness):
