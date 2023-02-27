@@ -350,16 +350,17 @@ class SOLUTION:
       
     #limbs
     for i in range(self.number_limbs):
-      if self.numSensorNeurons[i]-1 == 0 or self.numSensorNeurons[i]-1 == -1:
-        row_chosen = 0
-      else:
-        row_chosen = random.randint(0,self.numSensorNeurons[i]-1)
-      if self.numMotorNeurons[i]-1 == 0 or self.numMotorNeurons[i]-1 == -1:
-        col_chosen = 0
-      else:
-        col_chosen = random.randint(0,self.numMotorNeurons[i]-1)
-      if self.numMotorNeurons[i] != 0 and self.numSensorNeurons[i] !=0:
-        self.limb_weights[i][row_chosen][col_chosen] = random.random() * 2 - 1
+      for j in range(2):
+        if self.numSensorNeurons[i]-1 == 0 or self.numSensorNeurons[i]-1 == -1:
+          row_chosen = 0
+        else:
+          row_chosen = random.randint(0,self.numSensorNeurons[i]-1)
+        if self.numMotorNeurons[i]-1 == 0 or self.numMotorNeurons[i]-1 == -1:
+          col_chosen = 0
+        else:
+          col_chosen = random.randint(0,self.numMotorNeurons[i]-1)
+        if self.numMotorNeurons[i] != 0 and self.numSensorNeurons[i] !=0:
+          self.limb_weights[i][row_chosen][col_chosen] = random.random() * 2 - 1
     
     # remove limb element possibly
     limb_selected = random.randint(0,self.number_limbs-1)
