@@ -280,14 +280,14 @@ class SOLUTION:
           self.joint_name_limb_list[i][j+1] = name_link_torso_2
           #name_link_torso_second = names_body_elements[0] + "_" + self.limb_names[i][j]
           #pyrosim.Send_Joint(name = name_link_torso_second , parent=names_body_elements[0] , child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
-          pyrosim.Send_Joint(name = name_link_torso , parent= self.names_body_elements[self.location_on_main_body_limb[i]], child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = self.joint_orientations[i][j])
-          pyrosim.Send_Joint(name = name_link_torso_2 , parent= self.limb_names[i][j], child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = self.joint_orientations[i][j])
+          pyrosim.Send_Joint(name = name_link_torso , parent= self.names_body_elements[self.location_on_main_body_limb[i]], child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")#self.joint_orientations[i][j])
+          pyrosim.Send_Joint(name = name_link_torso_2 , parent= self.limb_names[i][j], child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")#self.joint_orientations[i][j])
           #pyrosim.Send_Joint(name = name_new , parent= names_body_elements[self.location_on_main_body_limb[i]] , child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")
         else:
           name_new = self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
           name_link_torso_second = self.limb_names[i][j] + "_" + self.limb_names[i][j+1]
           self.joint_name_limb_list[i][j+1] = name_link_torso_second
-          pyrosim.Send_Joint(name = name_link_torso_second , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = self.joint_orientations[i][j])
+          pyrosim.Send_Joint(name = name_link_torso_second , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")#self.joint_orientations[i][j])
     pyrosim.End()
     self.Create_Brain()
     
@@ -416,7 +416,6 @@ class SOLUTION:
         break
       if (i >= (self.number_body_elements - 1)): # add -1
         break
-      pyrosim.Send_Joint(name = self.joint_name_list[i] , parent= self.names_body_elements[i] , child = self.names_body_elements[i+1] , type = "revolute", position = [self.joint_element_x[i],self.joint_element_y[i],self.joint_element_z[i]], jointAxis = self.body_joint_orientations[i])
     for i in range(self.number_limbs):
       for j in range(self.number_elements_per_limb[i]):
         if self.limb_sensors[i][j]:
@@ -432,12 +431,12 @@ class SOLUTION:
         
         if j == 0:
           #print(self.names_body_elements[self.location_on_main_body_limb[i]],"and",self.limb_names[i][j])
-          pyrosim.Send_Joint(name = self.joint_name_limb_list[i][j] , parent= self.names_body_elements[self.location_on_main_body_limb[i]], child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = self.joint_orientations[i][j])
+          pyrosim.Send_Joint(name = self.joint_name_limb_list[i][j] , parent= self.names_body_elements[self.location_on_main_body_limb[i]], child = self.limb_names[i][j] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")#self.joint_orientations[i][j])
           #print(self.limb_names[i][j],"and",self.limb_names[i][j+1])
-          pyrosim.Send_Joint(name = self.joint_name_limb_list[i][j+1] , parent= self.limb_names[i][j], child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = self.joint_orientations[i][j])
+          pyrosim.Send_Joint(name = self.joint_name_limb_list[i][j+1] , parent= self.limb_names[i][j], child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")#= self.joint_orientations[i][j])
         else:
           #print(self.limb_names[i][j],"and",self.limb_names[i][j+1])
-          pyrosim.Send_Joint(name = self.joint_name_limb_list[i][j+1] , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = self.joint_orientations[i][j])
+          pyrosim.Send_Joint(name = self.joint_name_limb_list[i][j+1] , parent= self.limb_names[i][j] , child = self.limb_names[i][j+1] , type = "revolute", position = [self.limb_joint_element_x[i][j],self.limb_joint_element_y[i][j],self.limb_joint_element_z[i][j]], jointAxis = "0 0 1")#= self.joint_orientations[i][j])
     pyrosim.End()
     
     
