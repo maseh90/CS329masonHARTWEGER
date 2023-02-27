@@ -370,9 +370,9 @@ class SOLUTION:
 
     #randomizing axis rotations
     self.body_joint_orientations[random.randint(0,self.number_body_elements-1)] = self.joint_axes[random.randint(0,7)]
-    random_limb = random.randint(0, self.number_limbs-1)
+    random_limb = random.randint(0, self.number_limbs-2)
     random_joint = random.randint(0, self.number_elements_per_limb[random_limb]-2)
-    random_limb2 = random.randint(0, self.number_limbs-1)
+    random_limb2 = random.randint(0, self.number_limbs-2)
     random_joint2 = random.randint(0, self.number_elements_per_limb[random_limb]-2)
     self.joint_orientations[random_limb][random_joint] = self.joint_axes[random.randint(0,7)]
     self.joint_orientations[random_limb2][random_joint2] = self.joint_axes[random.randint(0,7)]
