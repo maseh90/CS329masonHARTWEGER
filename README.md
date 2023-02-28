@@ -70,16 +70,24 @@ There are two possible mutations that can occur at every generation #Y' :
 
 In each generation, a random limb of the body is chosen to possibly undergo a deletion of one of the body segments. Once this limb is selected, a "coin" is flipped to see if this limb will actually undergo a mutation (removal of the last segment of the limb). There is a 50% chance that the limb will NOT be modified (no changes to the body will occur in this generation) and a 50% chance the limb will be modified. Therefore, there is a 50% chance, on a given generation, that the body of the creature (the physical number of segments of the creature) will change. If the change improves fitness, then, as stated above, the genotype of the creature will change to reflect this in future generations.
 
+![Screen Shot 2023-02-27 at 8 21 40 PM](https://user-images.githubusercontent.com/79173890/221736825-07f80ba1-eab5-42c8-8cef-119db299b96e.png)
+
 2. Brain Mutation : 
 
 In each creature, there are a random number of synapses generated (connections between sensor and motor neurons). As mentioned above, each of these synapses have weights. In each generation, 3 of the limbs of the creature are randomly selected. In each limb selected, one of the synapse weights in the respective limbs is modified. The new synapse weight is a random number between -1 and +1. This happens in every generation, and there is no chance that mutation of the synapse weights cannot occur. If the changes improve fitness, then they are carried over into the next generation, as mentioned above.
 
 In every generation, the brain and body of the creature are completely regenerated to reflect the mutated body and brain. Whether these new bodies and brains replace the old bodies and brains depends on the effect on the fitness functions that the respective mutations have, relative to the parents.
 
+This drawing illustrates a sample 3D creature (with one base body and 3 limbs). The segments with sensors are outlined in blue. Below the image is the illustration of the "brain" in each of the limbs. In each generation, 3 seperate limbs (can be the same limbs or different limbs) are selected to have their synapse weights mutated. The illustration below the sample creature shows which synapse weights are mutated and how their weights change. 
+
+![Screen Shot 2023-02-27 at 8 21 48 PM](https://user-images.githubusercontent.com/79173890/221736774-d3bfb9a0-ec5f-43eb-a7cb-0ed1a5b9e81f.png)
+
 
 ## 4. <ins>Examples of Evolution</ins>
 
+The following is an illustration of 3 generations of 3D creatures and how evolution selects for certain mutations as a function of improving fitness in the evolutionary algorithm.
 
+![Screen Shot 2023-02-27 at 8 21 34 PM](https://user-images.githubusercontent.com/79173890/221736854-84cf1be8-6b23-4fd2-a542-85a74ae4c0b9.png)
 
 ## 5. <ins>Instructions for Running</ins>
 
