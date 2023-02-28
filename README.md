@@ -52,6 +52,31 @@ This is a figure representing a single limb. There are 2 segments with sensors o
 
 ### 3. How the Creatures are Evolved
 
+The creatures are evolved according to the following methodology. Firstly, there are a set of X (some number between 1 and 15) original parents. This represents Generation #0. These are the original parents. 
+
+For each of these original parents, a random 3D body is generated from scratch. This random 3D body has an entirely random phenotype and genotype. As mentioned above, these parents can have different numbers of main body segments, different numbers of limbs and different numbers of body segments on those limbs, different body/limb segment locations, different joint locations between body/limb segments, differently sized body/limb segments, or differently positioned body/limb segments relative to each other. These bodies are completely random relative to the methodology used for generating them.
+
+Then, these original parents are mutated in random ways over the course of Y (some number between 0 and infinity) generations. In each of these generations after the original (Generation #0), something is tweaked regarding the parents. On any given Generation #Y', the "parent" is considered to have the best "fitness" of all the generations thus far (in Generation #0, the original "parent" is considered to have the best fitness given there are no generations preceding this one). 
+
+A fitness function is a function by which the creatures are evaluated for whether they will pass down their genetic information -- the results of the fitness function, after simulation has ended in each generation, is the "fitness" of that creature. For example, in these files, the fitness function analyzes the distance that the creature has traveled from the origin in the x-direction in a certain number of time steps:
+
+ fitness(creature) = absolute_value(x_coordinate_creature_at_end_of_simulation)
+ 
+At every generation #Y', the fitness function of the parent and child are evaluated. If the child has a greater fitness function, then the child (and all of its data and mutations) replaces the parent. After this, the child is then subjected to more mutations, and the process of replacement continues every generation.
+
+There are two possible mutations that can occur at every generation #Y' :
+
+1. Body Mutation (Random Deletions) : 
+
+In each generation, a random limb of the body is chosen to possibly undergo a deletion of one of the body segments. Once this limb is selected, a "coin" is flipped to see if this limb will actually undergo a mutation (removal of the last segment of the limb). There is a 50% chance that the limb will NOT be modified (no changes to the body will occur in this generation) and a 50% chance the limb will be modified. Therefore, there is a 50% chance, on a given generation, that the body of the creature (the physical number of segments of the creature) will change. If the change improves fitness, then, as stated above, the genotype of the creature will change to reflect this in future generations.
+
+2. Brain Mutation : 
+
+In each creature, there are a random number of synapses generated (connections between sensor and motor neurons). As mentioned above, each of these synapses have weights. In each generation, 3 of the limbs of the creature are randomly selected. In each limb selected, one of the synapse weights in the respective limbs is modified. The new synapse weight is a random number between -1 and +1. This happens in every generation, and there is no chance that mutation of the synapse weights cannot occur. If the changes improve fitness, then they are carried over into the next generation, as mentioned above.
+
+In every generation, the brain and body of the creature are completely regenerated to reflect the mutated body and brain. Whether these new bodies and brains replace the old bodies and brains depends on the effect on the fitness functions that the respective mutations have, relative to the parents.
+
+
 ### 4. Examples of Evolution
 
 
