@@ -18,12 +18,14 @@ SECTION 5: Instructions for Running
 
 SECTION 6: References and Source Material
 
-EXAMPLE:
-<img width="263" alt="Screen Shot 2023-02-21 at 4 02 11 PM" src="https://user-images.githubusercontent.com/79173890/220468792-f05b5dae-9b5e-4be0-90c3-d6cb71663653.png">
-
 ### 1. How the Creatures are Built
 
 The initial "body" of the creature is constructed as a "3D snake" of a kind. A random number of initial body components are built on top of each other (in 5 possible different directions trending in the positive x-direction). For example, successive body elements are built either on top of each other, on bottom of each other, to the right, to the left, and forwards as shown in this diagram.
+
+EXAMPLE:
+
+<img width="263" alt="Screen Shot 2023-02-21 at 4 02 11 PM" src="https://user-images.githubusercontent.com/79173890/220468792-f05b5dae-9b5e-4be0-90c3-d6cb71663653.png">
+
 
 This shows the 5 ways in which the bodies can build upon themselves with successive elements:
 <img width="476" alt="Screen Shot 2023-02-21 at 2 29 23 PM" src="https://user-images.githubusercontent.com/79173890/220451455-5c61d6e8-6819-46c9-90f8-f77b84f99775.png">
