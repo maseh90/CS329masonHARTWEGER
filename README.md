@@ -85,9 +85,19 @@ This drawing illustrates a sample 3D creature (with one base body and 3 limbs). 
 
 ## 4. <ins>Examples of Evolution</ins>
 
-The following is an illustration of 3 generations of 3D creatures and how evolution selects for certain mutations as a function of improving fitness in the evolutionary algorithm.
+The following is an illustration of 3 generations of 3D creatures and how evolution selects for certain mutations as a function of improving fitness in the evolutionary algorithm. As evident, the creatures with the highest fitness in each of the evolutionary trees is selected for. The creatures with lower fitness are eliminated.
 
 ![Screen Shot 2023-02-27 at 8 21 34 PM](https://user-images.githubusercontent.com/79173890/221736854-84cf1be8-6b23-4fd2-a542-85a74ae4c0b9.png)
+
+In the evolutionary algorithm, we can plot how fitness changes in each of these evolutionary trees or "lines". Only children with higher fitness are selected for. Therefore, generation by generation, the fitness of each "line" can only stay the same or increase.
+
+The following graph illustrates the fitness of an evolutionary algorithm run on a Population Size of 10 over the course of 20 generations.
+
+At the end of each simulation (of 4000 steps), the final location (in the x-direction) of the root link was recorded for the most fit creature. These were plotted here:
+
+![FITNESS_PLOT(UP4)](https://user-images.githubusercontent.com/79173890/221738144-47974348-68b9-4dc2-a78d-090d34c49372.png)
+
+As evident, the "red" specimen was the most fit -- it had the highest fitness at the end of the evolutionary simulation. It also had the most improvement over the generations as mutations allowed it to become more fit.
 
 ## 5. <ins>Instructions for Running</ins>
 
