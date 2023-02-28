@@ -1,16 +1,22 @@
 # CS396masonHARTWEGER
 a repo to showcase my CS 396 bots - Mason Hartweger (Northwestern University)
 
-## "Random 3D Creature" Branch Overview
+## "EVOLVING Random 3D Creatures" Branch Overview
 
-This version includes a file that can be used to generate a random "3D creature" (a random number of randomly shaped cubes that can rotate along the x-y plane with respect to each other). All of the cubes are linked together via simple joints that can rotate in either direction except with respect to the z-axis (the joints cannot rotate up and down). However, due to the variety of positions that the joints are attached to each other by, the range of motion is not limited.
+This version includes a file that can be used to generate a random "3D creature" (a random number of randomly shaped cubes that can rotate along the x-y plane with respect to each other), and these creatures are then EVOLVED according to a fitness function that maximizes the distance they travel away from the origin. All of the cubes are linked together via simple joints that can rotate in either direction except with respect to the z-axis (the joints cannot rotate up and down). However, due to the variety of positions that the joints are attached to each other by, the range of motion is not limited. On each creature, the green cubes indicate body cubes tht have sensors attached. Cubes that are blue have no sensors attached. 
 
-The creatures can move on their own (despite there being no evolution occurring), but these movements are often barely noticeable. Sometimes, the creatures tend to "tense" up and refuse to move. moreover, if a snake is generated with no sensor-enabled cubes touching the ground, then the creature will typically not move either. On each creature, the green cubes indicate body cubes tht have sensors attached. Cubes that are blue have no sensors attached. 
+### DOCUMENT SECTIONS
+SECTION 1: How the Creatures are Built
+SECTION 2: How the Creature's Brain is Generated
+SECTION 3: How the Creatures are Evolved
+SECTION 4: Examples of Evolution
+SECTION 5: Instructions for Running
+SECTION 6: References and Source Material
 
 EXAMPLE:
 <img width="263" alt="Screen Shot 2023-02-21 at 4 02 11 PM" src="https://user-images.githubusercontent.com/79173890/220468792-f05b5dae-9b5e-4be0-90c3-d6cb71663653.png">
 
-### How the Creatures are Built
+### 1. How the Creatures are Built
 
 The initial "body" of the creature is constructed as a "3D snake" of a kind. A random number of initial body components are built on top of each other (in 5 possible different directions trending in the positive x-direction). For example, successive body elements are built either on top of each other, on bottom of each other, to the right, to the left, and forwards as shown in this diagram.
 
@@ -27,7 +33,7 @@ In Example 2, one main branch consisting of 4 elements is constructed. Then, 3 l
 
 As of right now, the creatures are being built with a random range of elements on the main body (between 1 and 10 elements), which can be modified by changing the range of the self.body_num_el in the initialization of the solution file. The creatures are then given a random number of limbs (between 1 and 7 limbs), which can be modified by changing the range of the self.number_limbs in the initialization of the solution file. The number of elements per limb ranges between 2 and 7 and can be similarly modified by changing the self.number_elements_per_limb range.
 
-### How the Creature's Brain is Generated
+### 2. How the Creature's Brain is Generated
 
 The brains of the creatures are developed as follows. First, it must be understood that the sensor/motor neurons in each body/limb are completely independent of one another. Therefore, the body and all the respective limbs essentially have their own isolated connections. 
 
@@ -37,7 +43,13 @@ This is a figure representing a single limb. There are 2 segments with sensors o
 
 <img width="485" alt="Screen Shot 2023-02-21 at 4 18 25 PM" src="https://user-images.githubusercontent.com/79173890/220471616-e3b957fe-bf8d-4db9-92bd-3830ced9f3b3.png">
 
-### Instructions for Running
+### 3. How the Creatures are Evolved
+
+### 4. Examples of Evolution
+
+
+
+### 5. Instructions for Running
 
 NOTE: If the command "python3 search.py produces an error, simply run the command again in Terminal.
 
@@ -49,7 +61,7 @@ Then, install Python 3, install Pyrosim, and install Pybullet according to the i
   
 Then, change drive (in Terminal) to the correct folder where the downloaded repository files are stored, and execute the command "python3 search.py" to run the simulation. The simulation will generate a random 3D creature every time this command is executed. If the command fails to generate a creature, simply terminate the program (if haulted) and re-run the command. In the next iteration, the creature will be able to change and evolve over generations, but this has not yet been implemented. 
 
-### References and Source Material
+### 6. References and Source Material
 
 This is a part of an assignment for the course CS 396 (Artificial Life) at Northwestern University.
 
