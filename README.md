@@ -1,7 +1,7 @@
 # CS396masonHARTWEGER
 a repo to showcase my CS 396 bots - Mason Hartweger (Northwestern University)
 
-## "EVOLVING Random 3D Creatures" Branch Overview
+## <ins>"EVOLVING Random 3D Creatures" Branch Overview</ins>
 
 This version includes a file that can be used to generate a random "3D creature" (a random number of randomly shaped cubes that can rotate along the x-y plane with respect to each other), and these creatures are then EVOLVED according to a fitness function that maximizes the distance they travel away from the origin. All of the cubes are linked together via simple joints that can rotate in either direction except with respect to the z-axis (the joints cannot rotate up and down). However, due to the variety of positions that the joints are attached to each other by, the range of motion is not limited. On each creature, the green cubes indicate body cubes tht have sensors attached. Cubes that are blue have no sensors attached. 
 
@@ -18,7 +18,7 @@ SECTION 5: Instructions for Running
 
 SECTION 6: References and Source Material
 
-### 1. How the Creatures are Built
+### 1. <ins>How the Creatures are Built</ins>
 
 The initial "body" of the creature is constructed as a "3D snake" of a kind. A random number of initial body components are built on top of each other (in 5 possible different directions trending in the positive x-direction). For example, successive body elements are built either on top of each other, on bottom of each other, to the right, to the left, and forwards as shown in this diagram.
 
@@ -40,7 +40,7 @@ In Example 2, one main branch consisting of 4 elements is constructed. Then, 3 l
 
 As of right now, the creatures are being built with a random range of elements on the main body (between 1 and 10 elements), which can be modified by changing the range of the self.body_num_el in the initialization of the solution file. The creatures are then given a random number of limbs (between 1 and 7 limbs), which can be modified by changing the range of the self.number_limbs in the initialization of the solution file. The number of elements per limb ranges between 2 and 7 and can be similarly modified by changing the self.number_elements_per_limb range.
 
-### 2. How the Creature's Brain is Generated
+### 2. <ins>How the Creature's Brain is Generated</ins>
 
 The brains of the creatures are developed as follows. First, it must be understood that the sensor/motor neurons in each body/limb are completely independent of one another. Therefore, the body and all the respective limbs essentially have their own isolated connections. 
 
@@ -50,7 +50,7 @@ This is a figure representing a single limb. There are 2 segments with sensors o
 
 <img width="485" alt="Screen Shot 2023-02-21 at 4 18 25 PM" src="https://user-images.githubusercontent.com/79173890/220471616-e3b957fe-bf8d-4db9-92bd-3830ced9f3b3.png">
 
-### 3. How the Creatures are Evolved
+### 3. <ins>How the Creatures are Evolved</ins>
 
 The creatures are evolved according to the following methodology. Firstly, there are a set of X (some number between 1 and 15) original parents. This represents Generation #0. These are the original parents. 
 
@@ -77,11 +77,11 @@ In each creature, there are a random number of synapses generated (connections b
 In every generation, the brain and body of the creature are completely regenerated to reflect the mutated body and brain. Whether these new bodies and brains replace the old bodies and brains depends on the effect on the fitness functions that the respective mutations have, relative to the parents.
 
 
-### 4. Examples of Evolution
+### 4. <ins>Examples of Evolution</ins>
 
 
 
-### 5. Instructions for Running
+### 5. <ins>Instructions for Running</ins>
 
 NOTE: If the command "python3 search.py produces an error, simply run the command again in Terminal.
 
@@ -93,7 +93,7 @@ Then, install Python 3, install Pyrosim, and install Pybullet according to the i
   
 Then, change drive (in Terminal) to the correct folder where the downloaded repository files are stored, and execute the command "python3 search.py" to run the simulation. The simulation will generate a random 3D creature every time this command is executed. If the command fails to generate a creature, simply terminate the program (if haulted) and re-run the command. In the next iteration, the creature will be able to change and evolve over generations, but this has not yet been implemented. 
 
-### 6. References and Source Material
+### 6. <ins>References and Source Material</ins>
 
 This is a part of an assignment for the course CS 396 (Artificial Life) at Northwestern University.
 
