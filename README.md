@@ -7,10 +7,15 @@ This version includes a file that can be used to generate a random "3D creature"
 
 ### DOCUMENT SECTIONS
 SECTION 1: How the Creatures are Built
+
 SECTION 2: How the Creature's Brain is Generated
+
 SECTION 3: How the Creatures are Evolved
+
 SECTION 4: Examples of Evolution
+
 SECTION 5: Instructions for Running
+
 SECTION 6: References and Source Material
 
 EXAMPLE:
