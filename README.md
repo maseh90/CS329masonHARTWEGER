@@ -113,7 +113,7 @@ As evident, the "red" specimen was the most fit -- it had the highest fitness at
 ## 5. <ins>Results of Evolution</ins>
 
 The following resultant graphs show the evolutionary "races" during various runs of the evolutionary algorithm. Shown below are different population sizes, numbers of generations, and simulation times.
-<img src="https://user-images.githubusercontent.com/79173890/224920854-c67ae6ae-ec7a-465d-9f94-e876f761124d.png" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/79173890/224920854-c67ae6ae-ec7a-465d-9f94-e876f761124d.png" width="50" height="50">
 
 
 ## 6. <ins>Instructions for Running</ins>
