@@ -16,7 +16,7 @@ YouTube Video Showcasing the Highlights of the Project:
 
 
 Gif Showcasing a "Teaser" for the Project:
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+[![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/79173890/224952195-9eaa9ef2-1d1c-4181-bde7-7d85487113fa.png)](https://imgur.com/a/RerMQlp)
 
 ### DOCUMENT SECTIONS
 SECTION 1: How the Creatures are Built
