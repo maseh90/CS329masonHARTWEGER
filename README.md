@@ -16,6 +16,7 @@ YouTube Video Showcasing the Highlights of the Project:
 
 
 Gif Showcasing a "Teaser" for the Project:
+
 [![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/79173890/224952195-9eaa9ef2-1d1c-4181-bde7-7d85487113fa.png)](https://imgur.com/a/RerMQlp)
 
 ### DOCUMENT SECTIONS
