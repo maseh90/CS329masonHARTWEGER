@@ -182,6 +182,8 @@ Then, install Python 3, install Pyrosim, and install Pybullet according to the i
   
 Then, change drive (in Terminal) to the correct folder where the downloaded repository files are stored, and execute the command "python3 search.py" to run the simulation. The simulation will generate a random 3D creature every time this command is executed. If the command fails to generate a creature, simply terminate the program (if haulted) and re-run the command. In the next iteration, the creature will be able to change and evolve over generations, but this has not yet been implemented. 
 
+To avoid any list indices out-of-range or potential difficulties, please change the constant.py file to run for greater than 10 "generations" and "population size." There is the potential for errors occurring without doing this. Moreover, please download the file from the GitHub by pressing the green "Code <>" button above, and select the option to download as a .zip file.
+
 ## 9. <ins>References and Source Material</ins>
 
 This is a part of an assignment for the course CS 396 (Artificial Life) at Northwestern University.
