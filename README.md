@@ -128,6 +128,7 @@ CREATURE TYPE #1: First, it appears that evolution seems to stagnate after Gener
 
 CREATURE TYPE #2: This leads to nearly no evolution for most creatures after this point. Some other creatures (though not as numerous as the first type mentioned) seem to evolve gradually -- this suggests that their bodies/brains are undergoing evolution and becoming more adapt at moving away from the origin. These creatures are truly evolved, and they actually display unique walking patterns as shown below. Some of the common walking patterns seen are as follows:
 
+(TOP LEFT -- , TOP MIDDLE -- , TOP RIGHT -- , BOTTOM LEFT -- , BOTTOM RIGHT -- )
 <img src="https://user-images.githubusercontent.com/79173890/224926171-67fd60f5-90a2-4fc3-9f49-2d86ddcf939b.gif" width="300" height="300"><img src="https://user-images.githubusercontent.com/79173890/224926175-2858f3f6-9e3c-4e4c-9972-8e52440ab7f9.gif" width="300" height="300">
 <img src="https://user-images.githubusercontent.com/79173890/224926179-c3e1f086-804a-46f4-b72d-817e6d4ea18f.gif" width="300" height="300">
 <img src="https://user-images.githubusercontent.com/79173890/224926183-348f9e09-2227-40f6-b6f6-06feeba44d55.gif" width="300" height="300">
