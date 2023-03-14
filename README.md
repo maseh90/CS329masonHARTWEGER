@@ -113,7 +113,19 @@ As evident, the "red" specimen was the most fit -- it had the highest fitness at
 ## 5. <ins>Results of Evolution</ins>
 
 The following resultant graphs show the evolutionary "races" during various runs of the evolutionary algorithm. Shown below are different population sizes, numbers of generations, and simulation times.
-<img src="https://user-images.githubusercontent.com/79173890/224920854-c67ae6ae-ec7a-465d-9f94-e876f761124d.png" width="50" height="50">
+
+<img src="https://user-images.githubusercontent.com/79173890/224920854-c67ae6ae-ec7a-465d-9f94-e876f761124d.png" width="300" height="300"><img src="https://user-images.githubusercontent.com/79173890/224921838-27ab3926-db96-4ee3-af3f-e3f288dabd19.png" width="300" height="300">
+<img src="https://user-images.githubusercontent.com/79173890/224921891-a15c6275-8454-4ed6-9344-f54e63b7dfdd.png" width="300" height="300">
+<img src="https://user-images.githubusercontent.com/79173890/224921895-96be5284-c4f2-4999-96dd-35a25c06c201.png" width="300" height="300">
+<img src="https://user-images.githubusercontent.com/79173890/224921898-a3708df0-2217-4429-a066-e7f5d8c25641.png" width="300" height="300">
+<img src="https://user-images.githubusercontent.com/79173890/224921900-3fceddd7-6242-4200-a52d-4eea7e288d1e.png" width="300" height="300">
+
+These results can be interpreted in a number of different ways. Looking at the results of evolution by displaying the creature moving in Pyrosim, multiple creatures are shown to be moving in some manner. Others, they do not move at all. The creatures that do not move seem to be stagnant as a result of their initial body formation (Creature Type #1) -- they simply fall to one side and do not move. The creatures that do move seem to have evolved a primitive form of walking/crawling, and they are typically the ones shown in the diagram to evolve their movement away from the origin gradually (Creature Type #2). For this reason, we are most interested in seeing a blend of creatures displayed at the end of the simulation that evolved both immediately and then stagnated for the other generations (Creature Type #1)
+
+CREATURE TYPE #1: First, it appears that evolution seems to stagnate after Generation #1 for most creatures. This seems to suggest that the creatures seem to become stuck in a "rut" of evolution where they cannot seeminly overcome their initial "best fitness." These creatures are a result of the poor body-creation algorithm implemented, which causes the creatures to fall to one side and never evolve a true gait.
+
+CREATURE TYPE #2: This leads to nearly no evolution for most creatures after this point. Some other creatures (though not as numerous as the first type mentioned) seem to evolve gradually -- this suggests that their bodies/brains are undergoing evolution and becoming more adapt at moving away from the origin. These creatures are truly evolved, and they actually display unique walking patterns as shown below. 
+
 
 
 ## 6. <ins>Instructions for Running</ins>
