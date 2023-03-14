@@ -8,6 +8,16 @@ a repo to showcase my CS 396 bots - Mason Hartweger (Northwestern University)
 
 This version includes a file that can be used to generate a random "3D creature" (a random number of randomly shaped cubes that can rotate along the x-y plane with respect to each other), and these creatures are then EVOLVED according to a fitness function that maximizes the distance they travel away from the origin. All of the cubes are linked together via simple joints that can rotate in either direction except with respect to the z-axis (the joints cannot rotate up and down). However, due to the variety of positions that the joints are attached to each other by, the range of motion is not limited. On each creature, the green cubes indicate body cubes tht have sensors attached. Cubes that are blue have no sensors attached. 
 
+YouTube Video Showcasing the Highlights of the Project:
+
+# CLICK THE THUMBNAIL TO BE RE-DIRECTED TO THE VIDEO.
+
+[![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/79173890/224944420-8e9dc8fa-0c81-4fcd-a90e-44aa4f378c48.png)](https://youtu.be/6oCQ_PLdO-M)
+
+
+Gif Showcasing a "Teaser" for the Project:
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+
 ### DOCUMENT SECTIONS
 SECTION 1: How the Creatures are Built
 
