@@ -2,7 +2,7 @@
 
 a repo to showcase my CS 396 bots - Mason Hartweger (Northwestern University)
 
-#FINAL PROJECT SUBMISSION - "The Artist" - 16 points
+# FINAL PROJECT SUBMISSION - "The Artist" - 16 points
 
 ## <ins>"EVOLVING Random 3D Creatures" Branch Overview</ins>
 
