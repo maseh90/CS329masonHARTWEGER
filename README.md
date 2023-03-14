@@ -65,7 +65,9 @@ The following shows how all of this information on the body is encoded into the 
 
 ![Screen Shot 2023-03-14 at 3 01 41 AM](https://user-images.githubusercontent.com/79173890/224935163-c5eb1fa7-2bd2-409b-a4d4-f69304a5dd11.png)
 
+The following shows the way in which the wiring of the brain (the phenotype of the brain) is encoded by the genotype of the brain. The sensor neurons each receive their own names and the corresponding segments of the creature they are attached to. The motor neurons each receive their own names and the corresponding joints of the creature they are attached to. Then, a matrix contains all of the weightings of the synapse connections between the respective sensor neurons and motor neurons.
 
+![Screen Shot 2023-03-14 at 3 30 12 AM](https://user-images.githubusercontent.com/79173890/224941457-26501849-026c-4393-b8d4-7e482f8276b1.png)
 
 ## 4. <ins>How the Creatures are Evolved</ins>
 
