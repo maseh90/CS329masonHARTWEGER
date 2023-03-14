@@ -19,9 +19,11 @@ SECTION 4: Examples of Evolution
 
 SECTION 5: Results of Evolution
 
-SECTION 6: Instructions for Running
+SECTION 6: Room for Improvement
 
-SECTION 7: References and Source Material
+SECTION 7: Instructions for Running
+
+SECTION 8: References and Source Material
 
 ## 1. <ins>How the Creatures are Built</ins>
 
@@ -135,9 +137,16 @@ CREATURE TYPE #2: This leads to nearly no evolution for most creatures after thi
 <img src="https://user-images.githubusercontent.com/79173890/224926183-348f9e09-2227-40f6-b6f6-06feeba44d55.gif" width="300" height="300">
 <img src="https://user-images.githubusercontent.com/79173890/224926184-0bacf377-50d9-4df5-b602-e0066bb490bd.gif" width="300" height="300">
 
+As evident, some unique gaits are present for Creature Type #2. The creatures tend to take the form of small worms that shuffle or twist or chug or hop along the ground. Observing these "real evolved" gaits was difficult due to the prevelance of Creature Type #1 in the results. If I decide to work on this project in the future, there are obviously some changes I want to make.
 
+## 6. <ins>Room for Improvement</ins>
 
-## 6. <ins>Instructions for Running</ins>
+There is obviously some room for improvement in this code base. To better generate, simulate, and achieve results that show actual evolution of gaits, I would implement the following changes. Most of these changes were items that I already attempted to implement. However, due to the complexity, inefficiency, and inaccuracy of my code base, many of my solutions produced errors that would have taken hours to correct. Regardless, I would make the following changes:
+
+1) Fix the generation algorithm for random creatures. Right now, the creatures appear as disjointed jumbled of segments and limbs -- I would change the generation system to ensure that no segments overlap, that the relative positioning of segments is correct to prevent overlap, and that the creature never starts the simulation embedded in the ground. 
+2) Fix the mutation algorithm. Right now, it appears that creatures are becoming stuck in "ruts" of evolution where no evolution occurs past approximately the 10th generation. I would change this by implementing a way for there to be links or body segments randomly added to the creatures on a given generation. Moreover, I would experiment with more complex evolutionary algorithms rather than the simple Parallel Hill Climber implemented here. Fixing the mutation algorithm and generation algorithm would also allow me to add mutations to the types of joints between body segments -- as of right now, this type of mutation produces an absurd number of errors that I was not able to correct.
+
+## 7. <ins>Instructions for Running</ins>
 
 NOTE: If the command "python3 search.py produces an error, simply run the command again in Terminal.
 
@@ -149,7 +158,7 @@ Then, install Python 3, install Pyrosim, and install Pybullet according to the i
   
 Then, change drive (in Terminal) to the correct folder where the downloaded repository files are stored, and execute the command "python3 search.py" to run the simulation. The simulation will generate a random 3D creature every time this command is executed. If the command fails to generate a creature, simply terminate the program (if haulted) and re-run the command. In the next iteration, the creature will be able to change and evolve over generations, but this has not yet been implemented. 
 
-## 7. <ins>References and Source Material</ins>
+## 8. <ins>References and Source Material</ins>
 
 This is a part of an assignment for the course CS 396 (Artificial Life) at Northwestern University.
 
