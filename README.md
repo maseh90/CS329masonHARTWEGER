@@ -1,5 +1,8 @@
 # CS396masonHARTWEGER
+
 a repo to showcase my CS 396 bots - Mason Hartweger (Northwestern University)
+
+#FINAL PROJECT SUBMISSION - "The Artist" - 16 points
 
 ## <ins>"EVOLVING Random 3D Creatures" Branch Overview</ins>
 
@@ -14,9 +17,11 @@ SECTION 3: How the Creatures are Evolved
 
 SECTION 4: Examples of Evolution
 
-SECTION 5: Instructions for Running
+SECTION 5: Results of Evolution
 
-SECTION 6: References and Source Material
+SECTION 6: Instructions for Running
+
+SECTION 7: References and Source Material
 
 ## 1. <ins>How the Creatures are Built</ins>
 
@@ -72,7 +77,13 @@ In each generation, a random limb of the body is chosen to possibly undergo a de
 
 ![Screen Shot 2023-02-27 at 8 21 40 PM](https://user-images.githubusercontent.com/79173890/221736825-07f80ba1-eab5-42c8-8cef-119db299b96e.png)
 
-2. Brain Mutation : 
+2. Body Mutation (Random Resizing of Segments)
+
+In each generation, a two random limbs are selected at random (these can be the same limb). A random segment on each of these limbs (the segment can also be the same) is selected. Then, a coin is flipped for each of the segments identified. There is a 50% chance that this segment will be modified (given a completely new length, width, and height). Therefore, in a given mutation in a generation, there can be 0, 1, or 2 limbs re-sized according to this mutation. This occurs for every generation.
+
+![Screen Shot 2023-03-14 at 12 27 18 AM](https://user-images.githubusercontent.com/79173890/224919969-ea8604ea-9f51-4eff-80d0-3583aa72f750.png)
+
+3. Brain Mutation : 
 
 In each creature, there are a random number of synapses generated (connections between sensor and motor neurons). As mentioned above, each of these synapses have weights. In each generation, 3 of the limbs of the creature are randomly selected. In each limb selected, one of the synapse weights in the respective limbs is modified. The new synapse weight is a random number between -1 and +1. This happens in every generation, and there is no chance that mutation of the synapse weights cannot occur. If the changes improve fitness, then they are carried over into the next generation, as mentioned above.
 
@@ -99,7 +110,11 @@ At the end of each simulation (of 4000 steps), the final location (in the x-dire
 
 As evident, the "red" specimen was the most fit -- it had the highest fitness at the end of the evolutionary simulation. It also had the most improvement over the generations as mutations allowed it to become more fit.
 
-## 5. <ins>Instructions for Running</ins>
+## 5. <ins>Results of Evolution</ins>
+
+
+
+## 6. <ins>Instructions for Running</ins>
 
 NOTE: If the command "python3 search.py produces an error, simply run the command again in Terminal.
 
@@ -111,7 +126,7 @@ Then, install Python 3, install Pyrosim, and install Pybullet according to the i
   
 Then, change drive (in Terminal) to the correct folder where the downloaded repository files are stored, and execute the command "python3 search.py" to run the simulation. The simulation will generate a random 3D creature every time this command is executed. If the command fails to generate a creature, simply terminate the program (if haulted) and re-run the command. In the next iteration, the creature will be able to change and evolve over generations, but this has not yet been implemented. 
 
-## 6. <ins>References and Source Material</ins>
+## 7. <ins>References and Source Material</ins>
 
 This is a part of an assignment for the course CS 396 (Artificial Life) at Northwestern University.
 
