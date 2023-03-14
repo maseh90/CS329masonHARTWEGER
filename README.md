@@ -13,17 +13,19 @@ SECTION 1: How the Creatures are Built
 
 SECTION 2: How the Creature's Brain is Generated
 
-SECTION 3: How the Creatures are Evolved
+SECTION 3: Genotypes Encoding Phenotypes
 
-SECTION 4: Examples of Evolution
+SECTION 4: How the Creatures are Evolved
 
-SECTION 5: Results of Evolution
+SECTION 5: Examples of Evolution
 
-SECTION 6: Room for Improvement
+SECTION 6: Results of Evolution
 
-SECTION 7: Instructions for Running
+SECTION 7: Room for Improvement
 
-SECTION 8: References and Source Material
+SECTION 8: Instructions for Running
+
+SECTION 9: References and Source Material
 
 ## 1. <ins>How the Creatures are Built</ins>
 
@@ -57,7 +59,15 @@ This is a figure representing a single limb. There are 2 segments with sensors o
 
 <img width="485" alt="Screen Shot 2023-02-21 at 4 18 25 PM" src="https://user-images.githubusercontent.com/79173890/220471616-e3b957fe-bf8d-4db9-92bd-3830ced9f3b3.png">
 
-## 3. <ins>How the Creatures are Evolved</ins>
+## 3. <ins>Genotypes Encoding Phenotypes</ins>
+
+The following shows how all of this information on the body is encoded into the genotype of the creature to generate the body. The body is encoded in the genotype by storing the number of body segments, the number of limbs, the number of limbs per body segment, the sizes of each element on the body and limbs, the joint positions of each connection on the body/limbs, the orientation of those limbs on the main body segment (the directions the body segment is built element-by-element relative to each other), and the orientation of limbs being built-out from the main body segment relative to each other. This therefore gives the evolutionary algorithm details on where, how big, and which direction to build each of the elements of the creature as well as the positioning of joints (based on this information) to connect elements.
+
+![Screen Shot 2023-03-14 at 3 01 41 AM](https://user-images.githubusercontent.com/79173890/224935163-c5eb1fa7-2bd2-409b-a4d4-f69304a5dd11.png)
+
+
+
+## 4. <ins>How the Creatures are Evolved</ins>
 
 The creatures are evolved according to the following methodology. Firstly, there are a set of X (some number between 1 and 15) original parents. This represents Generation #0. These are the original parents. 
 
@@ -96,7 +106,7 @@ This drawing illustrates a sample 3D creature (with one base body and 3 limbs). 
 ![Screen Shot 2023-02-27 at 8 21 48 PM](https://user-images.githubusercontent.com/79173890/221736774-d3bfb9a0-ec5f-43eb-a7cb-0ed1a5b9e81f.png)
 
 
-## 4. <ins>Examples of Evolution</ins>
+## 5. <ins>Examples of Evolution</ins>
 
 The following is an illustration of 3 generations of 3D creatures and how evolution selects for certain mutations as a function of improving fitness in the evolutionary algorithm. As evident, the creatures with the highest fitness in each of the evolutionary trees is selected for. The creatures with lower fitness are eliminated.
 
@@ -112,7 +122,7 @@ At the end of each simulation (of 4000 steps), the final location (in the x-dire
 
 As evident, the "red" specimen was the most fit -- it had the highest fitness at the end of the evolutionary simulation. It also had the most improvement over the generations as mutations allowed it to become more fit.
 
-## 5. <ins>Results of Evolution</ins>
+## 6. <ins>Results of Evolution</ins>
 
 The following resultant graphs show the evolutionary "races" during various runs of the evolutionary algorithm. Shown below are different population sizes, numbers of generations, and simulation times.
 
@@ -130,23 +140,24 @@ CREATURE TYPE #1: First, it appears that evolution seems to stagnate after Gener
 
 CREATURE TYPE #2: This leads to nearly no evolution for most creatures after this point. Some other creatures (though not as numerous as the first type mentioned) seem to evolve gradually -- this suggests that their bodies/brains are undergoing evolution and becoming more adapt at moving away from the origin. These creatures are truly evolved, and they actually display unique walking patterns as shown below. Some of the common walking patterns seen are as follows:
 
-(TOP LEFT -- SHUFFLE, TOP MIDDLE -- FLAP, TOP RIGHT -- CHUG, BOTTOM LEFT -- TWISTING DOG, BOTTOM RIGHT -- HOP)
+(TOP LEFT -- SHUFFLE, TOP MIDDLE -- FLAP, TOP RIGHT -- CHUG, BOTTOM LEFT -- TWISTING DOG, BOTTOM MIDDLE -- HOP, BOTTOM RIGHT -- SLASHER)
 
 <img src="https://user-images.githubusercontent.com/79173890/224926171-67fd60f5-90a2-4fc3-9f49-2d86ddcf939b.gif" width="300" height="300"><img src="https://user-images.githubusercontent.com/79173890/224926175-2858f3f6-9e3c-4e4c-9972-8e52440ab7f9.gif" width="300" height="300">
 <img src="https://user-images.githubusercontent.com/79173890/224926179-c3e1f086-804a-46f4-b72d-817e6d4ea18f.gif" width="300" height="300">
 <img src="https://user-images.githubusercontent.com/79173890/224926183-348f9e09-2227-40f6-b6f6-06feeba44d55.gif" width="300" height="300">
 <img src="https://user-images.githubusercontent.com/79173890/224926184-0bacf377-50d9-4df5-b602-e0066bb490bd.gif" width="300" height="300">
+<img src="https://user-images.githubusercontent.com/79173890/224940050-e09988ea-8699-476a-9284-ef2fa1ec8d5a.gif" width="300" height="300">
 
 As evident, some unique gaits are present for Creature Type #2. The creatures tend to take the form of small worms that shuffle or twist or chug or hop along the ground. Observing these "real evolved" gaits was difficult due to the prevelance of Creature Type #1 in the results. If I decide to work on this project in the future, there are obviously some changes I want to make.
 
-## 6. <ins>Room for Improvement</ins>
+## 7. <ins>Room for Improvement</ins>
 
 There is obviously some room for improvement in this code base. To better generate, simulate, and achieve results that show actual evolution of gaits, I would implement the following changes. Most of these changes were items that I already attempted to implement. However, due to the complexity, inefficiency, and inaccuracy of my code base, many of my solutions produced errors that would have taken hours to correct. Regardless, I would make the following changes:
 
 1) Fix the generation algorithm for random creatures. Right now, the creatures appear as disjointed jumbled of segments and limbs -- I would change the generation system to ensure that no segments overlap, that the relative positioning of segments is correct to prevent overlap, and that the creature never starts the simulation embedded in the ground. 
 2) Fix the mutation algorithm. Right now, it appears that creatures are becoming stuck in "ruts" of evolution where no evolution occurs past approximately the 10th generation. I would change this by implementing a way for there to be links or body segments randomly added to the creatures on a given generation. Moreover, I would experiment with more complex evolutionary algorithms rather than the simple Parallel Hill Climber implemented here. Fixing the mutation algorithm and generation algorithm would also allow me to add mutations to the types of joints between body segments -- as of right now, this type of mutation produces an absurd number of errors that I was not able to correct.
 
-## 7. <ins>Instructions for Running</ins>
+## 8. <ins>Instructions for Running</ins>
 
 NOTE: If the command "python3 search.py produces an error, simply run the command again in Terminal.
 
@@ -158,7 +169,7 @@ Then, install Python 3, install Pyrosim, and install Pybullet according to the i
   
 Then, change drive (in Terminal) to the correct folder where the downloaded repository files are stored, and execute the command "python3 search.py" to run the simulation. The simulation will generate a random 3D creature every time this command is executed. If the command fails to generate a creature, simply terminate the program (if haulted) and re-run the command. In the next iteration, the creature will be able to change and evolve over generations, but this has not yet been implemented. 
 
-## 8. <ins>References and Source Material</ins>
+## 9. <ins>References and Source Material</ins>
 
 This is a part of an assignment for the course CS 396 (Artificial Life) at Northwestern University.
 
